@@ -2,6 +2,8 @@
 
 Reusable, local-first talent intelligence for event communities. START Community OS ingests registered event exports, reconciles and reviews evidence privately, and generates an aggregate-only interactive HTML dashboard plus a composed landscape PDF.
 
+This repository is source-available under the [PolyForm Free Trial License 1.0.0](LICENSE.md), not an open-source license. Evaluation for less than 32 consecutive calendar days is permitted. Redistribution, production use, and continued or commercial use outside that evaluation permission require a separate written license from the copyright holder. See [NOTICE.md](NOTICE.md).
+
 Live demo: [OpenAI Hackathon 2026 partner dashboard](https://start-community-os.vercel.app/openai-hackathon-2026/). The published event report contains aggregate statistics only. Its local operator, SQLite state, source records, reviewed person-level evidence, provider credentials, and approval receipts are not deployed.
 
 Current status: the current event's four-export aggregate, rich GitHub evidence, reviewed semantic projection, interactive partner HTML, landscape PDF, local operator, privacy-minimal PostHog transform, and event-specific Vercel route are implemented. Coresignal contributes zero to this release. GitHub, bounded applicant-public-page, optional Coresignal evaluation, and OpenAI semantic processing remain behind separate machine gates for future event runs. No deployment or external publication is performed by the test suite.
@@ -43,6 +45,8 @@ The product does not train a model for each event. Reuse comes from versioned sc
 START Community OS is entered in the "Work and Productivity" track. The product existed before the submission period, then received a substantial Build Week extension led in Codex with GPT-5.6-sol: deterministic All, Accepted, and Attended cohort recomposition; an exact three-signal intersection view; the self-contained production dashboard and landscape PDF; a simpler private operator; privacy-minimal, hash-bound PostHog instrumentation; durable protected release storage; clean-clone synthetic acceptance; and public-product documentation.
 
 Codex was used as the primary engineering environment for implementation, red-green tests, browser and PDF QA, privacy review, deployment verification, and adversarial review. GPT-5.6-sol helped make and test the hard product decisions, including separating selection from quality, distinguishing evidence absence from negative evidence, keeping Coresignal out of the current report, and disabling PostHog GeoIP enrichment in addition to IP storage. The live report makes no OpenAI or other enrichment-provider calls at runtime. See [the Build Week submission evidence](docs/BUILD_WEEK_SUBMISSION.md) for the demo outline, session ID, implementation evidence, and exact current limitations.
+
+The initial ingestion and reporting prototype began before the July 13 submission period. The hackathon entry covers the substantial post-start extension listed above, not the earlier prototype. Ready-to-paste form copy, testing instructions, and the video script are in [the Devpost form package](docs/DEVPOST_FORM.md).
 
 ## Run the synthetic pipeline
 
@@ -142,3 +146,7 @@ Semantic classification is implemented but locked by default. It requires an exa
 5. `docs/PLAN.md`: architecture, canonical schema, build order, data-collection wishlist.
 6. `docs/research/data-sources.md`: field-level inventory of Luma, Devpost, GitHub API, and optional Coresignal.
 7. `docs/taxonomy-v1-review.md`: decisions required before any real-person AI classification.
+
+## License
+
+Copyright 2026 Yauheni Futryn. This code is available under the restrictive [PolyForm Free Trial License 1.0.0](LICENSE.md). It is not MIT-licensed and it is not open source. Commercial or production use requires a separate written license.

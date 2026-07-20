@@ -7,7 +7,8 @@
 - Track: Work and Productivity
 - Live dashboard: https://start-community-os.vercel.app/openai-hackathon-2026/
 - Downloadable PDF: https://start-community-os.vercel.app/openai-hackathon-2026/partner-talent-brief.pdf
-- Public repository: add the final GitHub URL after repository creation
+- Source-available repository: https://github.com/yauhenifutryn/start-community-os
+- Repository license: PolyForm Free Trial License 1.0.0, no MIT or open-source grant
 - Public demo video: add the final YouTube URL after upload
 - Primary Codex session ID: `019f7482-e669-7963-aabd-9066b0f26989`
 
