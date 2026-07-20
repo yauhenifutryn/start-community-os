@@ -60,7 +60,7 @@ The command reads `OPERATOR_PROXY_SECRET` and `OPERATOR_PSEUDONYM_SECRET` from t
 5. Resolve review cases and inspect private provenance and unknown states.
 6. Choose bounded cover copy, then preview the interactive HTML and PDF.
 7. Run QA, seal the reviewed semantic candidate, then use "Approve and stage partner share" as the authorized release owner. This writes the exact event, HTML, PDF, and artifact-set hashes and runs only the local publication stage.
-8. For hosted measurement, create or select a PostHog EU project, disable IP capture under Settings > Project > General, and export the local verification credentials described below. The analytics form remains visible before verification. Preparation succeeds only after live verification of the project and public-key binding. This creates a separate local bundle and does not publish or deploy.
+8. For hosted measurement, create or select a PostHog EU project, disable IP capture under Settings > Project > General, and export the local verification credentials described below. The analytics form remains visible before verification. Preparation succeeds only after live verification of the project and public-key binding. The generated capture payload also disables GeoIP enrichment per event. This creates a separate local bundle and does not publish or deploy.
 9. Export the verified Vercel configuration, HTML, partner PDF, and publication manifest. Deployment is a separate action.
 
 The primary UI intentionally exposes only Upload, Review, Run, Preview, Approve, and Export. Advanced ledgers and QA remain available behind disclosures.

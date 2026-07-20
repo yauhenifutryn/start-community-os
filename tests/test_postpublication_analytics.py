@@ -254,6 +254,7 @@ class PostPublicationAnalyticsTests(unittest.TestCase):
             "capture_pageview": False,
             "disable_session_recording": True,
             "disable_surveys": True,
+            "geoip_enrichment_disabled": True,
             "identity_mode": "ephemeral_per_page_load",
             "persistence": "memory_only",
             "person_profile_processing": False,
@@ -464,7 +465,7 @@ class AnalyticsPublicationBundleTests(unittest.TestCase):
             },
         )
         self.assertTrue(manifest["analytics_enabled"])
-        self.assertEqual(manifest["analytics_policy_version"], "posthog-minimal-v2")
+        self.assertEqual(manifest["analytics_policy_version"], "posthog-minimal-v3")
         self.assertEqual(manifest["manifest_version"], "partner-static-bundle-v2")
         self.assertEqual(
             manifest["posthog_privacy_receipt_sha256"],
@@ -521,6 +522,7 @@ class AnalyticsPublicationBundleTests(unittest.TestCase):
         self.assertIn("crypto.randomUUID", html)
         self.assertNotIn("Math.random", html)
         self.assertIn("$process_person_profile:false", html)
+        self.assertIn("$geoip_disable:true", html)
         self.assertNotIn("array.js", html)
         self.assertNotIn("document.cookie", html)
         self.assertNotIn("localStorage", html)
@@ -547,6 +549,9 @@ class AnalyticsPublicationBundleTests(unittest.TestCase):
         )
         self.assertTrue(
             artifact["analytics_policy"]["ip_capture_disabled_confirmed"],
+        )
+        self.assertTrue(
+            artifact["analytics_policy"]["geoip_enrichment_disabled"],
         )
         self.assertEqual(
             artifact["analytics_policy"]["posthog_privacy_receipt_sha256"],

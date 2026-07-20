@@ -866,15 +866,15 @@ class PartnerReportTests(unittest.TestCase):
             html,
         )
         self.assertIn(
-            ".upset-set-key span{color:var(--burgundy);font-size:.58rem;font-weight:850;line-height:1.05;text-align:center}.upset-set-key{column-gap:6px}",
+            ".upset-set-key span{color:var(--burgundy);font-size:.64rem;font-weight:850;line-height:1.12;text-align:center}.upset-set-key{column-gap:6px}",
             html,
         )
         self.assertIn(
-            "@media (max-width:640px){.upset-column-key,.upset-overlap button{grid-template-columns:132px minmax(0,1fr) 28px}.upset-set-key span{font-size:.56rem}}",
+            "@media (max-width:640px){.upset-column-key,.upset-overlap button{grid-template-columns:132px minmax(0,1fr) 28px}.upset-set-key span{font-size:.62rem}}",
             html,
         )
         self.assertIn(
-            ".report-page-cross-dimension .upset-set-key span{font-size:7.5pt}",
+            ".report-page-cross-dimension .upset-set-key span{font-size:8.5pt}",
             html,
         )
         self.assertIn(

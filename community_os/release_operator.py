@@ -4026,7 +4026,7 @@ def _verified_deployment_staging(state: ReleaseOperatorState) -> bool:
         return False
     return (
         manifest.get("analytics_enabled") is True
-        and manifest.get("analytics_policy_version") == "posthog-minimal-v2"
+        and manifest.get("analytics_policy_version") == "posthog-minimal-v3"
         and manifest.get("entrypoint") == "index.html"
         and manifest.get("manifest_version") == "partner-static-bundle-v2"
         and manifest.get("pdf") == "partner-talent-brief.pdf"

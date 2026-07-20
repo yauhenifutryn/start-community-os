@@ -4299,7 +4299,7 @@ class ReleaseOperatorTests(unittest.TestCase):
                 "analytics",
                 {
                     "output_hash": canonical_hash([{
-                        "analytics_policy_version": "posthog-minimal-v2",
+                        "analytics_policy_version": "posthog-minimal-v3",
                         "artifact_count": 3,
                         "manifest_hash": hashlib.sha256(
                             exact_manifest_bytes,

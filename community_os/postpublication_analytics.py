@@ -509,6 +509,7 @@ def activate_postpublication_analytics(
             "capture_pageview": False,
             "disable_session_recording": True,
             "disable_surveys": True,
+            "geoip_enrichment_disabled": True,
             "identity_mode": "ephemeral_per_page_load",
             "persistence": "memory_only",
             "person_profile_processing": False,
@@ -581,7 +582,8 @@ const capture=(event,properties={{}})=>{{
   const allowed=eventProperties[event];if(!allowed)return;
   const selected={{}};for(const key of allowed){{const value=safeKey(properties[key]);if(value)selected[key]=value;}}
   const body=JSON.stringify({{api_key:config.api_key,event,properties:{{
-    distinct_id:pageIdentity,$process_person_profile:false,$lib:'start-community-os',
+    distinct_id:pageIdentity,$process_person_profile:false,$geoip_disable:true,
+    $lib:'start-community-os',
     report_version:config.report_version,...selected
   }}}});
   const endpoint=config.api_host+'/capture/';
@@ -852,7 +854,7 @@ def prepare_analytics_publication_bundle(
         final_manifest = {
             **manifest,
             "analytics_enabled": True,
-            "analytics_policy_version": "posthog-minimal-v2",
+            "analytics_policy_version": "posthog-minimal-v3",
             "artifact_hashes": hashes,
             "manifest_version": "partner-static-bundle-v2",
             "posthog_privacy_receipt_sha256": privacy_receipt_sha256,
@@ -883,6 +885,7 @@ def prepare_analytics_publication_bundle(
                 "cohort_key", "metric_key", "overlap_region", "report_version",
             ],
             "identity_mode": "ephemeral_per_page_load",
+            "geoip_enrichment_disabled": True,
             "ip_capture_disabled_confirmed": True,
             "person_profile_processing": False,
             "persistence": "memory_only",
