@@ -164,8 +164,36 @@ class RepositoryProductizationTests(unittest.TestCase):
         for rule in (
             ".agent/HANDOFF.md", ".env.*", "!.env.example", "/protected/",
             "**/protected/", "*.pdf", "public-staging/", "deployment-staging/",
+            "/videos/",
         ):
             self.assertIn(rule, ignore)
+
+    def test_build_week_submission_evidence_and_live_demo_are_publicly_documented(self) -> None:
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        submission = (ROOT / "docs" / "BUILD_WEEK_SUBMISSION.md").read_text(
+            encoding="utf-8",
+        )
+        deployment = (ROOT / "docs" / "DEPLOYMENT.md").read_text(
+            encoding="utf-8",
+        )
+
+        for body in (readme, submission):
+            self.assertIn(
+                "https://start-community-os.vercel.app/openai-hackathon-2026/",
+                body,
+            )
+            self.assertIn("Work and Productivity", body)
+            self.assertIn("GPT-5.6-sol", body)
+            self.assertIn("Codex", body)
+        for expected in (
+            "019f7482-e669-7963-aabd-9066b0f26989",
+            "What START Community OS does",
+            "What changed during Build Week",
+            "Demo video outline",
+        ):
+            self.assertIn(expected, submission)
+        self.assertIn("/openai-hackathon-2026/", deployment)
+        self.assertIn("event-specific route", deployment)
 
     def test_operator_deployment_contract_matches_the_static_bundle_workflow(self) -> None:
         contract = (ROOT / "deploy/operator/README.md").read_text(

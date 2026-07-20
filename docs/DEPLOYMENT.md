@@ -25,6 +25,15 @@ The analytics-free bundle is the canonical content artifact. An optional release
 
 The analytics-free Cloudflare-style template is in `deploy/public/_headers`. The verified analytics transform generates `vercel.json` inside `deployment-staging`. The generated file, not a hand-edited copy, is the deployment input.
 
+## Event-specific routes
+
+Each published report belongs at an event-specific route so later releases can coexist without changing old partner links. The current production report is:
+
+- Dashboard: `https://start-community-os.vercel.app/openai-hackathon-2026/`
+- PDF: `https://start-community-os.vercel.app/openai-hackathon-2026/partner-talent-brief.pdf`
+
+While only one report exists, the root uses a temporary redirect to that event-specific route. Once a second report is approved, replace the root redirect with a small event index and keep every existing event route immutable unless a new approval and artifact hash explicitly supersedes it. Cross-event trend sections start only after two compatible, reviewed event contracts exist; they must use harmonized definitions and denominators rather than comparing labels that merely look similar.
+
 ## PostHog setup
 
 `.env.example` includes blank PostHog and optional Vercel conventions for operators and future automation adapters. Never commit a real value. A variable being present does not enable analytics. The core CLI does not auto-load `.env.local`; the local deployment and scheduled-review adapters may read it only after their explicit gates pass.

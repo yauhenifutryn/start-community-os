@@ -40,3 +40,4 @@ tmp/
 *.pdf
 public-staging/
 deployment-staging/
+/videos/
