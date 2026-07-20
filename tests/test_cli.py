@@ -401,6 +401,7 @@ class CliHelpTests(unittest.TestCase):
         ):
             self.assertEqual(main([
                 "release-operator", "--root", "protected-operator",
+                "--allow-ephemeral-root",
                 "--event-config", "config/events/openai-hackathon-2026.json",
                 "--approval-bundle", "protected-approval.json",
                 "--coresignal-career-evaluation-root", "protected/coresignal-career-evaluation",
