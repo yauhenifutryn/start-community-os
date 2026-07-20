@@ -1,0 +1,2 @@
+name,first_name,last_name,email,approval_status,checked_in_at,Are you applying solo or with a team? Each team member has to register separately.,Team name (if applying with a team)
+Ada Example,Ada,Example,ada@example.org,approved,2026-07-10T09:00:00Z,With a team,Team Synthetic

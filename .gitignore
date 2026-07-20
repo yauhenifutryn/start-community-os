@@ -1,0 +1,42 @@
+# private planning/instruction files (never commit)
+CLAUDE.md
+.agent/HANDOFF.md
+PROJECT_LOG.md
+AGENTS.md
+CONTINUITY.md
+UI_TRINITY.md
+docs/plans/2026-01-20-project-log-design.md
+
+# data: raw exports and stores contain personal data, never commit
+inputs/
+*.sqlite
+*.db
+
+# env / secrets
+.env
+.env.*
+!.env.example
+
+# os cruft
+.DS_Store
+
+# python bytecode
+__pycache__/
+*.py[cod]
+
+# local feature worktrees
+.worktrees/
+
+# generated reports and private review artifacts
+.playwright-cli/
+output/
+outputs/
+review/
+private/
+tmp/
+/protected/
+**/protected/
+**/protected/raw-evidence/
+*.pdf
+public-staging/
+deployment-staging/

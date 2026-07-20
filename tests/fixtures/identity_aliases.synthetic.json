@@ -1,0 +1,10 @@
+{
+  "aliases": [
+    {
+      "source_type": "devpost",
+      "external_record_id": "submission-alias",
+      "person_id": 7,
+      "reason": "Synthetic fixture"
+    }
+  ]
+}

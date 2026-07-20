@@ -1,0 +1,27 @@
+{
+  "source_type": "luma_second_applications",
+  "version": "second-applications-v1",
+  "expected_headers": [
+    "Application Code",
+    "Contact Address",
+    "Home Market",
+    "Challenge Choice",
+    "Code Profile"
+  ],
+  "field_map": {
+    "applicant_id": "Application Code",
+    "email": "Contact Address",
+    "market": "Home Market",
+    "track": "Challenge Choice",
+    "github": "Code Profile"
+  },
+  "source_identity": {"fields": ["Application Code"], "mode": "all"},
+  "applicant_identity": {"fields": ["Contact Address"], "mode": "all"},
+  "external_id_field": "Application Code",
+  "applicant_identity_field": "Contact Address",
+  "metadata": {
+    "fixture_sheet": "Applications 2027",
+    "synthetic_fixture": true,
+    "untested_real_export": true
+  }
+}

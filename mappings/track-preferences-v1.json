@@ -1,0 +1,34 @@
+{
+  "source_type": "track_preferences",
+  "version": "track-preferences-v1",
+  "expected_sheets": ["Submissions"],
+  "expected_headers": [
+    "Submission ID",
+    "Submitted at",
+    "Status",
+    "Track ID",
+    "Track",
+    "Team name",
+    "Team size",
+    "Member names",
+    "Member emails",
+    "Organiser note"
+  ],
+  "field_map": {
+    "submission_id": "Submission ID",
+    "submitted_at": "Submitted at",
+    "status": "Status",
+    "track_id": "Track ID",
+    "track": "Track",
+    "team_name": "Team name",
+    "team_size": "Team size",
+    "member_names": "Member names",
+    "member_emails": "Member emails",
+    "organizer_note": "Organiser note"
+  },
+  "source_identity": {"fields": ["submission_id"], "mode": "all"},
+  "applicant_identity": {"fields": ["member_emails"], "mode": "all"},
+  "external_id_field": "submission_id",
+  "applicant_identity_field": "member_emails",
+  "metadata": {"observed_real_export": true}
+}

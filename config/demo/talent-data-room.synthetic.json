@@ -1,0 +1,67 @@
+{
+  "synthetic": true,
+  "eligible_people": 84,
+  "stages": [
+    {"label": "Applied", "count": 84},
+    {"label": "Accepted", "count": 58},
+    {"label": "Checked in", "count": 49},
+    {"label": "Submitted", "count": 41}
+  ],
+  "executive_readout": [
+    {
+      "label": "Builder evidence",
+      "statement": "More than half the cohort shows verified shipping evidence.",
+      "evidence": "43 of 84 eligible builders have verified shipped or non-trivial shipped work."
+    },
+    {
+      "label": "Participation quality",
+      "statement": "Acceptance converted into active participation, not passive registration.",
+      "evidence": "49 of 58 accepted applicants checked in; 41 reached a submitted project."
+    },
+    {
+      "label": "Partner relevance",
+      "statement": "The cohort combines founders with hands-on technical operators.",
+      "evidence": "Founders, startup employees, and independent builders represent 57 of 84 eligible people."
+    }
+  ],
+  "cohort_mix": [
+    {"label": "Founder", "count": 24, "note": "Company builders and cofounders"},
+    {"label": "Startup employee", "count": 21, "note": "Operators inside early-stage teams"},
+    {"label": "Student", "count": 17, "note": "University and recent-graduate builders"},
+    {"label": "Independent", "count": 12, "note": "Freelance and between-company builders"},
+    {"label": "Researcher", "count": 10, "note": "Academic and applied research"}
+  ],
+  "builder_signals": [
+    {"label": "Verified non-trivial shipped", "count": 18, "note": "Specific evidence of meaningful shipped work"},
+    {"label": "Verified shipped", "count": 25, "note": "Specific evidence of a shipped project"},
+    {"label": "Claimed, not yet verified", "count": 23, "note": "Applicant claim awaiting corroboration"},
+    {"label": "Insufficient evidence", "count": 18, "note": "No publishable signal yet"}
+  ],
+  "build_domains": [
+    {"label": "AI applications", "count": 31, "note": "Product and workflow applications"},
+    {"label": "Developer tools", "count": 19, "note": "Infrastructure and engineering productivity"},
+    {"label": "Fintech", "count": 14, "note": "Payments, risk, and financial workflows"},
+    {"label": "Climate and energy", "count": 11, "note": "Efficiency, infrastructure, and transition"},
+    {"label": "Health", "count": 9, "note": "Care delivery and operations"}
+  ],
+  "source_notes": [
+    "Synthetic aggregate profile for interface validation",
+    "Final Luma schema received; records not yet reconciled",
+    "Track preference schema received; records not yet reconciled",
+    "Two-track Devpost workbook received; one data-first worksheet needs an explicit adapter"
+  ],
+  "taxonomy_status": "Draft taxonomy shown for design validation only",
+  "readiness": [
+    {"label": "Luma final", "status": "Received; reconciliation pending", "state": "pending"},
+    {"label": "Track preferences", "status": "Received; identity linking pending", "state": "pending"},
+    {"label": "Devpost final", "status": "Two track sheets; adapter pending", "state": "pending"},
+    {"label": "Identity review", "status": "Email mismatch workflow ready", "state": "ready"},
+    {"label": "Taxonomy", "status": "Founder approval required", "state": "pending"},
+    {"label": "Coresignal", "status": "Not enabled", "state": "off"}
+  ],
+  "trends": [
+    {"label": "Spring 2025", "applications": 46, "submissions": 18},
+    {"label": "Autumn 2025", "applications": 63, "submissions": 29},
+    {"label": "Summer 2026", "applications": 84, "submissions": 41}
+  ]
+}

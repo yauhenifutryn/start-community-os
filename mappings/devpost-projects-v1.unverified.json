@@ -1,0 +1,19 @@
+{
+  "source_type": "devpost_projects",
+  "version": "devpost-projects-v1-unverified",
+  "expected_headers": ["title", "submission_url", "status", "judging_status", "highest_step_completed", "created_at", "about", "try_it_out_url", "demo_video_url", "opt_in_prizes", "built_with", "custom_answers", "team_colleges", "member_count", "member_names", "member_emails"],
+  "field_map": {
+    "title": "title", "submission_url": "submission_url", "status": "status",
+    "judging_status": "judging_status", "highest_step_completed": "highest_step_completed",
+    "created_at": "created_at", "about": "about", "try_it_out_url": "try_it_out_url",
+    "demo_video_url": "demo_video_url", "opt_in_prizes": "opt_in_prizes",
+    "built_with": "built_with", "custom_answers": "custom_answers",
+    "team_colleges": "team_colleges", "member_count": "member_count",
+    "member_names": "member_names", "member_emails": "member_emails"
+  },
+  "source_identity": {"fields": ["submission_url"], "mode": "all"},
+  "applicant_identity": {"fields": ["member_emails"], "mode": "all"},
+  "external_id_field": "submission_url",
+  "applicant_identity_field": "member_emails",
+  "metadata": {"untested_real_export": true, "schema_source": "Devpost documentation; field names are placeholders"}
+}

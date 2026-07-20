@@ -1,0 +1,18 @@
+{
+  "source_type": "devpost_registrants",
+  "version": "devpost-registrants-v1-unverified",
+  "expected_headers": ["first_name", "last_name", "email", "portfolio_url", "submitted_project", "project_urls", "project_count", "city", "state", "country", "college", "job_specialty", "registered_at", "looking_for_team", "referral_source"],
+  "field_map": {
+    "first_name": "first_name", "last_name": "last_name", "email": "email",
+    "portfolio": "portfolio_url", "submitted_project": "submitted_project",
+    "project_urls": "project_urls", "project_count": "project_count", "city": "city",
+    "state": "state", "country": "country", "college": "college",
+    "occupation": "job_specialty", "registered_at": "registered_at",
+    "looking_for_team": "looking_for_team", "referral_source": "referral_source"
+  },
+  "source_identity": {"fields": ["email"], "mode": "all"},
+  "applicant_identity": {"fields": ["email"], "mode": "all"},
+  "external_id_field": "email",
+  "applicant_identity_field": "email",
+  "metadata": {"untested_real_export": true, "schema_source": "Devpost documentation; field names are placeholders"}
+}

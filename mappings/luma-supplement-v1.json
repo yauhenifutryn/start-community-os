@@ -1,0 +1,22 @@
+{
+  "source_type": "luma_supplement",
+  "version": "luma-supplement-v1",
+  "expected_headers": ["name", "first_name", "last_name", "email", "approval_status", "checked_in_at", "Are you applying solo or with a team? Each team member has to register separately.", "Team name (if applying with a team)"],
+  "field_map": {
+    "name": "name", "first_name": "first_name", "last_name": "last_name",
+    "email": "email", "approval_status": "approval_status", "checked_in_at": "checked_in_at",
+    "team_mode": "Are you applying solo or with a team? Each team member has to register separately.",
+    "team_name": "Team name (if applying with a team)"
+  },
+  "source_identity": {"fields": ["email"], "mode": "all"},
+  "applicant_identity": {"fields": ["email"], "mode": "all"},
+  "external_id_field": "email",
+  "applicant_identity_field": "email",
+  "metadata": {
+    "observed_real_export": true,
+    "requires_explicit_authority": true,
+    "allowed_authorities": ["luma_final_status_supplement"],
+    "authoritative_fields": ["approval_status", "checked_in_at", "team_mode", "team_name"],
+    "identity_only_fields": ["name", "first_name", "last_name", "email"]
+  }
+}

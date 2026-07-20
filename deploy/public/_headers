@@ -1,0 +1,8 @@
+# This file intentionally contains no response headers.
+# It is not a deployable header policy.
+#
+# The report contains inline styles and scripts whose SHA-256 values change with
+# the exact approved HTML. A host adapter must derive a hash-pinned policy from
+# that artifact. The supported Vercel adapter is generated with the approved
+# analytics publication bundle. Do not replace those hashes with permissive
+# inline-script or inline-style directives.

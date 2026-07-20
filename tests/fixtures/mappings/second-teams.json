@@ -1,0 +1,27 @@
+{
+  "source_type": "devpost_second_teams",
+  "version": "second-teams-v1",
+  "expected_headers": [
+    "Roster Link",
+    "Participant Mail",
+    "Squad Code",
+    "Squad Label",
+    "Challenge Lane"
+  ],
+  "field_map": {
+    "membership_id": "Roster Link",
+    "email": "Participant Mail",
+    "team_id": "Squad Code",
+    "team_name": "Squad Label",
+    "track": "Challenge Lane"
+  },
+  "source_identity": {"fields": ["Roster Link"], "mode": "all"},
+  "applicant_identity": {"fields": ["Participant Mail"], "mode": "all"},
+  "external_id_field": "Roster Link",
+  "applicant_identity_field": "Participant Mail",
+  "metadata": {
+    "fixture_sheet": "Squad roster",
+    "synthetic_fixture": true,
+    "untested_real_export": true
+  }
+}

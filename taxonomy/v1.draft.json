@@ -1,0 +1,26 @@
+{
+  "version": "taxonomy-v1-draft",
+  "approved": false,
+  "occupation": [
+    "student",
+    "founder",
+    "startup_employee",
+    "big_tech",
+    "researcher",
+    "independent",
+    "other",
+    "unknown"
+  ],
+  "builder_signal": [
+    "verified_nontrivial_shipped",
+    "verified_shipped",
+    "claimed_unverified",
+    "insufficient_evidence"
+  ],
+  "evidence_sources": [
+    "application_answer",
+    "devpost_project",
+    "github_public_activity",
+    "manual_review"
+  ]
+}

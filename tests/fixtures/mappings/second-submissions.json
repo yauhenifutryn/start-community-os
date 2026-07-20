@@ -1,0 +1,35 @@
+{
+  "source_type": "devpost_second_submissions",
+  "version": "second-submissions-v1",
+  "expected_headers": [
+    "Entry Member Key",
+    "Member Contact",
+    "Build ID",
+    "Squad Code",
+    "Build Name",
+    "Submission State",
+    "Challenge Lane",
+    "Repository Link",
+    "Demo Link"
+  ],
+  "field_map": {
+    "entry_member_id": "Entry Member Key",
+    "email": "Member Contact",
+    "project_id": "Build ID",
+    "team_id": "Squad Code",
+    "project_name": "Build Name",
+    "submission_status": "Submission State",
+    "track": "Challenge Lane",
+    "repository": "Repository Link",
+    "demo": "Demo Link"
+  },
+  "source_identity": {"fields": ["Entry Member Key"], "mode": "all"},
+  "applicant_identity": {"fields": ["Member Contact"], "mode": "all"},
+  "external_id_field": "Entry Member Key",
+  "applicant_identity_field": "Member Contact",
+  "metadata": {
+    "fixture_sheet": "Final builds",
+    "synthetic_fixture": true,
+    "untested_real_export": true
+  }
+}

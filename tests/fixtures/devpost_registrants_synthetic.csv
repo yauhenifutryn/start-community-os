@@ -1,0 +1,2 @@
+first_name,last_name,email,portfolio_url,submitted_project,project_urls,project_count,city,state,country,college,job_specialty,registered_at,looking_for_team,referral_source
+Ada,Example,ada+devpost@example.org,https://devpost.com/ada,true,https://devpost.com/software/synthetic,1,Warsaw,Mazowieckie,Poland,Example University,Software,2026-07-01T12:00:00Z,false,Friend

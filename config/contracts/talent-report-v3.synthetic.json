@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "contract_version": "talent-report-v3",
+    "title": "START Warsaw Talent Data Room",
+    "event_key": "openai-hackathon-2026",
+    "event_name": "OpenAI Hackathon",
+    "event_date": "2026-07-11",
+    "generated_at": "2026-07-12T20:00:00Z",
+    "synthetic": true,
+    "publication_state": "review_ready"
+  },
+  "privacy": {
+    "mode": "aggregate_only",
+    "minimum_count": 5,
+    "pii_included": false,
+    "state": "withheld_cells"
+  },
+  "attendance_funnel": {
+    "unit": "people",
+    "stages": [
+      {"key": "approved", "label": "Approved", "order": 1, "count": {"value": 80, "privacy": "published", "reason": null}},
+      {"key": "checked_in", "label": "Checked in", "order": 2, "count": {"value": 70, "privacy": "published", "reason": null}},
+      {"key": "submitted", "label": "Submitted", "order": 3, "count": {"value": 55, "privacy": "published", "reason": null}}
+    ]
+  },
+  "journey": {
+    "unit": "people",
+    "nodes": [
+      {"key": "approved", "label": "Approved", "order": 1, "count": {"value": 80, "privacy": "published", "reason": null}, "unit": "people"},
+      {"key": "checked_in", "label": "Checked in", "order": 2, "count": {"value": 70, "privacy": "published", "reason": null}, "unit": "people"},
+      {"key": "team_path", "label": "Joined with a team", "order": 3, "count": {"value": 50, "privacy": "published", "reason": null}, "unit": "people"},
+      {"key": "solo_path", "label": "Joined solo", "order": 4, "count": {"value": 20, "privacy": "published", "reason": null}, "unit": "people"}
+    ],
+    "links": [
+      {"source": "approved", "target": "checked_in", "count": {"value": 70, "privacy": "published", "reason": null}, "unit": "people"},
+      {"source": "checked_in", "target": "team_path", "count": {"value": 50, "privacy": "published", "reason": null}, "unit": "people"},
+      {"source": "checked_in", "target": "solo_path", "count": {"value": 20, "privacy": "published", "reason": null}, "unit": "people"}
+    ]
+  },
+  "team_submission_matrix": {
+    "unit": "teams",
+    "row_keys": ["boski", "solidgate"],
+    "column_keys": ["submitted", "not_submitted"],
+    "cells": [
+      {"row": "boski", "column": "submitted", "count": {"value": 10, "privacy": "published", "reason": null}},
+      {"row": "boski", "column": "not_submitted", "count": {"value": 0, "privacy": "published", "reason": null}},
+      {"row": "solidgate", "column": "submitted", "count": {"value": 10, "privacy": "published", "reason": null}},
+      {"row": "solidgate", "column": "not_submitted", "count": {"value": null, "privacy": "withheld", "reason": "Below publication threshold"}}
+    ]
+  },
+  "builder_signal_intersections": {
+    "unit": "people",
+    "signal_keys": ["github", "portfolio", "prior_project"],
+    "intersections": [
+      {"signals": ["github"], "count": {"value": 15, "privacy": "published", "reason": null}},
+      {"signals": ["github", "portfolio"], "count": {"value": 8, "privacy": "published", "reason": null}},
+      {"signals": ["portfolio", "prior_project"], "count": {"value": null, "privacy": "withheld", "reason": "Below publication threshold"}}
+    ]
+  },
+  "track_domain_heatmap": {
+    "unit": "projects",
+    "track_keys": ["boski", "solidgate"],
+    "domain_keys": ["ai_apps", "fintech"],
+    "cells": [
+      {"track": "boski", "domain": "ai_apps", "count": {"value": 5, "privacy": "published", "reason": null}},
+      {"track": "boski", "domain": "fintech", "count": {"value": 0, "privacy": "published", "reason": null}},
+      {"track": "solidgate", "domain": "ai_apps", "count": {"value": null, "privacy": "withheld", "reason": "Below publication threshold"}},
+      {"track": "solidgate", "domain": "fintech", "count": {"value": 5, "privacy": "published", "reason": null}}
+    ]
+  },
+  "composition": {
+    "unit": "people",
+    "categories": [
+      {"key": "team", "label": "Joined with a team", "count": {"value": 55, "privacy": "published", "reason": null}},
+      {"key": "solo", "label": "Joined solo", "count": {"value": 25, "privacy": "published", "reason": null}}
+    ]
+  },
+  "artifact_completeness": {
+    "unit": "projects",
+    "items": [
+      {"key": "demo", "label": "Demo link", "status": "complete", "present": {"value": 20, "privacy": "published", "reason": null}, "eligible": {"value": 20, "privacy": "published", "reason": null}},
+      {"key": "repository", "label": "Repository", "status": "partial", "present": {"value": 15, "privacy": "published", "reason": null}, "eligible": {"value": 20, "privacy": "published", "reason": null}}
+    ]
+  },
+  "readiness": [
+    {"component": "identity_review", "state": "ready", "required": true, "note": "All blocking reviews resolved"},
+    {"component": "coresignal", "state": "off", "required": false, "note": "Not enabled"}
+  ],
+  "source_notes": [
+    {"source": "devpost", "state": "validated", "note": "Two track sheets validated"},
+    {"source": "luma", "state": "validated", "note": "Final approval and check-in export"},
+    {"source": "track_preferences", "state": "validated", "note": "Final preference export"}
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "source_type": "luma_second_attendance",
+  "version": "second-attendance-v1",
+  "expected_headers": [
+    "Door Record",
+    "Who",
+    "Organizer State",
+    "Scanned At"
+  ],
+  "field_map": {
+    "attendance_id": "Door Record",
+    "email": "Who",
+    "approval_status": "Organizer State",
+    "checked_in_at": "Scanned At"
+  },
+  "source_identity": {"fields": ["Door Record"], "mode": "all"},
+  "applicant_identity": {"fields": ["Who"], "mode": "all"},
+  "external_id_field": "Door Record",
+  "applicant_identity_field": "Who",
+  "metadata": {
+    "fixture_sheet": "Door scans",
+    "synthetic_fixture": true,
+    "untested_real_export": true
+  }
+}

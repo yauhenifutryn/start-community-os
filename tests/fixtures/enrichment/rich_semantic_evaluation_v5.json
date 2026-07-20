@@ -1,0 +1,1386 @@
+[
+  {
+    "case_ref": "case:v1:1ad5e659b4a6b7f5c2774849d0339144c360d9faae3c3b44c1c73af6a5a3fa77",
+    "evidence": {
+      "application": [],
+      "career": [
+        {
+          "active_state": "current",
+          "description_excerpt": "participated in pitch workshops and shared general product feedback.",
+          "duration_band": "under_one_year",
+          "evidence_refs": [
+            "role_01:title",
+            "role_01:description"
+          ],
+          "industry_code": "other",
+          "organization_size_band": "small",
+          "role_code": "role_01",
+          "seniority_context": "founder_executive",
+          "title_excerpt": "founder in residence"
+        },
+        {
+          "active_state": "historic",
+          "description_excerpt": "supported community sessions and reviewed presentation drafts.",
+          "duration_band": "under_one_year",
+          "evidence_refs": [
+            "role_02:title",
+            "role_02:description"
+          ],
+          "industry_code": "other",
+          "organization_size_band": "small",
+          "role_code": "role_02",
+          "seniority_context": "senior",
+          "title_excerpt": "senior advisor"
+        }
+      ],
+      "devpost": [],
+      "projects": [
+        {
+          "activity_recency": "active_90d",
+          "age_band": "new",
+          "deployment_signal": "repository_homepage",
+          "description_excerpt": "starter workspace with promotional claims and sample pages",
+          "evidence_refs": [
+            "project_01:ownership",
+            "project_01:description",
+            "project_01:readme"
+          ],
+          "forks_band": "none",
+          "issues_band": "none",
+          "language_code": "web_frontend",
+          "productization_codes": [
+            "issues_enabled",
+            "license_present",
+            "pages_enabled"
+          ],
+          "project_code": "project_01",
+          "readme_excerpt": "template repository containing sample screens, placeholder testimonials, and setup instructions without release, deployment, customer, or adoption evidence.",
+          "release_signal": "none_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "small",
+          "stars_band": "none",
+          "topic_codes": []
+        }
+      ]
+    },
+    "label": {
+      "builder_level": "exploratory",
+      "cross_source_confidence": "low",
+      "reason_codes": [
+        "insufficient_evidence",
+        "prototype_only",
+        "tutorial_or_template",
+        "unclear_authorship"
+      ],
+      "semantic_taxonomy": {
+        "project": {
+          "product_maturity": "prototype",
+          "technical_depth": "basic",
+          "execution_scope": "unknown",
+          "external_validation": "none_observed",
+          "problem_differentiation": "derivative",
+          "market_domains": [],
+          "technical_methods": [],
+          "demonstrated_capabilities": [
+            "frontend_engineering"
+          ]
+        },
+        "career": {
+          "career_stage": "unknown",
+          "founder_state": "unknown",
+          "leadership_state": "unknown",
+          "career_functions": [],
+          "career_delivery": []
+        }
+      },
+      "source_families_by_dimension": {
+        "product_maturity": [
+          "projects"
+        ],
+        "technical_depth": [
+          "projects"
+        ],
+        "execution_scope": [],
+        "external_validation": [],
+        "problem_differentiation": [
+          "projects"
+        ],
+        "market_domains": [],
+        "technical_methods": [],
+        "demonstrated_capabilities": [
+          "projects"
+        ],
+        "career_stage": [],
+        "founder_state": [],
+        "leadership_state": [],
+        "career_functions": [],
+        "career_delivery": []
+      }
+    }
+  },
+  {
+    "case_ref": "case:v1:24a797e9f4b855765343341e6ddcc36e4f32eb74e1299aea4d5461cc64e32567",
+    "evidence": {
+      "application": [],
+      "career": [],
+      "devpost": [],
+      "projects": [
+        {
+          "activity_recency": "active_365d",
+          "age_band": "established",
+          "deployment_signal": "none_observed",
+          "description_excerpt": "curated directory of technical events and learning resources",
+          "evidence_refs": [
+            "project_01:ownership",
+            "project_01:description",
+            "project_01:readme"
+          ],
+          "forks_band": "none",
+          "issues_band": "none",
+          "language_code": "unknown",
+          "productization_codes": [
+            "issues_enabled"
+          ],
+          "project_code": "project_01",
+          "readme_excerpt": "maintained directory template listing technical events, learning groups, and investor resources; it provides no standalone software product.",
+          "release_signal": "none_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "tiny",
+          "stars_band": "notable",
+          "topic_codes": []
+        },
+        {
+          "activity_recency": "active_365d",
+          "age_band": "new",
+          "deployment_signal": "none_observed",
+          "description_excerpt": "voice interaction comparison prototype",
+          "evidence_refs": [
+            "project_02:ownership",
+            "project_02:description",
+            "project_02:readme"
+          ],
+          "forks_band": "none",
+          "issues_band": "none",
+          "language_code": "python",
+          "productization_codes": [
+            "issues_enabled",
+            "license_present"
+          ],
+          "project_code": "project_02",
+          "readme_excerpt": "prototype compares two interruption-handling modes while holding the voice pipeline constant; documentation includes setup steps and evaluation guidance but no deployment evidence.",
+          "release_signal": "none_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "small",
+          "stars_band": "some",
+          "topic_codes": []
+        },
+        {
+          "activity_recency": "active_90d",
+          "age_band": "new",
+          "deployment_signal": "none_observed",
+          "description_excerpt": "",
+          "evidence_refs": [
+            "project_03:ownership",
+            "project_03:readme"
+          ],
+          "forks_band": "none",
+          "issues_band": "none",
+          "language_code": "unknown",
+          "productization_codes": [
+            "issues_enabled"
+          ],
+          "project_code": "project_03",
+          "readme_excerpt": "local document indexing prototype that ingests bounded source files and produces linked reference pages for offline browsing.",
+          "release_signal": "none_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "tiny",
+          "stars_band": "none",
+          "topic_codes": []
+        }
+      ]
+    },
+    "label": {
+      "builder_level": "exploratory",
+      "cross_source_confidence": "medium",
+      "reason_codes": [
+        "insufficient_evidence",
+        "open_source_adoption",
+        "prototype_only",
+        "tutorial_or_template",
+        "unclear_authorship"
+      ],
+      "semantic_taxonomy": {
+        "project": {
+          "product_maturity": "prototype",
+          "technical_depth": "moderate",
+          "execution_scope": "unknown",
+          "external_validation": "meaningful",
+          "problem_differentiation": "derivative",
+          "market_domains": [
+            "developer_infrastructure"
+          ],
+          "technical_methods": [
+            "applied_ai_ml",
+            "realtime_systems"
+          ],
+          "demonstrated_capabilities": [
+            "research_experimentation"
+          ]
+        },
+        "career": {
+          "career_stage": "unknown",
+          "founder_state": "unknown",
+          "leadership_state": "unknown",
+          "career_functions": [],
+          "career_delivery": []
+        }
+      },
+      "source_families_by_dimension": {
+        "product_maturity": [
+          "projects"
+        ],
+        "technical_depth": [
+          "projects"
+        ],
+        "execution_scope": [],
+        "external_validation": [
+          "projects"
+        ],
+        "problem_differentiation": [
+          "projects"
+        ],
+        "market_domains": [
+          "projects"
+        ],
+        "technical_methods": [
+          "projects"
+        ],
+        "demonstrated_capabilities": [
+          "projects"
+        ],
+        "career_stage": [],
+        "founder_state": [],
+        "leadership_state": [],
+        "career_functions": [],
+        "career_delivery": []
+      }
+    }
+  },
+  {
+    "case_ref": "case:v1:28ea8482d0e769e50aa5b32203bc9b8b0aa0bee33ae6b24e53ef951d6e4bf73a",
+    "evidence": {
+      "application": [
+        {
+          "achievement_excerpt": "",
+          "evidence_code": "application_01",
+          "evidence_refs": [
+            "application_01:experience"
+          ],
+          "experience_excerpt": "i designed and shipped a secure developer runtime, a local model benchmark, and an isolated command environment; the work covered architecture, implementation, release packaging, and evaluation."
+        }
+      ],
+      "career": [],
+      "devpost": [],
+      "projects": [
+        {
+          "activity_recency": "active_90d",
+          "age_band": "established",
+          "deployment_signal": "none_observed",
+          "description_excerpt": "local model performance benchmark",
+          "evidence_refs": [
+            "project_01:ownership",
+            "project_01:description",
+            "project_01:readme"
+          ],
+          "forks_band": "some",
+          "issues_band": "none",
+          "language_code": "javascript_typescript",
+          "productization_codes": [
+            "issues_enabled",
+            "license_present"
+          ],
+          "project_code": "project_01",
+          "readme_excerpt": "command-line benchmark measures startup, prompt processing, reasoning, generation, and output latency; it compares multiple local models and emits structured reports.",
+          "release_signal": "none_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "tiny",
+          "stars_band": "notable",
+          "topic_codes": []
+        },
+        {
+          "activity_recency": "active_90d",
+          "age_band": "new",
+          "deployment_signal": "none_observed",
+          "description_excerpt": "sandboxed runtime for coding workflows",
+          "evidence_refs": [
+            "project_02:ownership",
+            "project_02:description",
+            "project_02:readme",
+            "project_02:release"
+          ],
+          "forks_band": "none",
+          "issues_band": "none",
+          "language_code": "javascript_typescript",
+          "productization_codes": [
+            "issues_enabled"
+          ],
+          "project_code": "project_02",
+          "readme_excerpt": "released runtime accelerates coding workflows with isolated tool execution, file operations, status commands, and repeatable benchmark paths.",
+          "release_signal": "release_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "small",
+          "stars_band": "some",
+          "topic_codes": []
+        },
+        {
+          "activity_recency": "active_90d",
+          "age_band": "established",
+          "deployment_signal": "repository_homepage",
+          "description_excerpt": "isolated command execution service",
+          "evidence_refs": [
+            "project_03:ownership",
+            "project_03:description",
+            "project_03:readme"
+          ],
+          "forks_band": "none",
+          "issues_band": "none",
+          "language_code": "javascript_typescript",
+          "productization_codes": [
+            "issues_enabled",
+            "license_present"
+          ],
+          "project_code": "project_03",
+          "readme_excerpt": "service runs shell commands in a bounded in-memory filesystem with configurable network rules, resource limits, and structured execution results.",
+          "release_signal": "none_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "tiny",
+          "stars_band": "some",
+          "topic_codes": []
+        }
+      ]
+    },
+    "label": {
+      "builder_level": "standout",
+      "cross_source_confidence": "high",
+      "reason_codes": [
+        "advanced_system_design",
+        "corroborated_across_sources",
+        "differentiated_problem",
+        "open_source_adoption",
+        "shipped_working_product",
+        "technically_substantial"
+      ],
+      "semantic_taxonomy": {
+        "project": {
+          "product_maturity": "working_product",
+          "technical_depth": "advanced",
+          "execution_scope": "primary_builder",
+          "external_validation": "meaningful",
+          "problem_differentiation": "differentiated",
+          "market_domains": [
+            "developer_infrastructure",
+            "security_trust"
+          ],
+          "technical_methods": [
+            "applied_ai_ml",
+            "automation_orchestration",
+            "cybersecurity"
+          ],
+          "demonstrated_capabilities": [
+            "backend_engineering",
+            "infrastructure_devops",
+            "product_engineering",
+            "research_experimentation",
+            "security_engineering"
+          ]
+        },
+        "career": {
+          "career_stage": "unknown",
+          "founder_state": "no_founder_evidence",
+          "leadership_state": "unknown",
+          "career_functions": [
+            "software_engineering"
+          ],
+          "career_delivery": [
+            "shipped_products"
+          ]
+        }
+      },
+      "source_families_by_dimension": {
+        "product_maturity": [
+          "projects"
+        ],
+        "technical_depth": [
+          "projects"
+        ],
+        "execution_scope": [
+          "application"
+        ],
+        "external_validation": [
+          "projects"
+        ],
+        "problem_differentiation": [
+          "application",
+          "projects"
+        ],
+        "market_domains": [
+          "application",
+          "projects"
+        ],
+        "technical_methods": [
+          "projects"
+        ],
+        "demonstrated_capabilities": [
+          "projects"
+        ],
+        "career_stage": [],
+        "founder_state": [],
+        "leadership_state": [],
+        "career_functions": [
+          "application"
+        ],
+        "career_delivery": [
+          "application"
+        ]
+      }
+    }
+  },
+  {
+    "case_ref": "case:v1:476e663808a734b04d18b64da37b2cbb5338b04e02421aadb0ab31baf0dcf500",
+    "evidence": {
+      "application": [],
+      "career": [],
+      "devpost": [],
+      "projects": []
+    },
+    "label": {
+      "builder_level": "insufficient",
+      "cross_source_confidence": "low",
+      "reason_codes": [
+        "insufficient_evidence"
+      ],
+      "semantic_taxonomy": {
+        "project": {
+          "product_maturity": "unknown",
+          "technical_depth": "unknown",
+          "execution_scope": "unknown",
+          "external_validation": "unknown",
+          "problem_differentiation": "unknown",
+          "market_domains": [],
+          "technical_methods": [],
+          "demonstrated_capabilities": []
+        },
+        "career": {
+          "career_stage": "unknown",
+          "founder_state": "unknown",
+          "leadership_state": "unknown",
+          "career_functions": [],
+          "career_delivery": []
+        }
+      },
+      "source_families_by_dimension": {
+        "product_maturity": [],
+        "technical_depth": [],
+        "execution_scope": [],
+        "external_validation": [],
+        "problem_differentiation": [],
+        "market_domains": [],
+        "technical_methods": [],
+        "demonstrated_capabilities": [],
+        "career_stage": [],
+        "founder_state": [],
+        "leadership_state": [],
+        "career_functions": [],
+        "career_delivery": []
+      }
+    }
+  },
+  {
+    "case_ref": "case:v1:500cfc8b61706373dbcdd3c7302fa069a86bff680c6c4b97eb2704e9e1e41d3d",
+    "evidence": {
+      "application": [],
+      "career": [],
+      "devpost": [
+        {
+          "demo_state": "observed",
+          "evidence_code": "devpost_01",
+          "evidence_refs": [
+            "devpost_01:demo",
+            "devpost_01:project"
+          ],
+          "project_excerpt": "working browser application imports energy data, compares live scenarios, and exports a verified reduction plan; the observed demo completed import, analysis, and export.",
+          "submission_state": "submitted",
+          "technology_codes": [
+            "data",
+            "javascript_typescript",
+            "web"
+          ]
+        }
+      ],
+      "projects": []
+    },
+    "label": {
+      "builder_level": "exploratory",
+      "cross_source_confidence": "medium",
+      "reason_codes": [
+        "shipped_working_product",
+        "unclear_authorship"
+      ],
+      "semantic_taxonomy": {
+        "project": {
+          "product_maturity": "working_product",
+          "technical_depth": "moderate",
+          "execution_scope": "unknown",
+          "external_validation": "none_observed",
+          "problem_differentiation": "ordinary",
+          "market_domains": [
+            "climate_energy"
+          ],
+          "technical_methods": [
+            "data_engineering",
+            "realtime_systems",
+            "web_full_stack"
+          ],
+          "demonstrated_capabilities": [
+            "data_ai_engineering",
+            "frontend_engineering",
+            "product_engineering"
+          ]
+        },
+        "career": {
+          "career_stage": "unknown",
+          "founder_state": "unknown",
+          "leadership_state": "unknown",
+          "career_functions": [],
+          "career_delivery": []
+        }
+      },
+      "source_families_by_dimension": {
+        "product_maturity": [
+          "devpost"
+        ],
+        "technical_depth": [
+          "devpost"
+        ],
+        "execution_scope": [],
+        "external_validation": [],
+        "problem_differentiation": [
+          "devpost"
+        ],
+        "market_domains": [
+          "devpost"
+        ],
+        "technical_methods": [
+          "devpost"
+        ],
+        "demonstrated_capabilities": [
+          "devpost"
+        ],
+        "career_stage": [],
+        "founder_state": [],
+        "leadership_state": [],
+        "career_functions": [],
+        "career_delivery": []
+      }
+    }
+  },
+  {
+    "case_ref": "case:v1:79b49a1be131f642ce22191da57100f3f7949738fe45d8cc649974d8f3caef95",
+    "evidence": {
+      "application": [
+        {
+          "achievement_excerpt": "",
+          "evidence_code": "application_01",
+          "evidence_refs": [
+            "application_01:experience"
+          ],
+          "experience_excerpt": "built modeling and simulation tools for industrial research and contributed to widely adopted scientific software; evidence describes technical contribution but does not establish primary authorship of this repository."
+        }
+      ],
+      "career": [],
+      "devpost": [],
+      "projects": [
+        {
+          "activity_recency": "active_365d",
+          "age_band": "mature",
+          "deployment_signal": "deployment_observed",
+          "description_excerpt": "industrial process modeling toolkit",
+          "evidence_refs": [
+            "project_01:ownership",
+            "project_01:description",
+            "project_01:readme",
+            "project_01:release",
+            "project_01:deployment"
+          ],
+          "forks_band": "some",
+          "issues_band": "notable",
+          "language_code": "unknown",
+          "productization_codes": [
+            "issues_enabled",
+            "license_present"
+          ],
+          "project_code": "project_01",
+          "readme_excerpt": "released scientific toolkit formulates optimization stages for utility use, equipment count, stream matching, and network design; documentation includes reproducible examples and deployment guidance.",
+          "release_signal": "release_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "small",
+          "stars_band": "notable",
+          "topic_codes": []
+        },
+        {
+          "activity_recency": "active_365d",
+          "age_band": "mature",
+          "deployment_signal": "none_observed",
+          "description_excerpt": "",
+          "evidence_refs": [
+            "project_02:ownership",
+            "project_02:readme",
+            "project_02:release"
+          ],
+          "forks_band": "none",
+          "issues_band": "none",
+          "language_code": "unknown",
+          "productization_codes": [
+            "issues_enabled",
+            "license_present"
+          ],
+          "project_code": "project_02",
+          "readme_excerpt": "course-support repository organizes recorded lectures, interactive exercises, and research-report guidance for advanced process optimization.",
+          "release_signal": "release_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "medium",
+          "stars_band": "none",
+          "topic_codes": []
+        },
+        {
+          "activity_recency": "active_365d",
+          "age_band": "new",
+          "deployment_signal": "none_observed",
+          "description_excerpt": "",
+          "evidence_refs": [
+            "project_03:ownership"
+          ],
+          "forks_band": "none",
+          "issues_band": "none",
+          "language_code": "shell",
+          "productization_codes": [
+            "issues_enabled"
+          ],
+          "project_code": "project_03",
+          "readme_excerpt": "",
+          "release_signal": "none_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "tiny",
+          "stars_band": "none",
+          "topic_codes": []
+        }
+      ]
+    },
+    "label": {
+      "builder_level": "exploratory",
+      "cross_source_confidence": "medium",
+      "reason_codes": [
+        "open_source_adoption",
+        "shipped_working_product",
+        "technically_substantial"
+      ],
+      "semantic_taxonomy": {
+        "project": {
+          "product_maturity": "working_product",
+          "technical_depth": "advanced",
+          "execution_scope": "contributor",
+          "external_validation": "meaningful",
+          "problem_differentiation": "ordinary",
+          "market_domains": [
+            "industrial_manufacturing"
+          ],
+          "technical_methods": [],
+          "demonstrated_capabilities": [
+            "product_engineering",
+            "research_experimentation"
+          ]
+        },
+        "career": {
+          "career_stage": "unknown",
+          "founder_state": "no_founder_evidence",
+          "leadership_state": "individual_contributor",
+          "career_functions": [
+            "research",
+            "software_engineering"
+          ],
+          "career_delivery": [
+            "research_to_practice"
+          ]
+        }
+      },
+      "source_families_by_dimension": {
+        "product_maturity": [
+          "projects"
+        ],
+        "technical_depth": [
+          "application",
+          "projects"
+        ],
+        "execution_scope": [
+          "application"
+        ],
+        "external_validation": [
+          "projects"
+        ],
+        "problem_differentiation": [
+          "projects"
+        ],
+        "market_domains": [
+          "projects"
+        ],
+        "technical_methods": [],
+        "demonstrated_capabilities": [
+          "projects"
+        ],
+        "career_stage": [],
+        "founder_state": [],
+        "leadership_state": [
+          "application"
+        ],
+        "career_functions": [
+          "application"
+        ],
+        "career_delivery": [
+          "application"
+        ]
+      }
+    }
+  },
+  {
+    "case_ref": "case:v1:84fa4b1924188941f3b7f9030542b24bffcbfe77dc6c19b0f377ced3ab80d41c",
+    "evidence": {
+      "application": [],
+      "career": [
+        {
+          "active_state": "current",
+          "description_excerpt": "led a software team that delivered customer data systems and scaled production services across multiple regions.",
+          "duration_band": "over_three_years",
+          "evidence_refs": [
+            "role_01:title",
+            "role_01:description"
+          ],
+          "industry_code": "software",
+          "organization_size_band": "large",
+          "role_code": "role_01",
+          "seniority_context": "leadership",
+          "title_excerpt": "engineering lead"
+        },
+        {
+          "active_state": "historic",
+          "description_excerpt": "built backend services and converted research prototypes to customer workflows.",
+          "duration_band": "one_to_three_years",
+          "evidence_refs": [
+            "role_02:title",
+            "role_02:description"
+          ],
+          "industry_code": "software",
+          "organization_size_band": "medium",
+          "role_code": "role_02",
+          "seniority_context": "individual_contributor",
+          "title_excerpt": "software engineer"
+        }
+      ],
+      "devpost": [],
+      "projects": []
+    },
+    "label": {
+      "builder_level": "insufficient",
+      "cross_source_confidence": "medium",
+      "reason_codes": [
+        "career_progression"
+      ],
+      "semantic_taxonomy": {
+        "project": {
+          "product_maturity": "unknown",
+          "technical_depth": "unknown",
+          "execution_scope": "unknown",
+          "external_validation": "unknown",
+          "problem_differentiation": "unknown",
+          "market_domains": [],
+          "technical_methods": [],
+          "demonstrated_capabilities": []
+        },
+        "career": {
+          "career_stage": "senior",
+          "founder_state": "no_founder_evidence",
+          "leadership_state": "team_lead",
+          "career_functions": [
+            "software_engineering"
+          ],
+          "career_delivery": [
+            "customer_delivery",
+            "led_teams",
+            "research_to_practice",
+            "scaled_systems",
+            "shipped_products"
+          ]
+        }
+      },
+      "source_families_by_dimension": {
+        "product_maturity": [],
+        "technical_depth": [],
+        "execution_scope": [],
+        "external_validation": [],
+        "problem_differentiation": [],
+        "market_domains": [],
+        "technical_methods": [],
+        "demonstrated_capabilities": [],
+        "career_stage": [
+          "career"
+        ],
+        "founder_state": [],
+        "leadership_state": [
+          "career"
+        ],
+        "career_functions": [
+          "career"
+        ],
+        "career_delivery": [
+          "career"
+        ]
+      }
+    }
+  },
+  {
+    "case_ref": "case:v1:cc042ee9b40788c25bab04a08df26e2527c7691745ad9c7a4a761fbeee30f7db",
+    "evidence": {
+      "application": [
+        {
+          "achievement_excerpt": "",
+          "evidence_code": "application_01",
+          "evidence_refs": [
+            "application_01:experience"
+          ],
+          "experience_excerpt": "i founded and built an agent data platform, developer tooling, and automation systems; i contributed architecture, product decisions, implementation, and live demonstrations."
+        }
+      ],
+      "career": [],
+      "devpost": [],
+      "projects": [
+        {
+          "activity_recency": "active_90d",
+          "age_band": "established",
+          "deployment_signal": "deployment_observed",
+          "description_excerpt": "collaborative local-first document editor",
+          "evidence_refs": [
+            "project_01:ownership",
+            "project_01:description",
+            "project_01:readme",
+            "project_01:deployment"
+          ],
+          "forks_band": "notable",
+          "issues_band": "some",
+          "language_code": "javascript_typescript",
+          "productization_codes": [
+            "issues_enabled",
+            "license_present"
+          ],
+          "project_code": "project_01",
+          "readme_excerpt": "deployed document editor supports structured text, offline persistence, real-time collaboration, access controls, shared pages, search, and isolated storage.",
+          "release_signal": "none_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "medium",
+          "stars_band": "high",
+          "topic_codes": []
+        },
+        {
+          "activity_recency": "stale",
+          "age_band": "established",
+          "deployment_signal": "repository_homepage",
+          "description_excerpt": "compatible in-memory data service",
+          "evidence_refs": [
+            "project_02:ownership",
+            "project_02:description",
+            "project_02:readme",
+            "project_02:release"
+          ],
+          "forks_band": "notable",
+          "issues_band": "some",
+          "language_code": "go",
+          "productization_codes": [
+            "issues_enabled",
+            "license_present"
+          ],
+          "project_code": "project_02",
+          "readme_excerpt": "released data service implements common key-value, collection, scripting, expiration, and client compatibility features with documented operational limits.",
+          "release_signal": "release_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "medium",
+          "stars_band": "high",
+          "topic_codes": []
+        },
+        {
+          "activity_recency": "active_90d",
+          "age_band": "new",
+          "deployment_signal": "repository_homepage",
+          "description_excerpt": "browser-based local development workspace",
+          "evidence_refs": [
+            "project_03:ownership",
+            "project_03:description",
+            "project_03:readme"
+          ],
+          "forks_band": "some",
+          "issues_band": "some",
+          "language_code": "javascript_typescript",
+          "productization_codes": [
+            "issues_enabled",
+            "license_present"
+          ],
+          "project_code": "project_03",
+          "readme_excerpt": "development workspace provides an editor, shell, version control, package execution, live preview, local automation, and persistent virtual files without a remote execution service.",
+          "release_signal": "none_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "small",
+          "stars_band": "notable",
+          "topic_codes": []
+        }
+      ]
+    },
+    "label": {
+      "builder_level": "standout",
+      "cross_source_confidence": "high",
+      "reason_codes": [
+        "advanced_system_design",
+        "corroborated_across_sources",
+        "differentiated_problem",
+        "open_source_adoption",
+        "shipped_working_product",
+        "technically_substantial"
+      ],
+      "semantic_taxonomy": {
+        "project": {
+          "product_maturity": "working_product",
+          "technical_depth": "advanced",
+          "execution_scope": "primary_builder",
+          "external_validation": "strong",
+          "problem_differentiation": "differentiated",
+          "market_domains": [
+            "developer_infrastructure",
+            "enterprise_operations",
+            "security_trust"
+          ],
+          "technical_methods": [
+            "applied_ai_ml",
+            "cloud_infrastructure",
+            "distributed_systems",
+            "realtime_systems",
+            "web_full_stack"
+          ],
+          "demonstrated_capabilities": [
+            "backend_engineering",
+            "frontend_engineering",
+            "infrastructure_devops",
+            "product_engineering",
+            "security_engineering",
+            "technical_product_leadership"
+          ]
+        },
+        "career": {
+          "career_stage": "unknown",
+          "founder_state": "current_founder",
+          "leadership_state": "unknown",
+          "career_functions": [
+            "data_ai",
+            "product",
+            "software_engineering"
+          ],
+          "career_delivery": [
+            "founded_venture"
+          ]
+        }
+      },
+      "source_families_by_dimension": {
+        "product_maturity": [
+          "projects"
+        ],
+        "technical_depth": [
+          "projects"
+        ],
+        "execution_scope": [
+          "application"
+        ],
+        "external_validation": [
+          "projects"
+        ],
+        "problem_differentiation": [
+          "projects"
+        ],
+        "market_domains": [
+          "projects"
+        ],
+        "technical_methods": [
+          "projects"
+        ],
+        "demonstrated_capabilities": [
+          "application",
+          "projects"
+        ],
+        "career_stage": [],
+        "founder_state": [
+          "application"
+        ],
+        "leadership_state": [],
+        "career_functions": [
+          "application"
+        ],
+        "career_delivery": [
+          "application"
+        ]
+      }
+    }
+  },
+  {
+    "case_ref": "case:v1:e316365206903394b7c04a407468961db0f73bc02bb16d341beaf4c9f41c5ec2",
+    "evidence": {
+      "application": [
+        {
+          "achievement_excerpt": "a live pilot ran daily for eight weeks across three small fleets, reduced failed deliveries, and won a technical impact award.",
+          "evidence_code": "application_01",
+          "evidence_refs": [
+            "application_01:achievement",
+            "application_01:experience"
+          ],
+          "experience_excerpt": "i designed and built the core platform end to end, including streaming data ingestion, explainable risk scoring, idempotent event processing, deployment, and operator workflows."
+        }
+      ],
+      "career": [],
+      "devpost": [
+        {
+          "demo_state": "observed",
+          "evidence_code": "devpost_01",
+          "evidence_refs": [
+            "devpost_01:demo",
+            "devpost_01:project"
+          ],
+          "project_excerpt": "a deployed routing platform ingests streaming events, predicts delivery risk, assigns retry safe interventions, and records operator outcomes. the observed demo completed ingestion, scoring, intervention, and follow up.",
+          "submission_state": "submitted",
+          "technology_codes": [
+            "applied_ai",
+            "data",
+            "python",
+            "web_backend"
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "activity_recency": "active_90d",
+          "age_band": "established",
+          "deployment_signal": "deployment_observed",
+          "description_excerpt": "a routing platform for intervention based delivery risk reduction",
+          "evidence_refs": [
+            "project_01:ownership",
+            "project_01:description",
+            "project_01:readme",
+            "project_01:release",
+            "project_01:deployment"
+          ],
+          "forks_band": "some",
+          "issues_band": "some",
+          "language_code": "python",
+          "productization_codes": [
+            "issues_enabled",
+            "license_present"
+          ],
+          "project_code": "project_01",
+          "readme_excerpt": "the platform ingests and deduplicates live route events, scores delivery risk, assigns retry safe interventions, and records operator outcomes. the released deployment supports the pilot workflow from event intake through follow up.",
+          "release_signal": "release_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "medium",
+          "stars_band": "notable",
+          "topic_codes": [
+            "data"
+          ]
+        }
+      ]
+    },
+    "label": {
+      "builder_level": "standout",
+      "cross_source_confidence": "high",
+      "reason_codes": [
+        "advanced_system_design",
+        "awards_or_recognition",
+        "corroborated_across_sources",
+        "differentiated_problem",
+        "external_adoption",
+        "production_operations",
+        "shipped_working_product",
+        "technically_substantial"
+      ],
+      "semantic_taxonomy": {
+        "project": {
+          "product_maturity": "production_evidence",
+          "technical_depth": "advanced",
+          "execution_scope": "primary_builder",
+          "external_validation": "meaningful",
+          "problem_differentiation": "differentiated",
+          "market_domains": [
+            "mobility_logistics"
+          ],
+          "technical_methods": [
+            "applied_ai_ml",
+            "automation_orchestration",
+            "data_engineering",
+            "realtime_systems",
+            "web_full_stack"
+          ],
+          "demonstrated_capabilities": [
+            "backend_engineering",
+            "data_ai_engineering",
+            "frontend_engineering",
+            "infrastructure_devops",
+            "product_engineering"
+          ]
+        },
+        "career": {
+          "career_stage": "unknown",
+          "founder_state": "no_founder_evidence",
+          "leadership_state": "unknown",
+          "career_functions": [
+            "data_ai",
+            "product",
+            "software_engineering"
+          ],
+          "career_delivery": [
+            "customer_delivery",
+            "shipped_products"
+          ]
+        }
+      },
+      "source_families_by_dimension": {
+        "product_maturity": [
+          "application",
+          "devpost",
+          "projects"
+        ],
+        "technical_depth": [
+          "application",
+          "devpost",
+          "projects"
+        ],
+        "execution_scope": [
+          "application"
+        ],
+        "external_validation": [
+          "application",
+          "projects"
+        ],
+        "problem_differentiation": [
+          "devpost",
+          "projects"
+        ],
+        "market_domains": [
+          "devpost",
+          "projects"
+        ],
+        "technical_methods": [
+          "application",
+          "devpost",
+          "projects"
+        ],
+        "demonstrated_capabilities": [
+          "application",
+          "devpost",
+          "projects"
+        ],
+        "career_stage": [],
+        "founder_state": [],
+        "leadership_state": [],
+        "career_functions": [
+          "application"
+        ],
+        "career_delivery": [
+          "application"
+        ]
+      }
+    }
+  },
+  {
+    "case_ref": "case:v1:ea0e8dafb5c73ac120cb37909279eb3459ae7579d1b9c9b5055f5d1d305959a3",
+    "evidence": {
+      "application": [
+        {
+          "achievement_excerpt": "",
+          "evidence_code": "application_01",
+          "evidence_refs": [
+            "application_01:experience"
+          ],
+          "experience_excerpt": "i designed an end-to-end voice automation system with event routing, planner and worker agents, memory retrieval, tool execution, desktop control, and workflow orchestration."
+        }
+      ],
+      "career": [],
+      "devpost": [],
+      "projects": [
+        {
+          "activity_recency": "active_90d",
+          "age_band": "established",
+          "deployment_signal": "none_observed",
+          "description_excerpt": "multi-agent desktop automation prototype",
+          "evidence_refs": [
+            "project_01:ownership",
+            "project_01:description",
+            "project_01:readme"
+          ],
+          "forks_band": "some",
+          "issues_band": "notable",
+          "language_code": "python",
+          "productization_codes": [
+            "issues_enabled",
+            "license_present"
+          ],
+          "project_code": "project_01",
+          "readme_excerpt": "prototype combines screen analysis, workflow nodes, event routing, tool execution, and operator controls across a browser interface and local service.",
+          "release_signal": "none_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "large",
+          "stars_band": "some",
+          "topic_codes": []
+        },
+        {
+          "activity_recency": "active_90d",
+          "age_band": "established",
+          "deployment_signal": "none_observed",
+          "description_excerpt": "voice-controlled spatial workspace prototype",
+          "evidence_refs": [
+            "project_02:ownership",
+            "project_02:description",
+            "project_02:readme"
+          ],
+          "forks_band": "none",
+          "issues_band": "none",
+          "language_code": "python",
+          "productization_codes": [
+            "issues_enabled"
+          ],
+          "project_code": "project_02",
+          "readme_excerpt": "prototype routes multilingual voice requests through specialized agents and renders structured results in an interactive spatial interface; it includes memory, ambiguity resolution, and multi-tool planning.",
+          "release_signal": "none_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "large",
+          "stars_band": "some",
+          "topic_codes": [
+            "ai_infrastructure",
+            "developer_tools"
+          ]
+        },
+        {
+          "activity_recency": "active_90d",
+          "age_band": "established",
+          "deployment_signal": "none_observed",
+          "description_excerpt": "music generation research prototype",
+          "evidence_refs": [
+            "project_03:ownership",
+            "project_03:description",
+            "project_03:readme"
+          ],
+          "forks_band": "none",
+          "issues_band": "some",
+          "language_code": "python",
+          "productization_codes": [
+            "issues_enabled"
+          ],
+          "project_code": "project_03",
+          "readme_excerpt": "research notes",
+          "release_signal": "none_observed",
+          "repository_relationship": "profile_owned_nonfork",
+          "size_band": "medium",
+          "stars_band": "none",
+          "topic_codes": []
+        }
+      ]
+    },
+    "label": {
+      "builder_level": "exploratory",
+      "cross_source_confidence": "high",
+      "reason_codes": [
+        "advanced_system_design",
+        "corroborated_across_sources",
+        "differentiated_problem",
+        "insufficient_evidence",
+        "prototype_only",
+        "technically_substantial"
+      ],
+      "semantic_taxonomy": {
+        "project": {
+          "product_maturity": "prototype",
+          "technical_depth": "advanced",
+          "execution_scope": "unknown",
+          "external_validation": "early_signal",
+          "problem_differentiation": "ambitious",
+          "market_domains": [
+            "developer_infrastructure",
+            "enterprise_operations",
+            "media_creative"
+          ],
+          "technical_methods": [
+            "applied_ai_ml",
+            "automation_orchestration",
+            "computer_vision",
+            "natural_language_processing",
+            "realtime_systems",
+            "spatial_computing",
+            "web_full_stack"
+          ],
+          "demonstrated_capabilities": [
+            "backend_engineering",
+            "data_ai_engineering",
+            "frontend_engineering",
+            "product_design",
+            "product_engineering"
+          ]
+        },
+        "career": {
+          "career_stage": "unknown",
+          "founder_state": "no_founder_evidence",
+          "leadership_state": "unknown",
+          "career_functions": [
+            "data_ai",
+            "product",
+            "software_engineering"
+          ],
+          "career_delivery": []
+        }
+      },
+      "source_families_by_dimension": {
+        "product_maturity": [
+          "projects"
+        ],
+        "technical_depth": [
+          "application",
+          "projects"
+        ],
+        "execution_scope": [],
+        "external_validation": [
+          "projects"
+        ],
+        "problem_differentiation": [
+          "application",
+          "projects"
+        ],
+        "market_domains": [
+          "projects"
+        ],
+        "technical_methods": [
+          "application",
+          "projects"
+        ],
+        "demonstrated_capabilities": [
+          "application",
+          "projects"
+        ],
+        "career_stage": [],
+        "founder_state": [],
+        "leadership_state": [],
+        "career_functions": [
+          "application"
+        ],
+        "career_delivery": []
+      }
+    }
+  }
+]

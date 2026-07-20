@@ -1,0 +1,86 @@
+{
+  "version": "event-release-v1",
+  "event": {
+    "key": "second-hackathon-synthetic",
+    "name": "START Krakow Synthetic Hackathon",
+    "starts_on": "2027-02-20",
+    "ends_on": "2027-02-21",
+    "timezone": "Europe/Warsaw",
+    "type": "hackathon"
+  },
+  "report_family": "hackathon-partner-talent-v1",
+  "privacy": {
+    "minimum_count": 7,
+    "policy_profile": "aggregate-partner-v1"
+  },
+  "sources": [
+    {
+      "role": "applications",
+      "required": true,
+      "adapter_id": "mapped-xlsx-v1",
+      "media_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "mapping_path": "mappings/luma-guests-v1.json",
+      "mapping_sha256": "e68fa61676b3c820de0974df3e99827ff2146ebd80416ad53b9643213ee76085",
+      "sheets": ["Applications 2027"],
+      "stable_id_strategy": "provider_id"
+    },
+    {
+      "role": "attendance",
+      "required": true,
+      "adapter_id": "mapped-xlsx-v1",
+      "media_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "mapping_path": "mappings/luma-supplement-v1.json",
+      "mapping_sha256": "f6f15e8123b04908348d4f27fe7418d8ee0b5fceab91fe53c201536f71f10d0f",
+      "sheets": ["Door scans"],
+      "stable_id_strategy": "canonical_content_key"
+    },
+    {
+      "role": "teams",
+      "required": false,
+      "adapter_id": "devpost-registrants-json-v1",
+      "media_type": "application/json",
+      "mapping_path": "mappings/devpost-registrants-v1.unverified.json",
+      "mapping_sha256": "34505663ae7c23b52226a458ffbb46a998adfeac1bc5ebbcb845fad168a75ae4",
+      "sheets": [],
+      "stable_id_strategy": "provider_id"
+    },
+    {
+      "role": "submissions",
+      "required": false,
+      "adapter_id": "devpost-projects-json-v1",
+      "media_type": "application/json",
+      "mapping_path": "mappings/devpost-projects-v1.unverified.json",
+      "mapping_sha256": "de723eb246e24fc31dbad969599e3e622a76fd9748b01ed550f329a462790bde",
+      "sheets": [],
+      "stable_id_strategy": "provider_id"
+    }
+  ],
+  "funnel": [
+    {
+      "stage": "applied",
+      "source_role": "applications",
+      "field": null,
+      "match": "any_row",
+      "accepted_values": []
+    },
+    {
+      "stage": "accepted",
+      "source_role": "attendance",
+      "field": "approval_status",
+      "match": "value_in",
+      "accepted_values": ["accepted", "confirmed"]
+    },
+    {
+      "stage": "present",
+      "source_role": "attendance",
+      "field": "checked_in_at",
+      "match": "non_empty",
+      "accepted_values": []
+    }
+  ],
+  "semantic": {
+    "taxonomy_version": "semantic-taxonomy-v1",
+    "metric_registry_version": "partner-metrics-v1"
+  },
+  "artifact_profile": "partner-brief-five-page-landscape-v1"
+}

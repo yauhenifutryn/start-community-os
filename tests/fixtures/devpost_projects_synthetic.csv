@@ -1,0 +1,2 @@
+title,submission_url,status,judging_status,highest_step_completed,created_at,about,try_it_out_url,demo_video_url,opt_in_prizes,built_with,custom_answers,team_colleges,member_count,member_names,member_emails
+Synthetic Project,https://devpost.com/software/synthetic,submitted,eligible,5,2026-07-09T12:00:00Z,Synthetic description,https://example.org,https://video.example.org,OpenAI,"Python, SQLite",{},Example University,3,"Ada Example, Babbage Example, Curie Example","ada+devpost@example.org, babbage@example.org, curie@example.org"

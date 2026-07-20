@@ -1,0 +1,27 @@
+{
+  "event": {
+    "key": "example-synthetic",
+    "name": "START Warsaw Synthetic Preview",
+    "starts_at": "2026-07-11T09:00:00Z",
+    "ends_at": "2026-07-11T18:00:00Z",
+    "type": "hackathon"
+  },
+  "partner_key": "partner-preview",
+  "ghost_identity_key_env": {},
+  "database": "output/example/community.sqlite",
+  "output_html": "output/example/dataroom-example-synthetic.html",
+  "output_pdf": "output/example/dataroom-example-synthetic.pdf",
+  "report_profile": "config/demo/talent-data-room.synthetic.json",
+  "demo_mode": true,
+  "sources": [
+    {
+      "path": "tests/fixtures/luma_guests_synthetic.csv",
+      "mapping": "mappings/luma-guests-v2.json",
+      "observed_at": "2026-07-11T19:00:00Z"
+    }
+  ],
+  "analytics": {
+    "enabled": false,
+    "host": "https://eu.i.posthog.com"
+  }
+}

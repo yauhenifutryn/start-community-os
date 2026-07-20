@@ -1,0 +1,9 @@
+# Example only. Install in the private operator environment after replacing paths.
+# This schedules daily UTC deletion of expired caches, enrichment, raw source uploads,
+# and all derivatives of an expired source. Cleanup and operator mutations share the protected
+# root's .operator-mutation.lock; every replica must mount the same root.
+SHELL=/bin/sh
+PATH=/usr/local/bin:/usr/bin:/bin
+CRON_TZ=UTC
+
+15 2 * * * umask 077; cd /app && /usr/bin/env python3 -m community_os privacy-cleanup --root /srv/start-community/operator-data >> /var/log/start-community/privacy-cleanup.log 2>&1

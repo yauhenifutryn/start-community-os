@@ -1,0 +1,22 @@
+{
+  "active_experience_title": "Senior Software Engineer",
+  "active_experience_management_level": "Senior",
+  "active_experience_department": "Engineering",
+  "company_type": "Privately Held",
+  "company_size_range": "201-500 employees",
+  "company_industry": "Software Development",
+  "experience": [
+    {
+      "position_title": "Co-founder and CTO",
+      "management_level": "C-Suite",
+      "active_experience": 0
+    },
+    {
+      "position_title": "Senior Software Engineer",
+      "management_level": "Senior",
+      "active_experience": 1
+    }
+  ],
+  "full_name": "Must never leave adapter",
+  "profile_url": "https://www.linkedin.com/in/fixture-builder"
+}

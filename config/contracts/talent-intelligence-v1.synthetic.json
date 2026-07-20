@@ -1,0 +1,218 @@
+{
+  "metadata": {
+    "contract_version": "talent-intelligence-v1",
+    "title": "START Warsaw Talent Intelligence",
+    "event_key": "openai-hackathon-2026",
+    "event_name": "OpenAI Hackathon",
+    "event_date": "2026-07-11",
+    "generated_at": "2026-07-12T20:00:00Z",
+    "synthetic": true,
+    "publication_state": "review_ready"
+  },
+  "privacy": {
+    "mode": "aggregate_only",
+    "minimum_count": 5,
+    "pii_included": false,
+    "state": "withheld_cells"
+  },
+  "cohort": {
+    "unit": "people",
+    "denominator": {"value": 286, "privacy": "published", "reason": null},
+    "stages": [
+      {"key": "valid_applicants", "label": "Valid applicants", "order": 1, "count": {"value": 286, "privacy": "published", "reason": null}},
+      {"key": "eligible", "label": "Eligible", "order": 2, "count": {"value": 270, "privacy": "published", "reason": null}},
+      {"key": "accepted", "label": "Accepted", "order": 3, "count": {"value": 80, "privacy": "published", "reason": null}},
+      {"key": "checked_in", "label": "Checked in", "order": 4, "count": {"value": 70, "privacy": "published", "reason": null}},
+      {"key": "submitted", "label": "Submitted", "order": 5, "count": {"value": 55, "privacy": "published", "reason": null}}
+    ]
+  },
+  "selection_outcomes": {
+    "unit": "people",
+    "denominator_key": "valid_applicants",
+    "categories": [
+      {"key": "accepted", "label": "Accepted", "reason_state": "observed", "count": {"value": 80, "privacy": "published", "reason": null}},
+      {"key": "waitlisted_or_held", "label": "Waitlisted or held", "reason_state": "observed", "count": {"value": 30, "privacy": "published", "reason": null}},
+      {"key": "not_accepted_reason_unknown", "label": "Not accepted, reason unknown", "reason_state": "unknown", "count": {"value": 166, "privacy": "published", "reason": null}},
+      {"key": "withdrawn", "label": "Withdrawn", "reason_state": "observed", "count": {"value": 10, "privacy": "published", "reason": null}}
+    ]
+  },
+  "dimensions": [
+    {
+      "key": "professional_identity",
+      "label": "Professional identity",
+      "mode": "overlapping",
+      "denominator_key": "valid_applicants",
+      "known_count": {"value": 286, "privacy": "published", "reason": null},
+      "items": [
+        {"key": "founder_cofounder", "label": "Founder or co-founder", "count": {"value": 48, "privacy": "published", "reason": null}, "definition": "Evidence of founding or co-founding a company or product venture", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "startup_operator", "label": "Startup executive or operator", "count": {"value": 62, "privacy": "published", "reason": null}, "definition": "Operating experience in an early-stage company", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "flagship_technology_company", "label": "Flagship technology-company professional", "count": {"value": 36, "privacy": "published", "reason": null}, "definition": "Experience at an employer in the reviewed flagship technology taxonomy", "evidence_sources": ["professional_profile", "reviewed_taxonomy"]},
+        {"key": "venture_backed_startup", "label": "Venture-backed startup professional", "count": {"value": 50, "privacy": "published", "reason": null}, "definition": "Experience at a reviewed venture-backed startup", "evidence_sources": ["professional_profile", "reviewed_taxonomy"]},
+        {"key": "researcher_academic", "label": "Researcher or academic", "count": {"value": 24, "privacy": "published", "reason": null}, "definition": "Current research or academic activity", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "independent_builder", "label": "Independent builder", "count": {"value": 72, "privacy": "published", "reason": null}, "definition": "Independent product, portfolio, or public technical work", "evidence_sources": ["application", "github"]},
+        {"key": "student_early_career", "label": "Student or early career", "count": {"value": 80, "privacy": "published", "reason": null}, "definition": "Currently studying or at the beginning of a professional career", "evidence_sources": ["application"]},
+        {"key": "insufficient_evidence", "label": "Insufficient professional evidence", "count": {"value": 66, "privacy": "published", "reason": null}, "definition": "Available sources do not support a stronger professional classification", "evidence_sources": ["application"]}
+      ]
+    },
+    {
+      "key": "seniority",
+      "label": "Seniority",
+      "mode": "exclusive",
+      "denominator_key": "valid_applicants",
+      "known_count": {"value": 286, "privacy": "published", "reason": null},
+      "items": [
+        {"key": "student", "label": "Student", "count": {"value": 58, "privacy": "published", "reason": null}, "definition": "Currently enrolled and without a stable professional level", "evidence_sources": ["application"]},
+        {"key": "junior", "label": "Junior", "count": {"value": 52, "privacy": "published", "reason": null}, "definition": "Up to two years of relevant professional experience", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "mid_level", "label": "Mid-level", "count": {"value": 70, "privacy": "published", "reason": null}, "definition": "Three to five years of relevant professional experience", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "senior", "label": "Senior", "count": {"value": 56, "privacy": "published", "reason": null}, "definition": "Six or more years of relevant professional experience", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "lead_staff_executive", "label": "Lead, staff, principal, or executive", "count": {"value": 24, "privacy": "published", "reason": null}, "definition": "Current role carries recognized technical or organizational leadership scope", "evidence_sources": ["professional_profile", "reviewed_taxonomy"]},
+        {"key": "unknown", "label": "Unknown", "count": {"value": 26, "privacy": "published", "reason": null}, "definition": "Available sources do not support a seniority classification", "evidence_sources": ["application"]}
+      ]
+    },
+    {
+      "key": "functional_role",
+      "label": "Functional role",
+      "mode": "overlapping",
+      "denominator_key": "valid_applicants",
+      "known_count": {"value": 286, "privacy": "published", "reason": null},
+      "items": [
+        {"key": "engineering", "label": "Engineering", "count": {"value": 118, "privacy": "published", "reason": null}, "definition": "Software, platform, infrastructure, or systems engineering", "evidence_sources": ["application", "github"]},
+        {"key": "data_ai", "label": "Data and AI", "count": {"value": 84, "privacy": "published", "reason": null}, "definition": "Machine learning, data science, analytics, or data engineering", "evidence_sources": ["application", "github", "devpost"]},
+        {"key": "product", "label": "Product", "count": {"value": 62, "privacy": "published", "reason": null}, "definition": "Product management, discovery, or product strategy", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "design", "label": "Design", "count": {"value": 30, "privacy": "published", "reason": null}, "definition": "Product, interaction, visual, or service design", "evidence_sources": ["application", "portfolio"]},
+        {"key": "commercial", "label": "Commercial and growth", "count": {"value": 42, "privacy": "published", "reason": null}, "definition": "Sales, marketing, partnerships, operations, or growth", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "research", "label": "Research", "count": {"value": 24, "privacy": "published", "reason": null}, "definition": "Academic or industrial research activity", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "unknown", "label": "Unknown", "count": {"value": 46, "privacy": "published", "reason": null}, "definition": "Available sources do not support a functional classification", "evidence_sources": ["application"]}
+      ]
+    },
+    {
+      "key": "employer_pedigree",
+      "label": "Employer pedigree",
+      "mode": "exclusive",
+      "denominator_key": "valid_applicants",
+      "known_count": {"value": 286, "privacy": "published", "reason": null},
+      "items": [
+        {"key": "flagship_technology", "label": "Flagship technology company", "count": {"value": 36, "privacy": "published", "reason": null}, "definition": "Current or recent employer in the reviewed flagship technology taxonomy", "evidence_sources": ["professional_profile", "reviewed_taxonomy"]},
+        {"key": "venture_backed_startup", "label": "Venture-backed startup", "count": {"value": 50, "privacy": "published", "reason": null}, "definition": "Current or recent employer in the reviewed venture-backed taxonomy", "evidence_sources": ["professional_profile", "reviewed_taxonomy"]},
+        {"key": "established_scaleup", "label": "Established scale-up", "count": {"value": 38, "privacy": "published", "reason": null}, "definition": "Current or recent employer in the reviewed scale-up taxonomy", "evidence_sources": ["professional_profile", "reviewed_taxonomy"]},
+        {"key": "established_corporate", "label": "Established corporate", "count": {"value": 52, "privacy": "published", "reason": null}, "definition": "Current or recent employer in an established non-startup organization", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "academia_research", "label": "Academia or research", "count": {"value": 24, "privacy": "published", "reason": null}, "definition": "Current primary affiliation is academic or research-based", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "self_employed_founder", "label": "Founder or self-employed", "count": {"value": 42, "privacy": "published", "reason": null}, "definition": "Current primary work is a founded venture or independent practice", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "student_no_employer", "label": "Student or no current employer", "count": {"value": 28, "privacy": "published", "reason": null}, "definition": "No current employer is expected from the available career state", "evidence_sources": ["application"]},
+        {"key": "unknown", "label": "Unknown", "count": {"value": 16, "privacy": "published", "reason": null}, "definition": "Employer evidence is unavailable or insufficient", "evidence_sources": ["application"]}
+      ]
+    },
+    {
+      "key": "builder_evidence",
+      "label": "Builder evidence",
+      "mode": "overlapping",
+      "denominator_key": "valid_applicants",
+      "known_count": {"value": 286, "privacy": "published", "reason": null},
+      "items": [
+        {"key": "founded_company", "label": "Founded a company", "count": {"value": 48, "privacy": "published", "reason": null}, "definition": "Evidence of founding or co-founding a company", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "shipped_product", "label": "Shipped a real product", "count": {"value": 112, "privacy": "published", "reason": null}, "definition": "Evidence of a product deployed or used beyond a concept", "evidence_sources": ["application", "devpost", "portfolio"]},
+        {"key": "active_github", "label": "Active public GitHub", "count": {"value": 90, "privacy": "published", "reason": null}, "definition": "Recent public repository activity or contributions", "evidence_sources": ["github"]},
+        {"key": "open_source", "label": "Meaningful open-source contribution", "count": {"value": 34, "privacy": "published", "reason": null}, "definition": "Public contribution evidence beyond an isolated personal repository", "evidence_sources": ["github"]},
+        {"key": "technical_leadership", "label": "Technical leadership", "count": {"value": 56, "privacy": "published", "reason": null}, "definition": "Evidence of leading technical delivery, architecture, or teams", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "startup_operating", "label": "Startup operating experience", "count": {"value": 82, "privacy": "published", "reason": null}, "definition": "Evidence of working inside an early-stage company", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "research_publication", "label": "Research or publication evidence", "count": {"value": 18, "privacy": "published", "reason": null}, "definition": "Evidence of formal research, publication, or equivalent technical inquiry", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "traction_evidence", "label": "Users, revenue, adoption, or deployment", "count": {"value": 26, "privacy": "published", "reason": null}, "definition": "Reviewed evidence of external adoption or deployment", "evidence_sources": ["application", "portfolio"]},
+        {"key": "insufficient_evidence", "label": "Insufficient builder evidence", "count": {"value": 70, "privacy": "published", "reason": null}, "definition": "Available sources do not yet support a builder-evidence classification", "evidence_sources": ["application"]}
+      ]
+    },
+    {
+      "key": "capabilities",
+      "label": "Technical and product capabilities",
+      "mode": "overlapping",
+      "denominator_key": "valid_applicants",
+      "known_count": {"value": 286, "privacy": "published", "reason": null},
+      "items": [
+        {"key": "backend", "label": "Backend and systems", "count": {"value": 98, "privacy": "published", "reason": null}, "definition": "Backend services, distributed systems, or systems programming", "evidence_sources": ["application", "github", "devpost"]},
+        {"key": "frontend", "label": "Frontend and web", "count": {"value": 86, "privacy": "published", "reason": null}, "definition": "Web interfaces and client-side application development", "evidence_sources": ["application", "github", "devpost"]},
+        {"key": "ai_ml", "label": "AI and machine learning", "count": {"value": 104, "privacy": "published", "reason": null}, "definition": "Applied machine learning, model systems, or AI product development", "evidence_sources": ["application", "github", "devpost"]},
+        {"key": "data", "label": "Data", "count": {"value": 65, "privacy": "published", "reason": null}, "definition": "Data engineering, analytics, or data science", "evidence_sources": ["application", "github"]},
+        {"key": "cloud", "label": "Cloud and infrastructure", "count": {"value": 72, "privacy": "published", "reason": null}, "definition": "Cloud platforms, infrastructure, deployment, or reliability", "evidence_sources": ["application", "github", "devpost"]},
+        {"key": "mobile", "label": "Mobile", "count": {"value": 42, "privacy": "published", "reason": null}, "definition": "Native or cross-platform mobile product development", "evidence_sources": ["application", "github", "devpost"]},
+        {"key": "product", "label": "Product discovery and delivery", "count": {"value": 58, "privacy": "published", "reason": null}, "definition": "Product discovery, prioritization, and cross-functional delivery", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "growth", "label": "Growth and commercial", "count": {"value": 32, "privacy": "published", "reason": null}, "definition": "Growth, go-to-market, sales, or partnership capability", "evidence_sources": ["application", "professional_profile"]},
+        {"key": "security", "label": "Security", "count": {"value": 28, "privacy": "published", "reason": null}, "definition": "Application, infrastructure, or information security", "evidence_sources": ["application", "github"]},
+        {"key": "unknown", "label": "Unknown", "count": {"value": 38, "privacy": "published", "reason": null}, "definition": "Available sources do not support a capability classification", "evidence_sources": ["application"]}
+      ]
+    },
+    {
+      "key": "domains",
+      "label": "Domain experience and build themes",
+      "mode": "overlapping",
+      "denominator_key": "valid_applicants",
+      "known_count": {"value": 286, "privacy": "published", "reason": null},
+      "items": [
+        {"key": "applied_ai", "label": "Applied AI", "count": {"value": 126, "privacy": "published", "reason": null}, "definition": "AI-enabled products or applied model systems", "evidence_sources": ["application", "devpost"]},
+        {"key": "developer_tools", "label": "Developer tools", "count": {"value": 52, "privacy": "published", "reason": null}, "definition": "Tools or infrastructure for technical users", "evidence_sources": ["application", "devpost", "github"]},
+        {"key": "fintech", "label": "Fintech", "count": {"value": 44, "privacy": "published", "reason": null}, "definition": "Financial services, payments, risk, or financial infrastructure", "evidence_sources": ["application", "devpost"]},
+        {"key": "cybersecurity", "label": "Cybersecurity", "count": {"value": 28, "privacy": "published", "reason": null}, "definition": "Security products, controls, or security operations", "evidence_sources": ["application", "devpost"]},
+        {"key": "marketplaces", "label": "Marketplaces and commerce", "count": {"value": 34, "privacy": "published", "reason": null}, "definition": "Marketplaces, commerce, or transaction products", "evidence_sources": ["application", "devpost"]},
+        {"key": "climate", "label": "Climate and sustainability", "count": {"value": 24, "privacy": "published", "reason": null}, "definition": "Climate, energy, or sustainability applications", "evidence_sources": ["application", "devpost"]},
+        {"key": "health", "label": "Health", "count": {"value": 32, "privacy": "published", "reason": null}, "definition": "Health, wellness, care, or life-science applications", "evidence_sources": ["application", "devpost"]},
+        {"key": "enterprise", "label": "Enterprise workflows", "count": {"value": 58, "privacy": "published", "reason": null}, "definition": "Business software, automation, or operational workflows", "evidence_sources": ["application", "devpost"]},
+        {"key": "specialized_rare_theme", "label": "Specialized rare theme", "count": {"value": null, "privacy": "withheld", "reason": "Below publication threshold"}, "definition": "A narrow domain withheld to prevent identification", "evidence_sources": ["application"]},
+        {"key": "unknown", "label": "Unknown", "count": {"value": 40, "privacy": "published", "reason": null}, "definition": "Available sources do not support a domain classification", "evidence_sources": ["application"]}
+      ]
+    },
+    {
+      "key": "cross_dimension_signals",
+      "label": "Cross-dimensional application evidence",
+      "mode": "overlapping",
+      "denominator_key": "valid_applicants",
+      "known_count": {"value": 286, "privacy": "published", "reason": null},
+      "items": [
+        {"key": "founder_evidence", "label": "Founder or co-founder evidence", "count": {"value": 60, "privacy": "published", "reason": null}, "definition": "Application evidence described founding or co-founding a company or product venture", "evidence_sources": ["application"]},
+        {"key": "founder_evidence_not_recorded", "label": "Founder evidence not recorded", "count": {"value": 226, "privacy": "published", "reason": null}, "definition": "The positive founder signal was not recorded; this is not a negative assessment", "evidence_sources": ["application"]},
+        {"key": "student_stage", "label": "Student stage", "count": {"value": 58, "privacy": "published", "reason": null}, "definition": "Application evidence recorded the primary stage as student", "evidence_sources": ["application"]},
+        {"key": "technical_function", "label": "Technical function", "count": {"value": 203, "privacy": "published", "reason": null}, "definition": "Application evidence recorded engineering, data, or AI work; this is a role signal, not a technical-depth score", "evidence_sources": ["application"]},
+        {"key": "technical_function_not_recorded", "label": "Technical function not recorded", "count": {"value": 83, "privacy": "published", "reason": null}, "definition": "The positive technical-function signal was not recorded; this is not a negative assessment", "evidence_sources": ["application"]},
+        {"key": "shipped_product_evidence", "label": "Shipped-product evidence", "count": {"value": 96, "privacy": "published", "reason": null}, "definition": "Application evidence described shipping, deployment, users, or customers; delivery was not independently verified", "evidence_sources": ["application"]},
+        {"key": "shipped_product_evidence_not_recorded", "label": "Shipped-product evidence not recorded", "count": {"value": 190, "privacy": "published", "reason": null}, "definition": "The positive shipped-product signal was not recorded; this is not a negative assessment", "evidence_sources": ["application"]}
+      ]
+    }
+  ],
+  "intersections": [
+    {"key": "founder_technical_shipped_product_exact", "label": "Founder + technical + shipped product", "count": {"value": 20, "privacy": "published", "reason": null}, "component_keys": ["cross_dimension_signals.founder_evidence", "cross_dimension_signals.technical_function", "cross_dimension_signals.shipped_product_evidence"], "evidence_sources": ["application"]},
+    {"key": "founder_technical_exact", "label": "Founder + technical only", "count": {"value": 18, "privacy": "published", "reason": null}, "component_keys": ["cross_dimension_signals.founder_evidence", "cross_dimension_signals.technical_function", "cross_dimension_signals.shipped_product_evidence_not_recorded"], "evidence_sources": ["application"]},
+    {"key": "founder_shipped_product_exact", "label": "Founder + shipped product only", "count": {"value": 10, "privacy": "published", "reason": null}, "component_keys": ["cross_dimension_signals.founder_evidence", "cross_dimension_signals.technical_function_not_recorded", "cross_dimension_signals.shipped_product_evidence"], "evidence_sources": ["application"]},
+    {"key": "founder_only_exact", "label": "Founder evidence only", "count": {"value": 12, "privacy": "published", "reason": null}, "component_keys": ["cross_dimension_signals.founder_evidence", "cross_dimension_signals.technical_function_not_recorded", "cross_dimension_signals.shipped_product_evidence_not_recorded"], "evidence_sources": ["application"]},
+    {"key": "technical_shipped_product_exact", "label": "Technical + shipped product only", "count": {"value": 50, "privacy": "published", "reason": null}, "component_keys": ["cross_dimension_signals.founder_evidence_not_recorded", "cross_dimension_signals.technical_function", "cross_dimension_signals.shipped_product_evidence"], "evidence_sources": ["application"]},
+    {"key": "technical_only_exact", "label": "Technical function only", "count": {"value": 115, "privacy": "published", "reason": null}, "component_keys": ["cross_dimension_signals.founder_evidence_not_recorded", "cross_dimension_signals.technical_function", "cross_dimension_signals.shipped_product_evidence_not_recorded"], "evidence_sources": ["application"]},
+    {"key": "shipped_product_only_exact", "label": "Shipped-product evidence only", "count": {"value": 16, "privacy": "published", "reason": null}, "component_keys": ["cross_dimension_signals.founder_evidence_not_recorded", "cross_dimension_signals.technical_function_not_recorded", "cross_dimension_signals.shipped_product_evidence"], "evidence_sources": ["application"]},
+    {"key": "neither_recorded_exact", "label": "No recorded signal among these three", "count": {"value": 45, "privacy": "published", "reason": null}, "component_keys": ["cross_dimension_signals.founder_evidence_not_recorded", "cross_dimension_signals.technical_function_not_recorded", "cross_dimension_signals.shipped_product_evidence_not_recorded"], "evidence_sources": ["application"]},
+    {"key": "student_shipped_product", "label": "Student stage + shipped-product evidence", "count": {"value": 15, "privacy": "published", "reason": null}, "component_keys": ["cross_dimension_signals.student_stage", "cross_dimension_signals.shipped_product_evidence"], "evidence_sources": ["application"]}
+  ],
+  "qualitative_themes": [
+    {"key": "production_systems", "label": "Production systems", "statement": "A material segment describes shipping or operating software beyond prototype stage", "count": {"value": 64, "privacy": "published", "reason": null}, "confidence": "medium", "review_state": "synthetic", "evidence_sources": ["application", "devpost"]},
+    {"key": "external_traction", "label": "External traction", "statement": "A reviewed segment describes users, revenue, adoption, or deployment evidence", "count": {"value": 26, "privacy": "published", "reason": null}, "confidence": "medium", "review_state": "synthetic", "evidence_sources": ["application", "portfolio"]},
+    {"key": "cross_functional_builders", "label": "Cross-functional builders", "statement": "A meaningful segment combines technical delivery with product or commercial scope", "count": {"value": 48, "privacy": "published", "reason": null}, "confidence": "medium", "review_state": "synthetic", "evidence_sources": ["application", "professional_profile"]},
+    {"key": "technical_leadership", "label": "Technical leadership", "statement": "The illustrative cohort includes a visible layer of technical leaders and senior operators", "count": {"value": 56, "privacy": "published", "reason": null}, "confidence": "medium", "review_state": "synthetic", "evidence_sources": ["application", "professional_profile"]},
+    {"key": "rare_distinction", "label": "Rare distinction", "statement": "A distinctive achievement exists but is withheld because the group is too small", "count": {"value": null, "privacy": "withheld", "reason": "Below publication threshold"}, "confidence": "low", "review_state": "synthetic", "evidence_sources": ["application"]}
+  ],
+  "evidence_coverage": [
+    {"source": "application", "label": "Application evidence", "eligible": {"value": 286, "privacy": "published", "reason": null}, "covered": {"value": 286, "privacy": "published", "reason": null}, "state": "ready", "note": "Applicant scope and self-reported evidence are structurally available"},
+    {"source": "devpost", "label": "Submission evidence", "eligible": {"value": 80, "privacy": "published", "reason": null}, "covered": {"value": 55, "privacy": "published", "reason": null}, "state": "partial", "note": "Submission evidence applies only to the accepted participant path"},
+    {"source": "github", "label": "Public builder evidence", "eligible": {"value": 210, "privacy": "published", "reason": null}, "covered": {"value": 142, "privacy": "published", "reason": null}, "state": "partial", "note": "Synthetic coverage illustrates applicant-supplied public profiles and review gaps"},
+    {"source": "coresignal", "label": "Professional-profile enrichment", "eligible": {"value": 286, "privacy": "published", "reason": null}, "covered": {"value": 0, "privacy": "published", "reason": null}, "state": "off", "note": "Live enrichment remains off until notice confirmation and explicit approval"}
+  ],
+  "readiness": [
+    {"component": "synthetic_contract", "state": "ready", "required": true, "note": "All illustrative aggregates reconcile"},
+    {"component": "privacy_validation", "state": "ready", "required": true, "note": "Aggregate-only rules and withholding are active"},
+    {"component": "real_semantic_classification", "state": "pending", "required": false, "note": "No real applicant classification has been run"},
+    {"component": "coresignal_enrichment", "state": "off", "required": false, "note": "Awaiting notice confirmation and explicit approval"}
+  ],
+  "feature_gates": [
+    {"feature": "gated_talent_appendix", "state": "disabled", "required": true, "note": "Named disclosure, access control, audit, and deletion requirements are not approved"}
+  ],
+  "source_notes": [
+    {"source": "luma", "state": "schema_reference", "note": "Applicant, professional, profile, approval, check-in, and consent fields shape this fixture"},
+    {"source": "devpost", "state": "schema_reference", "note": "Project, team, technology, and artifact fields shape this fixture"},
+    {"source": "track_preferences", "state": "schema_reference", "note": "Team, track, and organizer fields shape this fixture"},
+    {"source": "github", "state": "pending", "note": "Synthetic builder coverage only; live enrichment has not run"},
+    {"source": "coresignal", "state": "off", "note": "Professional enrichment is disabled pending the documented prerequisite"}
+  ]
+}

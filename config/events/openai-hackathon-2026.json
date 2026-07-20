@@ -1,0 +1,86 @@
+{
+  "version": "event-release-v1",
+  "event": {
+    "key": "openai-hackathon-2026",
+    "name": "OpenAI Hackathon",
+    "starts_on": "2026-07-11",
+    "ends_on": "2026-07-11",
+    "timezone": "Europe/Warsaw",
+    "type": "hackathon"
+  },
+  "report_family": "hackathon-partner-talent-v1",
+  "privacy": {
+    "minimum_count": 5,
+    "policy_profile": "aggregate-partner-v1"
+  },
+  "sources": [
+    {
+      "role": "applications",
+      "required": true,
+      "adapter_id": "luma-csv-v2",
+      "media_type": "text/csv",
+      "mapping_path": "mappings/luma-guests-v2.json",
+      "mapping_sha256": "be9d41ca6f05f925b330ca1ddf2816de2aceb9b6957b39bdb4f62777c3430a5e",
+      "sheets": [],
+      "stable_id_strategy": "provider_id"
+    },
+    {
+      "role": "attendance",
+      "required": true,
+      "adapter_id": "luma-supplement-csv-v1",
+      "media_type": "text/csv",
+      "mapping_path": "mappings/luma-supplement-v1.json",
+      "mapping_sha256": "f6f15e8123b04908348d4f27fe7418d8ee0b5fceab91fe53c201536f71f10d0f",
+      "sheets": [],
+      "stable_id_strategy": "canonical_content_key"
+    },
+    {
+      "role": "preferences",
+      "required": true,
+      "adapter_id": "track-preferences-xlsx-v1",
+      "media_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "mapping_path": "mappings/track-preferences-v1.json",
+      "mapping_sha256": "f63002136433a2d2c4d51508f278ed438f6b91fed36edab2b7234ea7c094791f",
+      "sheets": ["Submissions"],
+      "stable_id_strategy": "provider_id"
+    },
+    {
+      "role": "submissions",
+      "required": true,
+      "adapter_id": "devpost-final-xlsx-v1",
+      "media_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "mapping_path": "mappings/devpost-final-v1.json",
+      "mapping_sha256": "2c6c2dceb3ef114bbd4e5355f94ef11b7a4b347bef14f20ca645c9a8edcf3430",
+      "sheets": ["solidgate", "boski"],
+      "stable_id_strategy": "provider_id"
+    }
+  ],
+  "funnel": [
+    {
+      "stage": "applied",
+      "source_role": "applications",
+      "field": null,
+      "match": "any_row",
+      "accepted_values": []
+    },
+    {
+      "stage": "accepted",
+      "source_role": "attendance",
+      "field": "approval_status",
+      "match": "value_in",
+      "accepted_values": ["approved"]
+    },
+    {
+      "stage": "present",
+      "source_role": "attendance",
+      "field": "checked_in_at",
+      "match": "non_empty",
+      "accepted_values": []
+    }
+  ],
+  "semantic": {
+    "taxonomy_version": "semantic-taxonomy-v1",
+    "metric_registry_version": "partner-metrics-v1"
+  },
+  "artifact_profile": "partner-brief-five-page-landscape-v1"
+}

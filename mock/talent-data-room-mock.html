@@ -1,0 +1,426 @@
+<meta charset="utf-8">
+<title>START Warsaw — Talent Data Room (Mock)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --paper:#f9f9fb; --panel:#f1f1f6; --ink:#101228; --muted:#565a72; --faint:#8b8ea3;
+    --line:#e3e4ec; --line-strong:#c9cbd8;
+    --navy:#010d3e; --crimson:#a0012a;
+    --c1:#a0012a; --c2:#2f5fc4; --c3:#00876f; --c4:#9a6b00; --c5:#6d4fa8; --c6:#a1571c;
+    --dot-off:#c9cbd8;
+    --serif:Charter,"Iowan Old Style",Georgia,serif;
+    --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{background:#e8e8ee}
+  body{
+    margin:0; font-family:var(--sans); color:var(--ink); background:var(--paper);
+    font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased;
+    max-width:1020px; margin:0 auto; box-shadow:0 0 0 1px var(--line), 0 24px 60px rgba(16,18,40,.10);
+  }
+  ::selection{background:rgba(160,1,42,.14)}
+  a{color:inherit}
+
+  /* ---------- masthead ---------- */
+  .cover{background:var(--navy); color:#fcfcfc; padding:56px 64px 48px}
+  .cover .brandrow{display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap}
+  .eyebrow{font-size:11px; letter-spacing:.22em; text-transform:uppercase; font-weight:600; color:rgba(252,252,252,.65)}
+  .mockchip{font-size:11px; letter-spacing:.08em; text-transform:uppercase; font-weight:600;
+    border:1px solid rgba(252,252,252,.35); border-radius:999px; padding:3px 12px; color:rgba(252,252,252,.85)}
+  .cover h1{font-size:clamp(30px,4.6vw,44px); line-height:1.08; margin:22px 0 14px; font-weight:700; letter-spacing:-.02em; text-wrap:balance}
+  .cover h1 em{font-style:normal; color:#e88aa2}
+  .coverline{color:rgba(252,252,252,.72); max-width:62ch; margin:0}
+  .covermeta{display:flex; gap:28px; flex-wrap:wrap; margin-top:34px; padding-top:18px; border-top:1px solid rgba(252,252,252,.18)}
+  .covermeta div{font-size:13px; color:rgba(252,252,252,.62)}
+  .covermeta strong{display:block; color:#fcfcfc; font-weight:600; font-size:14px}
+
+  /* ---------- structure ---------- */
+  section{padding:44px 64px; border-top:1px solid var(--line)}
+  .sechead{display:flex; align-items:baseline; gap:14px; margin-bottom:6px}
+  .secnum{font-size:12px; font-weight:600; color:var(--crimson); font-variant-numeric:tabular-nums; letter-spacing:.06em}
+  h2{font-size:21px; margin:0; font-weight:700; letter-spacing:-.01em}
+  .seclede{color:var(--muted); max-width:68ch; margin:6px 0 0 0}
+  h3{font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:0 0 14px}
+
+  /* methodology strip */
+  .method{display:flex; gap:0; flex-wrap:wrap; padding:0 64px; border-top:1px solid var(--line); background:var(--panel)}
+  .method div{flex:1 1 220px; padding:16px 20px 16px 0; font-size:12.5px; color:var(--muted)}
+  .method div + div{padding-left:20px; border-left:1px solid var(--line-strong)}
+  .method strong{color:var(--ink); font-weight:600}
+
+  /* headline figures */
+  .hero-fig{font-size:56px; font-weight:700; letter-spacing:-.03em; line-height:1; margin:26px 0 4px}
+  .hero-cap{color:var(--muted); font-size:14px}
+  .figrow{display:flex; flex-wrap:wrap; margin-top:34px; border-top:1px solid var(--line)}
+  .fig{flex:1 1 160px; padding:16px 24px 0 0}
+  .fig + .fig{padding-left:24px; border-left:1px solid var(--line)}
+  .fig .v{font-size:26px; font-weight:650; letter-spacing:-.01em}
+  .fig .l{font-size:12.5px; color:var(--muted); margin-top:2px}
+
+  /* ---------- funnel ---------- */
+  .funnel{display:flex; gap:0; align-items:flex-end; margin-top:30px; overflow-x:auto; padding-bottom:6px}
+  .stage{flex:0 0 auto; min-width:150px; padding-right:18px}
+  .stage + .stage{padding-left:18px; border-left:1px solid var(--line)}
+  .stage .count{font-size:24px; font-weight:650; font-variant-numeric:tabular-nums}
+  .stage .name{font-size:12.5px; color:var(--muted); margin-bottom:10px}
+  .conv{font-size:12px; color:var(--crimson); font-weight:600; margin-bottom:8px}
+  .dots{display:grid; grid-template-columns:repeat(var(--cols,12),6px); gap:3px; align-content:end}
+  .dots i{width:6px; height:6px; border-radius:50%; background:var(--dot-off); display:block}
+  .dots i.on{background:var(--crimson)}
+  .funnel-key{display:flex; gap:22px; margin-top:18px; font-size:12.5px; color:var(--muted)}
+  .funnel-key span{display:inline-flex; align-items:center; gap:7px}
+  .kdot{width:8px; height:8px; border-radius:50%; display:inline-block}
+
+  /* ---------- bar lists ---------- */
+  .cols2{display:grid; grid-template-columns:1fr 1fr; gap:0 56px; margin-top:28px}
+  @media (max-width:760px){ .cols2{grid-template-columns:1fr} section{padding:36px 24px} .cover{padding:40px 24px} .method{padding:0 24px} }
+  .barlist{display:grid; gap:11px}
+  .bar{display:grid; grid-template-columns:150px 1fr 74px; align-items:center; gap:12px; font-size:13.5px}
+  .bar .track{height:14px; position:relative}
+  .bar .fill{position:absolute; inset:0 auto 0 0; background:var(--c1); border-radius:0 4px 4px 0}
+  .bar.alt .fill{background:var(--c2)}
+  .bar .num{color:var(--muted); font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap}
+  .note{font-size:12px; color:var(--faint); margin-top:12px}
+  .rank{display:grid; gap:0; font-size:13.5px}
+  .rank div{display:flex; justify-content:space-between; gap:12px; padding:8px 0; border-bottom:1px solid var(--line)}
+  .rank div span:last-child{color:var(--muted); font-variant-numeric:tabular-nums}
+
+  /* ---------- signal ---------- */
+  .tiers{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:0; margin-top:26px; border-top:1px solid var(--line)}
+  .tier{padding:18px 22px 0 0}
+  .tier + .tier{padding-left:22px; border-left:1px solid var(--line)}
+  .tier .v{font-size:30px; font-weight:700; letter-spacing:-.02em; color:var(--crimson)}
+  .tier .l{font-size:13px; margin-top:4px}
+  .tier .d{font-size:12px; color:var(--faint); margin-top:4px}
+  .quotes{margin-top:34px; display:grid; gap:16px}
+  .quotes blockquote{margin:0; font-family:var(--serif); font-size:17px; line-height:1.5; padding-left:18px; border-left:2px solid var(--crimson)}
+  .quotes blockquote span{display:block; font-family:var(--sans); font-size:12px; color:var(--faint); margin-top:6px}
+
+  /* ---------- charts ---------- */
+  .chartwrap{margin-top:30px; overflow-x:auto}
+  svg text{font-family:var(--sans)}
+  .legend{display:flex; gap:20px; flex-wrap:wrap; font-size:12.5px; color:var(--muted); margin:14px 0 4px}
+  .legend span{display:inline-flex; align-items:center; gap:7px}
+  .sw{width:9px; height:9px; border-radius:2px; display:inline-block}
+  details.tbl{margin-top:14px; font-size:13px}
+  details.tbl summary{cursor:pointer; color:var(--muted); font-size:12.5px}
+  details.tbl table{border-collapse:collapse; margin-top:10px; min-width:420px}
+  details.tbl th, details.tbl td{border-bottom:1px solid var(--line); padding:6px 14px 6px 0; text-align:right; font-variant-numeric:tabular-nums}
+  details.tbl th:first-child, details.tbl td:first-child{text-align:left}
+  details.tbl th{font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); font-weight:600}
+  #tip{position:fixed; pointer-events:none; background:var(--ink); color:#fcfcfc; font-size:12px; line-height:1.4;
+    padding:7px 10px; border-radius:6px; opacity:0; transform:translate(-50%,calc(-100% - 10px)); transition:opacity .12s; z-index:10; white-space:nowrap}
+  .hover-target{cursor:default}
+  .hover-target:hover, .hover-target:focus{outline:none; filter:brightness(1.12)}
+
+  /* outcomes */
+  .outrow{display:flex; flex-wrap:wrap; margin-top:26px; border-top:1px solid var(--line)}
+  .out{flex:1 1 150px; padding:16px 24px 0 0}
+  .out + .out{padding-left:24px; border-left:1px solid var(--line)}
+  .out .v{font-size:26px; font-weight:650}
+  .out .l{font-size:12.5px; color:var(--muted); margin-top:2px}
+
+  /* footer */
+  footer{padding:36px 64px 48px; border-top:1px solid var(--line); background:var(--panel); font-size:12.5px; color:var(--muted)}
+  footer h4{font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink); margin:0 0 10px}
+  footer p{max-width:78ch; margin:0 0 10px}
+  .foot-meta{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-top:22px; padding-top:16px; border-top:1px solid var(--line-strong); font-size:12px; color:var(--faint)}
+
+  @media print{
+    html{background:#fff} body{box-shadow:none; max-width:none}
+    section{break-inside:avoid}
+  }
+  @media (prefers-reduced-motion:reduce){ #tip{transition:none} }
+</style>
+
+<div id="tip" role="status"></div>
+
+<header class="cover">
+  <div class="brandrow">
+    <span class="eyebrow">START Warsaw · Community Intelligence</span>
+    <span class="mockchip">Mock preview · illustrative data</span>
+  </div>
+  <h1>Talent Data Room <em>/ H1 2026</em></h1>
+  <p class="coverline">Verified, anonymized statistics on the builders who apply to, ship at, and come out of START Warsaw events. Compiled from application, participation, and public-profile data under the methodology in the footer.</p>
+  <div class="covermeta">
+    <div><strong>Prepared for</strong>Partner preview copy</div>
+    <div><strong>Coverage</strong>3 events · Nov 2025 – Jul 2026</div>
+    <div><strong>People tracked</strong>924 unique builders</div>
+    <div><strong>Generated</strong>9 July 2026</div>
+  </div>
+</header>
+
+<div class="method">
+  <div><strong>Sources.</strong> Luma registrations, Devpost submissions, public GitHub activity, professional-profile data (licensed provider).</div>
+  <div><strong>Privacy.</strong> Aggregates only. No statistic is shown for groups smaller than 5 people. Nothing here identifies an individual.</div>
+  <div><strong>Estimates.</strong> Values marked ~ are derived (e.g. age from education years) and shown only in bands.</div>
+</div>
+
+<section>
+  <div class="sechead"><span class="secnum">01</span><h2>The headline</h2></div>
+  <p class="seclede">Application volume nearly doubled across three events while the share of applicants with shipped, verifiable work went up, not down. Growth is not diluting quality.</p>
+  <div class="hero-fig">924</div>
+  <div class="hero-cap">unique builders tracked across three events, deduplicated across platforms</div>
+  <div class="figrow">
+    <div class="fig"><div class="v">412</div><div class="l">applications, latest event (Jul 2026)</div></div>
+    <div class="fig"><div class="v">41%</div><div class="l">acceptance rate, latest event</div></div>
+    <div class="fig"><div class="v">81%</div><div class="l">of checked-in teams shipped a working project</div></div>
+    <div class="fig"><div class="v">32%</div><div class="l">of applicants have shipped something impressive before</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sechead"><span class="secnum">02</span><h2>The funnel</h2></div>
+  <p class="seclede">Latest event, July 2026. One dot is one person. Crimson dots advanced to the next stage; grey dots stopped here. Selection is real: fewer than half of applicants get in, and those who do, ship.</p>
+  <div class="funnel" id="funnel"></div>
+  <div class="funnel-key">
+    <span><i class="kdot" style="background:var(--crimson)"></i> advanced to next stage</span>
+    <span><i class="kdot" style="background:var(--dot-off)"></i> stopped at this stage</span>
+  </div>
+  <details class="tbl"><summary>View as table</summary>
+    <table><thead><tr><th>Stage</th><th>People</th><th>Conversion</th></tr></thead><tbody>
+      <tr><td>Applied</td><td>412</td><td>—</td></tr>
+      <tr><td>Accepted</td><td>168</td><td>41%</td></tr>
+      <tr><td>Checked in</td><td>149</td><td>89%</td></tr>
+      <tr><td>Shipped a project</td><td>121</td><td>81%</td></tr>
+      <tr><td>Partner introductions</td><td>34</td><td>28%</td></tr>
+    </tbody></table>
+  </details>
+</section>
+
+<section>
+  <div class="sechead"><span class="secnum">03</span><h2>Who applies</h2></div>
+  <p class="seclede">Latest event, n = 412. Occupation is self-reported at registration; age is estimated from education history and shown in bands only.</p>
+  <div class="cols2">
+    <div>
+      <h3>Occupation</h3>
+      <div class="barlist" id="occ"></div>
+    </div>
+    <div>
+      <h3>Age, estimated (~)</h3>
+      <div class="barlist" id="age"></div>
+      <p class="note">~ Derived from public education years where available (74% coverage); remainder excluded, not guessed.</p>
+    </div>
+  </div>
+  <div class="cols2" style="margin-top:40px">
+    <div>
+      <h3>Top affiliations</h3>
+      <div class="rank">
+        <div><span>University of Warsaw</span><span>61</span></div>
+        <div><span>Warsaw University of Technology</span><span>54</span></div>
+        <div><span>SGH Warsaw School of Economics</span><span>31</span></div>
+        <div><span>Big-tech employers (combined)</span><span>47</span></div>
+        <div><span>Early-stage startups (combined)</span><span>66</span></div>
+      </div>
+    </div>
+    <div>
+      <h3>Geography</h3>
+      <div class="rank">
+        <div><span>Warsaw</span><span>68%</span></div>
+        <div><span>Kraków, Wrocław, Tricity</span><span>17%</span></div>
+        <div><span>Rest of Poland</span><span>9%</span></div>
+        <div><span>International</span><span>6%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sechead"><span class="secnum">04</span><h2>Talent signal</h2></div>
+  <p class="seclede">Classified by a fixed rubric from application answers, Devpost submissions, and public GitHub work. "Impressive" means shipped, verifiable, and non-trivial: a product with users, ranked competition results, or research with citations.</p>
+  <div class="tiers">
+    <div class="tier"><div class="v">32%</div><div class="l">shipped something impressive</div><div class="d">132 of 412 applicants</div></div>
+    <div class="tier"><div class="v">18%</div><div class="l">founders or ex-founders</div><div class="d">74 of 412</div></div>
+    <div class="tier"><div class="v">27%</div><div class="l">active open-source contributors</div><div class="d">111 of 412, 90-day GitHub activity</div></div>
+    <div class="tier"><div class="v">11%</div><div class="l">competition winners</div><div class="d">hackathons, olympiads, Kaggle</div></div>
+  </div>
+  <div class="quotes">
+    <blockquote>Built a trading bot at 16 that paid for university. Now runs ML infrastructure at a fintech while shipping side projects monthly.<span>Applicant, accepted · shared with explicit consent, details generalized</span></blockquote>
+    <blockquote>National physics olympiad finalist who open-sourced a robotics framework with 2,000+ stars before graduating.<span>Applicant, accepted · shared with explicit consent, details generalized</span></blockquote>
+  </div>
+</section>
+
+<section>
+  <div class="sechead"><span class="secnum">05</span><h2>What they build with</h2></div>
+  <p class="seclede">From Devpost "built with" tags and repository languages, latest event. Useful if you are measuring developer adoption of your stack.</p>
+  <div class="cols2">
+    <div><div class="barlist" id="tech"></div></div>
+    <div>
+      <h3>Observed in shipped projects</h3>
+      <div class="rank">
+        <div><span>Projects using an LLM API</span><span>78%</span></div>
+        <div><span>Projects with a live deployment</span><span>64%</span></div>
+        <div><span>Projects with a public repository</span><span>71%</span></div>
+        <div><span>Median team size</span><span>3.4</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sechead"><span class="secnum">06</span><h2>Across events</h2></div>
+  <p class="seclede">The longitudinal view. Volume is compounding and the applicant mix is shifting toward founders and experienced builders.</p>
+  <div class="chartwrap">
+    <svg id="trend" width="880" height="260" viewBox="0 0 880 260" role="img" aria-label="Applications per event: 214, 298, 412"></svg>
+  </div>
+  <div class="legend" id="mixlegend"></div>
+  <div class="chartwrap">
+    <svg id="mix" width="880" height="190" viewBox="0 0 880 190" role="img" aria-label="Occupation mix per event, stacked"></svg>
+  </div>
+  <details class="tbl"><summary>View as table</summary>
+    <table><thead><tr><th>Event</th><th>Applications</th><th>Students</th><th>Founders</th><th>Startup eng.</th><th>Big tech</th><th>Research</th><th>Other</th></tr></thead><tbody>
+      <tr><td>START Hack 001 · Nov 2025</td><td>214</td><td>44%</td><td>12%</td><td>15%</td><td>14%</td><td>6%</td><td>9%</td></tr>
+      <tr><td>AI Builders Sprint · Mar 2026</td><td>298</td><td>40%</td><td>15%</td><td>17%</td><td>14%</td><td>7%</td><td>7%</td></tr>
+      <tr><td>START Hackathon · Jul 2026</td><td>412</td><td>37%</td><td>18%</td><td>18%</td><td>13%</td><td>8%</td><td>6%</td></tr>
+    </tbody></table>
+  </details>
+</section>
+
+<section>
+  <div class="sechead"><span class="secnum">07</span><h2>Outcomes</h2></div>
+  <p class="seclede">Every partner introduction is logged by us at the moment it happens, so these numbers are tracked, not recalled. Outcome tracking began March 2026; the series is young and reported honestly.</p>
+  <div class="outrow">
+    <div class="out"><div class="v">34</div><div class="l">partner introductions logged</div></div>
+    <div class="out"><div class="v">21</div><div class="l">progressed to interviews or diligence</div></div>
+    <div class="out"><div class="v">6</div><div class="l">hires confirmed by partners</div></div>
+    <div class="out"><div class="v">2</div><div class="l">investments in participant-founded teams</div></div>
+  </div>
+</section>
+
+<footer>
+  <h4>Methodology &amp; privacy</h4>
+  <p>Statistics are computed from event registrations (Luma), hackathon submissions (Devpost), public GitHub activity for accounts provided by applicants, and licensed professional-profile data. All published figures are aggregates over groups of at least 5 people, including every cross-tabulation; smaller cells are suppressed. Individual highlight quotes appear only with the person's explicit consent and with identifying details generalized. Values marked ~ are estimates. Aggregated statistics are anonymous and are processed under our published privacy policy; no figure in this document can or may be used to make a decision about an identifiable person.</p>
+  <p>This page uses privacy-preserving, cookieless analytics hosted in the EU.</p>
+  <div class="foot-meta">
+    <span>START Warsaw · Talent Data Room · mock preview with illustrative data</span>
+    <span>hello@startwarsaw.example · generated 2026-07-09</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var tip = document.getElementById('tip');
+  function showTip(text, x, y){ tip.textContent = text; tip.style.left = x+'px'; tip.style.top = y+'px'; tip.style.opacity = 1; }
+  function hideTip(){ tip.style.opacity = 0; }
+  function bindTip(el, text){
+    el.classList.add('hover-target');
+    el.setAttribute('tabindex','0');
+    el.addEventListener('mousemove', function(e){ showTip(text, e.clientX, e.clientY); });
+    el.addEventListener('mouseleave', hideTip);
+    el.addEventListener('focus', function(){ var r = el.getBoundingClientRect(); showTip(text, r.left + r.width/2, r.top); });
+    el.addEventListener('blur', hideTip);
+  }
+
+  /* ---- funnel dots ---- */
+  var stages = [
+    {name:'Applied', n:412, next:168},
+    {name:'Accepted', n:168, next:149},
+    {name:'Checked in', n:149, next:121},
+    {name:'Shipped a project', n:121, next:34},
+    {name:'Partner introductions', n:34, next:34}
+  ];
+  var funnel = document.getElementById('funnel');
+  stages.forEach(function(s, i){
+    var div = document.createElement('div');
+    div.className = 'stage';
+    var conv = i === 0 ? '&nbsp;' : Math.round(s.n / stages[i-1].n * 100) + '% of previous';
+    var cols = Math.max(6, Math.ceil(Math.sqrt(s.n / 2.2)));
+    var dots = '';
+    for (var d = 0; d < s.n; d++) dots += '<i' + (d < s.next ? ' class="on"' : '') + '></i>';
+    div.innerHTML = '<div class="conv">' + conv + '</div>' +
+      '<div class="count">' + s.n + '</div><div class="name">' + s.name + '</div>' +
+      '<div class="dots" style="--cols:' + cols + '">' + dots + '</div>';
+    funnel.appendChild(div);
+    bindTip(div, s.name + ': ' + s.n + ' people' + (i < stages.length - 1 ? ' · ' + s.next + ' advanced' : ''));
+  });
+
+  /* ---- bar lists (single series, slot-1 color) ---- */
+  function barlist(id, rows, unit){
+    var root = document.getElementById(id);
+    var max = Math.max.apply(null, rows.map(function(r){ return r[1]; }));
+    rows.forEach(function(r){
+      var b = document.createElement('div');
+      b.className = 'bar';
+      b.innerHTML = '<span>' + r[0] + '</span><span class="track"><span class="fill" style="width:' + (r[1]/max*100) + '%"></span></span>' +
+        '<span class="num">' + r[1] + unit + (r[2] !== undefined ? ' · ' + r[2] : '') + '</span>';
+      root.appendChild(b);
+      bindTip(b, r[0] + ': ' + r[1] + unit + (r[2] !== undefined ? ' (' + r[2] + ' people)' : ''));
+    });
+  }
+  barlist('occ', [
+    ['Students', 37, 152], ['Founders / ex-founders', 18, 74], ['Startup engineers', 18, 73],
+    ['Big-tech employees', 13, 55], ['Researchers', 8, 33], ['Other', 6, 25]
+  ], '%');
+  barlist('age', [
+    ['18–21', 34], ['22–25', 38], ['26–30', 19], ['31+', 9]
+  ], '%');
+  barlist('tech', [
+    ['Python', 63], ['TypeScript', 58], ['React / Next.js', 44], ['OpenAI API', 41], ['PostgreSQL', 29], ['Rust', 12]
+  ], '%');
+
+  /* ---- trend line (single series: no legend box; title carries it) ---- */
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(tag, attrs, parent){
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    parent.appendChild(e); return e;
+  }
+  var events = [
+    {label:'START Hack 001', date:'Nov 2025', apps:214, mix:[44,12,15,14,6,9]},
+    {label:'AI Builders Sprint', date:'Mar 2026', apps:298, mix:[40,15,17,14,7,7]},
+    {label:'START Hackathon', date:'Jul 2026', apps:412, mix:[37,18,18,13,8,6]}
+  ];
+  var svg = document.getElementById('trend');
+  var W = 880, H = 260, padL = 56, padR = 130, padT = 26, padB = 40;
+  var xs = function(i){ return padL + i * (W - padL - padR) / (events.length - 1); };
+  var ys = function(v){ return padT + (1 - v/500) * (H - padT - padB); };
+  el('text', {x:padL, y:14, 'font-size':12, fill:'#565a72'}, svg).textContent = 'Applications per event';
+  [0,250,500].forEach(function(g){
+    el('line', {x1:padL, x2:W-padR, y1:ys(g), y2:ys(g), stroke:'#e3e4ec', 'stroke-width':1}, svg);
+    el('text', {x:padL-10, y:ys(g)+4, 'text-anchor':'end', 'font-size':11, fill:'#8b8ea3', style:'font-variant-numeric:tabular-nums'}, svg).textContent = g;
+  });
+  var path = events.map(function(ev,i){ return (i?'L':'M') + xs(i) + ' ' + ys(ev.apps); }).join(' ');
+  el('path', {d:path, fill:'none', stroke:'#a0012a', 'stroke-width':2, 'stroke-linejoin':'round', 'stroke-linecap':'round'}, svg);
+  events.forEach(function(ev,i){
+    var g = el('g', {}, svg);
+    el('circle', {cx:xs(i), cy:ys(ev.apps), r:6, fill:'#a0012a', stroke:'#f9f9fb', 'stroke-width':2}, g);
+    el('circle', {cx:xs(i), cy:ys(ev.apps), r:14, fill:'transparent'}, g);
+    var anchor = i === 0 ? 'start' : (i === events.length - 1 ? 'end' : 'middle');
+    var lx = i === 0 ? 8 : xs(i);
+    el('text', {x:lx, y:H-14, 'text-anchor':anchor, 'font-size':11.5, fill:'#565a72'}, svg).textContent = ev.label + ' · ' + ev.date;
+    bindTip(g, ev.label + ': ' + ev.apps + ' applications');
+  });
+  var last = events[events.length-1];
+  el('text', {x:xs(events.length-1)+16, y:ys(last.apps)+4, 'font-size':13, 'font-weight':650, fill:'#101228'}, svg).textContent = last.apps + ' applications';
+
+  /* ---- occupation mix, stacked with 2px surface gaps ---- */
+  var cats = ['Students','Founders','Startup engineers','Big tech','Researchers','Other'];
+  var colors = ['#a0012a','#2f5fc4','#00876f','#9a6b00','#6d4fa8','#a1571c'];
+  var legend = document.getElementById('mixlegend');
+  cats.forEach(function(c,i){
+    var s = document.createElement('span');
+    s.innerHTML = '<span class="sw" style="background:' + colors[i] + '"></span>' + c;
+    legend.appendChild(s);
+  });
+  var mix = document.getElementById('mix');
+  var MW = 880, rowH = 24, gap = 2, labelW = 250, top = 10;
+  events.forEach(function(ev, r){
+    var y = top + r * (rowH + 26);
+    el('text', {x:0, y:y+16, 'font-size':12.5, fill:'#101228'}, mix).textContent = ev.label + ' · ' + ev.date;
+    var x = labelW;
+    ev.mix.forEach(function(pct, c){
+      var w = pct / 100 * (MW - labelW) - gap;
+      if (w <= 0) return;
+      var rect = el('rect', {x:x, y:y, width:w, height:rowH, fill:colors[c], rx:2}, mix);
+      x += w + gap;
+      bindTip(rect, ev.label + ' · ' + cats[c] + ': ' + pct + '%');
+      if (w > 34){
+        var t = el('text', {x:x - w/2 - gap, y:y+16, 'text-anchor':'middle', 'font-size':11, fill:'#fcfcfc'}, mix);
+        t.textContent = pct + '%';
+        t.style.pointerEvents = 'none';
+      }
+    });
+  });
+})();
+</script>

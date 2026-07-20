@@ -1,0 +1,4 @@
+Door Record,Who,Organizer State,Scanned At
+DOOR-3,gamma@example.test,waitlisted,
+DOOR-1,alpha@example.test,admitted,2027-02-20T09:12:00+01:00
+DOOR-2,beta@example.test,admitted,
