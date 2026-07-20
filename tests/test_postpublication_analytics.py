@@ -13,6 +13,8 @@ from unittest.mock import patch
 NOW = datetime(2026, 7, 13, 16, 30, tzinfo=UTC)
 POSTHOG_PROJECT_ID = 73155
 POSTHOG_PUBLIC_KEY = "phc_public_123"
+POSTHOG_PERSONAL_KEY = "phx_" + "private_operator_key"
+POSTHOG_PROJECT_SCOPED_KEY = "phx_" + "project_scoped_key"
 POSTHOG_PROJECT_RESPONSE = {
     "id": POSTHOG_PROJECT_ID,
     "api_token": POSTHOG_PUBLIC_KEY,
@@ -53,7 +55,7 @@ class PostHogProjectPrivacyVerificationTests(unittest.TestCase):
 
         def project_only_get(*, path: str, personal_api_key: str):
             self.assertEqual(path, f"/api/projects/{POSTHOG_PROJECT_ID}/")
-            self.assertEqual(personal_api_key, "phx_" + "project_scoped_key")
+            self.assertEqual(personal_api_key, POSTHOG_PROJECT_SCOPED_KEY)
             return POSTHOG_PROJECT_RESPONSE
 
         with patch(
@@ -61,7 +63,7 @@ class PostHogProjectPrivacyVerificationTests(unittest.TestCase):
             side_effect=project_only_get,
         ):
             verification = verify_posthog_project_privacy(
-                personal_api_key="phx_" + "project_scoped_key",
+                personal_api_key=POSTHOG_PROJECT_SCOPED_KEY,
                 project_id=POSTHOG_PROJECT_ID,
                 public_key=POSTHOG_PUBLIC_KEY,
                 now=NOW,
@@ -86,7 +88,7 @@ class PostHogProjectPrivacyVerificationTests(unittest.TestCase):
             side_effect=responses,
         ) as request_json:
             verification = verify_posthog_project_privacy(
-                personal_api_key="phx_" + "private_operator_key",
+                personal_api_key=POSTHOG_PERSONAL_KEY,
                 project_id=73155,
                 public_key="phc_public_123",
                 now=NOW,
@@ -101,7 +103,7 @@ class PostHogProjectPrivacyVerificationTests(unittest.TestCase):
         self.assertRegex(verification.project_response_sha256, r"^[a-f0-9]{64}$")
         self.assertRegex(verification.sha256, r"^[a-f0-9]{64}$")
         self.assertNotIn(
-            "phx_" + "private_operator_key",
+            POSTHOG_PERSONAL_KEY,
             json.dumps(verification.as_dict(), sort_keys=True),
         )
         self.assertEqual(request_json.call_count, 1)
@@ -122,7 +124,7 @@ class PostHogProjectPrivacyVerificationTests(unittest.TestCase):
                 side_effect=(project,),
             ), self.assertRaises((PermissionError, ValueError)):
                 verify_posthog_project_privacy(
-                    personal_api_key="phx_" + "private_operator_key",
+                    personal_api_key=POSTHOG_PERSONAL_KEY,
                     project_id=73155,
                     public_key="phc_public_123",
                     now=NOW,
@@ -135,7 +137,7 @@ class PostHogProjectPrivacyVerificationTests(unittest.TestCase):
             ),
         ), self.assertRaisesRegex(PermissionError, "project:read"):
             verify_posthog_project_privacy(
-                personal_api_key="phx_" + "private_operator_key",
+                personal_api_key=POSTHOG_PERSONAL_KEY,
                 project_id=73155,
                 public_key="phc_public_123",
                 now=NOW,
@@ -222,7 +224,7 @@ class PostPublicationAnalyticsTests(unittest.TestCase):
             "approval": self.approval(),
             "public_key": POSTHOG_PUBLIC_KEY,
             "posthog_host": "https://eu.i.posthog.com",
-            "personal_api_key": "phx_" + "private_operator_key",
+            "personal_api_key": POSTHOG_PERSONAL_KEY,
             "posthog_project_id": POSTHOG_PROJECT_ID,
             "now": NOW,
             "artifact_path": self.root / "protected" / "analytics-activation.json",
@@ -436,7 +438,7 @@ class AnalyticsPublicationBundleTests(unittest.TestCase):
             "approval": self.approval(),
             "public_key": POSTHOG_PUBLIC_KEY,
             "posthog_host": "https://eu.i.posthog.com",
-            "personal_api_key": "phx_" + "private_operator_key",
+            "personal_api_key": POSTHOG_PERSONAL_KEY,
             "posthog_project_id": POSTHOG_PROJECT_ID,
             "now": NOW,
             "artifact_path": self.root / "protected" / "analytics-publication.json",

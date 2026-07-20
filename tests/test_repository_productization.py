@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import subprocess
 from pathlib import Path
 import tempfile
@@ -79,6 +80,33 @@ class RepositoryProductizationTests(unittest.TestCase):
             or (Path(path).name.startswith(".env") and path != ".env.example")
             for path in tracked
         ))
+
+    def test_tracked_snapshot_contains_no_literal_provider_credentials(self) -> None:
+        patterns = {
+            "github": re.compile(r"gh[pousr]_[A-Za-z0-9]{20,}"),
+            "openai": re.compile(r"sk-[A-Za-z0-9_-]{20,}"),
+            "posthog": re.compile(r"ph[cx]_[A-Za-z0-9_-]{20,}"),
+            "slack": re.compile(r"xox[baprs]-[A-Za-z0-9-]{20,}"),
+            "aws": re.compile(r"AKIA[0-9A-Z]{16}"),
+        }
+        result = subprocess.run(
+            ["git", "ls-files", "-z"], cwd=ROOT, check=True,
+            capture_output=True,
+        )
+        for raw_path in result.stdout.split(b"\0"):
+            if not raw_path:
+                continue
+            relative = raw_path.decode("utf-8")
+            path = ROOT / relative
+            try:
+                body = path.read_text(encoding="utf-8")
+            except UnicodeDecodeError:
+                continue
+            for provider, pattern in patterns.items():
+                self.assertIsNone(
+                    pattern.search(body),
+                    f"{relative} contains a literal {provider} credential shape",
+                )
 
     def test_blank_provider_template_and_product_docs_are_present(self) -> None:
         template = (ROOT / ".env.example").read_text(encoding="utf-8")

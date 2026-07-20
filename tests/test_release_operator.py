@@ -25,6 +25,7 @@ from urllib.request import Request, urlopen
 
 NOW = datetime(2026, 7, 13, 10, tzinfo=UTC)
 SEMANTIC_SIGNING_SECRET = b"release-operator-semantic-test-secret"
+POSTHOG_PERSONAL_KEY = "phx_" + "private_operator_key"
 
 
 def _event_definition():
@@ -4286,7 +4287,7 @@ class ReleaseOperatorTests(unittest.TestCase):
                     ),
                     public_key="phc_public_123",
                     posthog_host="https://eu.i.posthog.com",
-                    personal_api_key="phx_" + "private_operator_key",
+                    personal_api_key=POSTHOG_PERSONAL_KEY,
                     posthog_project_id=73155,
                     now=NOW,
                     posthog_privacy_artifact_path=privacy_receipt_path,
@@ -4481,7 +4482,7 @@ class ReleaseOperatorTests(unittest.TestCase):
                     },
                 ))
                 with patch.dict(os.environ, {
-                    "POSTHOG_PERSONAL_API_KEY": "phx_" + "private_operator_key",
+                    "POSTHOG_PERSONAL_API_KEY": POSTHOG_PERSONAL_KEY,
                     "POSTHOG_PROJECT_ID": "73155",
                 }, clear=False), patch(
                     "community_os.postpublication_analytics._posthog_json_get",

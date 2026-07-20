@@ -87,8 +87,9 @@ class SemanticEvidenceTests(unittest.TestCase):
         self.assertTrue(first.startswith("Shipped a working product"))
 
     def test_sanitizer_removes_secret_like_material(self) -> None:
+        fake_github_token = "ghp_" + "abcdefghijklmnopqrstuvwxyz123456"
         result = sanitize_professional_text(
-            "Implemented OAuth. token=" + "ghp_" + "abcdefghijklmnopqrstuvwxyz123456 and kept shipping."
+            f"Implemented OAuth. token={fake_github_token} and kept shipping."
         )
 
         self.assertIn("Implemented OAuth", result)
