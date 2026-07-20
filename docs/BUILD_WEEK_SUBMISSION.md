@@ -26,7 +26,7 @@ The underlying local event pipeline existed before the July 13 submission period
 
 1. Added deterministic, privacy-thresholded semantic aggregates for All, Accepted, and Attended cohorts.
 2. Rebuilt the public artifact as a self-contained responsive dashboard with keyboard cohort navigation, evidence disclosures, and an exact three-signal intersection visualization.
-3. Rebalanced the partner PDF into a seven-page decision document with larger type, consistent visual rules, and a dedicated interpretation page.
+3. Rebalanced the partner PDF into an eight-page landscape brief with larger type, consistent visual rules, and a dedicated interpretation page.
 4. Simplified the local private operator around upload, review, approved runs, preview, approval, analytics preparation, and export.
 5. Added durable protected release storage and an explicit guard against using temporary directories for approval evidence.
 6. Added privacy-minimal PostHog capture for five aggregate interactions only. It uses no cookies, persistent identity, profiles, replay, autocapture, participant data, URLs, or referrers; it disables both IP storage and GeoIP enrichment.
@@ -71,15 +71,16 @@ The value `event submissions 61` means submission evidence was cited in 61 revie
 
 ## Demo video outline
 
-Target duration: 2 minutes 30 seconds, landscape, English voiceover.
+Target duration: 2 minutes 39 seconds, landscape, English AI-generated voiceover.
 
-1. 0:00 to 0:18, problem and promise. Show the live cover and explain that communities have rich evidence but weak partner reporting.
-2. 0:18 to 0:42, private workflow. Show the local operator using synthetic data only, from upload through reviewed aggregate and approval.
-3. 0:42 to 1:18, live dashboard. Switch All, Accepted, and Attended; open one evidence definition; show that denominator and unknown-state explanations move with the cohort.
-4. 1:18 to 1:43, intersections. Show the Founder, Technical, and Shipped-product exact partition and explain that the rows are mutually exclusive and sum to all 286 applicants.
-5. 1:43 to 2:03, partner delivery. Download the PDF and show two decision pages plus the final definitions page.
-6. 2:03 to 2:22, Codex and GPT-5.6-sol. Show the test, browser-QA, privacy-gate, and deployment workflow; mention the live discovery and removal of PostHog GeoIP enrichment.
-7. 2:22 to 2:30, close. Return to the live report and explain the next step: repeat the same contract for future events, then add harmonized cross-event trends.
+1. 0:00 to 0:14, problem and promise. Show the live cover and explain that partner reporting usually loses the evidence of what people built and shipped.
+2. 0:14 to 0:36, live evidence. Hold on the dashboard's product maturity, technical depth, and data/AI capability signals.
+3. 0:36 to 0:58, cohort recomposition. Switch All, Accepted, and Attended, then inspect the Shipped products definition and three-cohort comparison.
+4. 0:58 to 1:15, exact intersection. Show the 18 applicants at the Founder, Technical, and Shipped-product intersection and explain the all-286 reconciliation.
+5. 1:15 to 1:25, partner delivery. Download the eight-page landscape PDF and show the cover, intersection, and capability/domain pages.
+6. 1:25 to 1:56, GPT-5.6 product role. Show the strict structured proposal flowing into human review and deterministic aggregation.
+7. 1:56 to 2:29, Codex engineering evidence. Show one traceable chain from a behavioral test through the GeoIP fix and verified live deployment.
+8. 2:29 to 2:39, close. End on the branded social card and the live URL.
 
 The voiceover must explicitly say that Codex with GPT-5.6-sol drove the Build Week extension and that the public dashboard is aggregate-only. Do not show the real private operator state, raw exports, participant names, credentials, or protected review artifacts in the recording.
 

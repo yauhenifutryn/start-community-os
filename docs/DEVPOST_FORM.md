@@ -8,28 +8,28 @@ START Community OS
 
 **Elevator pitch**
 
-Turn event evidence into privacy-safe partner intelligence without exposing participant records.
+Turn event applications, projects, and delivery evidence into a live partner view of who builds, ships, and leads.
 
 ## Project story
 
 ```markdown
 ## Inspiration
 
-Community teams collect rich evidence across applications, attendance, project submissions, public repositories, and manual review. After an event, that evidence usually collapses into a few vanity counts or a spreadsheet. Partners cannot see what the community can actually build, while publishing raw participant records would create an unacceptable privacy risk.
+Community teams collect rich evidence across applications, attendance, project submissions, public repositories, and manual review. After an event, that evidence usually collapses into a few vanity counts or a spreadsheet. Partners still cannot answer the useful questions: who has built beyond an idea, where technical depth appears, which people have founded ventures, and where shipping or customer-delivery evidence exists.
 
-START Community OS turns that fragmented evidence into a reviewed, aggregate-only partner report.
+START Community OS turns that fragmented evidence into a reviewed partner intelligence system and a report people can actually use in investment, hiring, and portfolio conversations.
 
 ## What it does
 
-The private local operator imports registered event exports, rejects schema drift, reconciles identities, records review decisions, and projects only approved evidence into deterministic cohort aggregates. The public artifact contains no participant records.
+The private local operator imports registered event exports, rejects schema drift, reconciles identities, records review decisions, and projects approved evidence into deterministic cohort aggregates. The public artifact contains no participant records.
 
-Partners can compare all applicants, organizer-accepted participants, and confirmed attendees; inspect metric definitions and denominators; explore an exact Founder, Technical, and Shipped-product intersection; and download a fixed landscape PDF. Missing evidence stays unknown, selection is never presented as proof of quality, and small or unsafe slices are suppressed.
+Partners can compare all applicants, organizer-accepted participants, and confirmed attendees; inspect product maturity, technical capability, founder, shipping, and delivery signals; explore an exact Founder, Technical, and Shipped-product intersection; and download an eight-page landscape brief.
 
 The live OpenAI x START Warsaw report covers 286 applicants, 83 accepted participants, and 78 confirmed attendees.
 
 ## How we built it
 
-The operator and pipeline use Python and SQLite. The public dashboard is self-contained HTML, CSS, and JavaScript. Headless Chromium composes the PDF. Vercel serves only an exact four-file deployment bundle with restrictive response headers. PostHog EU receives five allowlisted aggregate interaction events with no cookies, persistent identity, profiles, replay, autocapture, URLs, referrers, IP storage, or GeoIP enrichment.
+The operator and pipeline use Python and SQLite. The public dashboard is self-contained HTML, CSS, and JavaScript. Headless Chromium composes the PDF. GitHub stores the exact hash-bound static mirror and Vercel deploys it from `main` with restrictive response headers. PostHog EU receives five allowlisted report-interaction events with no cookies, persistent identity, profiles, replay, autocapture, URLs, referrers, IP storage, or GeoIP enrichment.
 
 GPT-5.6 is integrated through an approval-gated OpenAI Responses workflow. It can turn bounded, pseudonymized evidence packets into structured proposals for human review. It does not publish prose, make individual decisions, or run from the live public dashboard.
 
@@ -46,17 +46,17 @@ I began the initial ingestion and reporting prototype on July 11, before the Jul
 - a sanitized, zero-credential repository with synthetic fixtures, clean-clone acceptance, and deployment separation; and
 - the verified Vercel production release.
 
-Codex with GPT-5.6-sol was the primary engineering environment for this extension. It drove red-green tests, architecture and product decisions, desktop and mobile browser QA, PDF inspection, privacy review, adversarial review, and deployment verification. The primary Codex session ID is `019f7482-e669-7963-aabd-9066b0f26989`.
+Codex with GPT-5.6-sol was the primary engineering environment for this extension. It drove red-green tests, architecture and product decisions, desktop and mobile browser QA, PDF inspection, privacy review, adversarial review, and deployment verification. The primary dashboard-build Codex session ID is `019f7482-e669-7963-aabd-9066b0f26989`; deployment verification continued in a later Codex task and is represented by its commits and live checks.
 
 ## Challenges
 
-The hardest part was not rendering charts. It was preserving the meaning of the evidence. Accepted participants are not automatically stronger than other applicants. Missing GitHub or professional-profile evidence is not a negative signal. Counts must keep their correct denominators as readers change cohorts. Analytics must measure report interactions without identifying the partner or leaking participant information.
+The hardest part was not rendering charts. It was preserving the meaning of the evidence while making the result useful. Accepted participants are not automatically stronger than other applicants. A prototype is not the same as shipped work. Founder history, technical depth, customer validation, and delivery scope overlap, but they should remain inspectable rather than collapse into one synthetic talent score. Counts also need the correct denominator whenever readers change cohorts.
 
 During production verification, fresh PostHog events exposed derived GeoIP fields even though IP storage was disabled. We treated that as a release blocker, added an explicit `$geoip_disable` property, regenerated the hash-bound bundle, and verified new events before sharing the report.
 
 ## What we learned
 
-Privacy controls and product usefulness are not opposites. A report becomes more credible when every metric explains its evidence boundary, unknown state, denominator, and suppression rule. Codex was most valuable as a persistent engineering collaborator that could challenge claims, test invariants, and follow a release from code through the live deployment.
+A partner report becomes more credible when each signal keeps its definition, denominator, and evidence boundary. The exact intersection is more useful than a generic ranking because partners can see the combinations that matter for a specific conversation. Codex was most valuable as a persistent engineering collaborator that could challenge claims, test invariants, and follow a release from code through the live deployment.
 
 ## What's next
 
@@ -96,47 +96,51 @@ The live report is the correct judge-facing product link. It is a real output fr
 
 Recommended 3:2 images, in this order:
 
-1. Report cover with the 286, 83, and 78 cohort counts.
+1. Upload `assets/social/devpost-thumbnail.png`, the 3:2 "Founder. Technical. Shipped." card.
 2. A cohort comparison after switching from All to Accepted or Attended.
 3. The exact Founder, Technical, and Shipped-product intersection view.
 4. Two representative pages from the landscape PDF.
-5. The local operator running synthetic data only, with no real names or protected paths visible.
+5. The report cover with the 286, 83, and 78 cohort counts.
 
 Use image 1 as the thumbnail. Do not upload screenshots containing participant records, credentials, private operator state, or protected review artifacts.
 
 ## Video demo
 
-Target length: 2 minutes 35 seconds. Use an English voiceover. Do not use copyrighted music or expose private participant data.
+Target length: 2 minutes 39 seconds. Use an English AI-generated voiceover and disclose that fact in the YouTube description. Do not use copyrighted music or expose private participant data.
 
 ### Shot list and voiceover
 
-**0:00 to 0:18, live report cover**
+**0:00 to 0:14, live report cover**
 
-> Event communities collect rich applications, attendance, project submissions, and public evidence. But partners usually receive a few vanity counts or a spreadsheet. START Community OS turns that evidence into a privacy-safe, decision-useful partner report.
+> Event teams collect applications, project submissions, GitHub work, and attendance, then reduce it all to a spreadsheet. START Community OS turns that evidence into a partner view of what members have built, how deeply, and where they have shipped.
 
-**0:18 to 0:43, switch All, Accepted, and Attended**
+**0:14 to 0:36, live dashboard on All applicants**
 
-> This is the live report from the OpenAI x START Warsaw Hackathon. It covers 286 applicants, 83 organizer-accepted participants, and 78 confirmed attendees. Every cohort change recomposes the metrics, denominators, ordering, and explanation. Selection is never treated as proof of quality.
+> This is the live OpenAI x START Warsaw report: 286 applicants, 83 accepted participants, 78 attendees, and 20 of 20 final teams submitted a project. It surfaces 187 people with prototype-or-beyond evidence, 150 with substantive technical depth, and 123 with data and AI engineering evidence.
 
-**0:43 to 1:05, open one metric definition**
+**0:36 to 0:58, switch cohorts and inspect Shipped products**
 
-> Every claim shows what evidence supports it and what remains unknown. Missing GitHub or career evidence is not converted into a negative judgment, and unsafe small slices are suppressed rather than exposed.
+> Switching cohorts recalculates each value, share, denominator, definition, and comparison. Selecting "Shipped products" reveals its definition and the same signal across all three cohorts. Partners can inspect product evidence, technical capability, and delivery without collapsing them into one opaque talent score.
 
-**1:05 to 1:27, exact intersection view**
+**0:58 to 1:15, exact intersection view**
 
-> The intersection view shows exact, mutually exclusive combinations of founder, technical, and shipped-product signals. The rows reconcile to the full cohort, so the visualization cannot inflate totals by double-counting people.
+> Here is the distinctive view: an exact application-evidence intersection of founder, technical, and shipped-product signals. Eighteen applicants show all three, and every person appears once, so the combinations cannot double-count people.
 
-**1:27 to 1:46, download and page through the PDF**
+**1:15 to 1:25, download and page through the PDF**
 
-> Partners can also download a fixed landscape brief. The HTML is for exploration; the PDF is the forwardable decision document. Both are generated from the same validated aggregate contracts and contain no participant records.
+> The same approved evidence also produces this eight-page landscape PDF, ready to forward into a partner meeting.
 
-**1:46 to 2:20, repository architecture, tests, and synthetic command**
+**1:25 to 1:56, GPT-5.6 product role**
 
-> I started the initial ingestion and reporting prototype before the submission period. During Build Week, Codex with GPT-5.6-sol drove the substantial production extension: cohort recomposition, the responsive dashboard, the PDF, the private operator, approval-bound releases, clean-clone testing, privacy review, and deployment verification. GPT-5.6 is also integrated through a gated Responses workflow that converts bounded pseudonymized evidence into structured proposals for human review. The public report itself makes no model calls.
+> GPT-5.6 has one specific product job. It evaluates bounded evidence from applications, Devpost, and public projects, then returns a strict structured proposal for product maturity, technical depth, execution scope, originality, validation, capabilities, and domain. A human reviews the proposal; deterministic code aggregates approved results into the report. The public page makes no model calls.
 
-**2:20 to 2:35, return to the live cover**
+**1:56 to 2:29, Codex engineering evidence**
 
-> The result is a repeatable way for communities to prove what their events produce without turning participants into a public database. Next, we will run the same contract across future events and add comparable trends only when the evidence is truly compatible.
+> Codex with GPT-5.6-sol was my primary engineering environment for the Build Week extension. I used red-green tests, interaction checks, PDF inspection, independent count re-derivation, fresh-context review, and production verification. The key decisions were to separate selection from quality and keep maturity, technical depth, founder history, and delivery inspectable instead of merging them into a synthetic ranking. A live analytics check even exposed derived GeoIP fields; we blocked release, added the disable flag, and verified the fix before deployment.
+
+**2:29 to 2:39, closing card**
+
+> START Community OS replaces static event recaps with reusable evidence infrastructure. Next, we will apply the same contract to a new event and build comparable trends across communities.
 
 ## Additional information for judges
 

@@ -38,6 +38,8 @@ tmp/
 **/protected/
 **/protected/raw-evidence/
 *.pdf
+!/public/partner-talent-brief.pdf
 public-staging/
 deployment-staging/
 /videos/
+/.vercel/

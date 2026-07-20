@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import re
+import struct
 import subprocess
 from pathlib import Path
 import tempfile
@@ -73,8 +75,15 @@ class RepositoryProductizationTests(unittest.TestCase):
             "PROJECT_LOG.md", "UI_TRINITY.md",
         }
         self.assertFalse(forbidden_exact.intersection(tracked))
+        public_binary_allowlist = {
+            "public/og-start-community-os.png",
+            "public/partner-talent-brief.pdf",
+        }
         self.assertFalse(any(
-            path.endswith((".pdf", ".sqlite", ".db"))
+            (
+                path.endswith((".pdf", ".sqlite", ".db"))
+                and path not in public_binary_allowlist
+            )
             or "/protected/" in f"/{path}/"
             or "/private/" in f"/{path}/"
             or (Path(path).name.startswith(".env") and path != ".env.example")
@@ -103,6 +112,19 @@ class RepositoryProductizationTests(unittest.TestCase):
             except UnicodeDecodeError:
                 continue
             for provider, pattern in patterns.items():
+                if provider == "posthog" and relative == "public/index.html":
+                    public_keys = re.findall(r"phc_[A-Za-z0-9_-]{20,}", body)
+                    self.assertEqual(
+                        len(set(public_keys)),
+                        1,
+                        "the deployed HTML must contain exactly one PostHog public key",
+                    )
+                    self.assertNotRegex(
+                        body,
+                        r"phx_[A-Za-z0-9_-]{20,}",
+                        "the deployed HTML must never contain a PostHog personal key",
+                    )
+                    continue
                 self.assertIsNone(
                     pattern.search(body),
                     f"{relative} contains a literal {provider} credential shape",
@@ -192,9 +214,101 @@ class RepositoryProductizationTests(unittest.TestCase):
         for rule in (
             ".agent/HANDOFF.md", ".env.*", "!.env.example", "/protected/",
             "**/protected/", "*.pdf", "public-staging/", "deployment-staging/",
-            "/videos/",
+            "/videos/", "/.vercel/",
         ):
             self.assertIn(rule, ignore)
+
+        template_check = subprocess.run(
+            ["git", "check-ignore", "--no-index", ".env.example"],
+            cwd=ROOT,
+            check=False,
+            capture_output=True,
+        )
+        self.assertNotEqual(
+            template_check.returncode,
+            0,
+            ".env.example must remain includable in fresh public snapshots",
+        )
+
+    def test_git_backed_publication_is_an_exact_hash_bound_static_bundle(self) -> None:
+        public = ROOT / "public"
+        self.assertEqual(
+            {path.name for path in public.iterdir()},
+            {
+                "index.html",
+                "og-start-community-os.png",
+                "partner-talent-brief.pdf",
+                "publication-manifest.json",
+            },
+        )
+
+        manifest = json.loads(
+            (public / "publication-manifest.json").read_text(encoding="utf-8"),
+        )
+        self.assertEqual(manifest["release_state"], "Safe to publish")
+        self.assertEqual(manifest["privacy_state"], "aggregate_only")
+        self.assertEqual(manifest["entrypoint"], "index.html")
+        self.assertEqual(manifest["pdf"], "partner-talent-brief.pdf")
+        self.assertEqual(manifest["og_image"], "og-start-community-os.png")
+        self.assertEqual(
+            set(manifest["artifact_hashes"]),
+            {
+                "index.html",
+                "og-start-community-os.png",
+                "partner-talent-brief.pdf",
+                "vercel.json",
+            },
+        )
+        for name, path in {
+            "index.html": public / "index.html",
+            "og-start-community-os.png": public / "og-start-community-os.png",
+            "partner-talent-brief.pdf": public / "partner-talent-brief.pdf",
+            "vercel.json": ROOT / "vercel.json",
+        }.items():
+            self.assertEqual(
+                hashlib.sha256(path.read_bytes()).hexdigest(),
+                manifest["artifact_hashes"][name],
+                f"{name} must match the committed release manifest",
+            )
+
+        html = (public / "index.html").read_text(encoding="utf-8")
+        for expected in (
+            'property="og:title" content="Founder. Technical. Shipped. | START Community OS"',
+            'property="og:description" content="Explore project, capability, and delivery signals across 286 OpenAI Hackathon applicants."',
+            'property="og:image" content="https://start-community-os.vercel.app/openai-hackathon-2026/og-start-community-os.png"',
+            'property="og:image:width" content="1200"',
+            'property="og:image:height" content="630"',
+            'name="twitter:card" content="summary_large_image"',
+        ):
+            self.assertIn(expected, html)
+
+        png = (public / "og-start-community-os.png").read_bytes()
+        self.assertEqual(png[:8], b"\x89PNG\r\n\x1a\n")
+        self.assertEqual(struct.unpack(">II", png[16:24]), (1200, 630))
+
+        source = (ROOT / "assets/social/og-start-community-os.svg").read_text(
+            encoding="utf-8",
+        )
+        self.assertIn('viewBox="0 0 1200 630"', source)
+        self.assertIn("Founder. Technical. Shipped.", source)
+        self.assertIn("18 / 286 exact intersection", source)
+
+        config = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
+        self.assertIsNone(config["framework"])
+        self.assertEqual(
+            {(item["source"], item["destination"]) for item in config["rewrites"]},
+            {
+                ("/openai-hackathon-2026/", "/index.html"),
+                (
+                    "/openai-hackathon-2026/partner-talent-brief.pdf",
+                    "/partner-talent-brief.pdf",
+                ),
+                (
+                    "/openai-hackathon-2026/og-start-community-os.png",
+                    "/og-start-community-os.png",
+                ),
+            },
+        )
 
     def test_build_week_submission_evidence_and_live_demo_are_publicly_documented(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")

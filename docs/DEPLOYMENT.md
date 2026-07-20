@@ -14,6 +14,16 @@ Only these approved aggregate artifacts may enter public staging:
 
 The analytics-free bundle is the canonical content artifact. An optional release-owner action may derive a separate analytics bundle containing the same HTML/PDF claims, a new manifest, and a host security-policy adapter. It does not deploy anything.
 
+The current public repository contains the final Git publication mirror only:
+
+- `public/index.html`
+- `public/partner-talent-brief.pdf`
+- `public/og-start-community-os.png`
+- `public/publication-manifest.json`
+- root `vercel.json`
+
+The manifest binds every deployed byte, including the social image and root Vercel policy, and retains the source deployment-manifest hash. The source SVG remains at `assets/social/og-start-community-os.svg`. No operator state, participant record, source export, provider credential, or approval receipt enters `public/`.
+
 ## Host matrix
 
 | Host | Base static bundle | Custom response headers | Current analytics adapter | Release position |
@@ -31,6 +41,7 @@ Each published report belongs at an event-specific route so later releases can c
 
 - Dashboard: `https://start-community-os.vercel.app/openai-hackathon-2026/`
 - PDF: `https://start-community-os.vercel.app/openai-hackathon-2026/partner-talent-brief.pdf`
+- Social preview: `https://start-community-os.vercel.app/openai-hackathon-2026/og-start-community-os.png`
 
 While only one report exists, the root uses a temporary redirect to that event-specific route. Once a second report is approved, replace the root redirect with a small event index and keep every existing event route immutable unless a new approval and artifact hash explicitly supersedes it. Cross-event trend sections start only after two compatible, reviewed event contracts exist; they must use harmonized definitions and denominators rather than comparing labels that merely look similar.
 
@@ -51,8 +62,8 @@ The supported workflow is deliberately explicit:
 
 Do not run the generic PostHog installation wizard for the static partner bundle. The repository uses a smaller audited capture client, no PostHog SDK, and a hash-bound content security policy. Session replay, autocapture, pageview capture, person profiles, surveys, feature flags, data-warehouse sources, and CRM connections remain off for this release. They add collection surface without answering the approved aggregate questions.
 
-The repository does not auto-enable tracking, create a PostHog project, or deploy a site. A future automation wrapper may read the ignored local values, but it must preserve the same explicit approval, IP-capture confirmation, event allowlist, and hash binding. An authenticated Vercel CLI session is sufficient for deployment; `VERCEL_TOKEN` is only a non-interactive CI fallback.
+The repository does not auto-enable tracking or create a PostHog project. Vercel is connected to this GitHub repository, so an approved push to `main` deploys the checked-in static mirror automatically. Any future publication wrapper must preserve the same explicit approval, IP-capture confirmation, event allowlist, source-manifest receipt, and hash binding. An authenticated Vercel CLI session remains sufficient for provider inspection; `VERCEL_TOKEN` is only a non-interactive CI fallback.
 
 ## Current recommendation
 
-For the current partner release, keep the operator and SQLite data local. Deploy only the exact aggregate bundle. Use Vercel for the first controlled preview because its generated response-header and PostHog adapter is already part of the tested release flow. Keep Cloudflare Pages as the next host adapter. Codex Sites can provide built-in unique visitors and page views for an eligible deployed Site, but use it only for reach analytics unless a saved, non-deployed compatibility review separately verifies this bundle, custom response headers, PDF delivery, and the PostHog interaction contract. GitHub Pages remains a static-demo option.
+For the current partner release, keep the operator and SQLite data local. Publish only the exact hash-bound `public/` mirror plus root `vercel.json`. GitHub `main` is the source of truth and Vercel is its automatic deployment target. Keep Cloudflare Pages as the next host adapter. Codex Sites can provide built-in unique visitors and page views for an eligible deployed Site, but use it only for reach analytics unless a saved, non-deployed compatibility review separately verifies this bundle, custom response headers, PDF delivery, and the PostHog interaction contract. GitHub Pages remains a static-demo option.
