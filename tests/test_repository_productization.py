@@ -553,6 +553,18 @@ class RepositoryProductizationTests(unittest.TestCase):
         self.assertIn("fetch-depth: 0", workflow)
         self.assertIn("gitleaks/gitleaks-action@v2", workflow)
 
+    def test_gitleaks_only_allows_the_browser_visible_posthog_key(self) -> None:
+        config = (ROOT / ".gitleaks.toml").read_text(encoding="utf-8")
+
+        for expected in (
+            "useDefault = true",
+            'condition = "AND"',
+            "^public/index\\.html$",
+            "^phc_[A-Za-z0-9_-]{20,}$",
+        ):
+            self.assertIn(expected, config)
+        self.assertNotIn("phx_", config)
+
     def test_bandit_gate_is_reproducible_and_blocks_high_severity_findings(self) -> None:
         workflow = (ROOT / ".github/workflows/security.yml").read_text(
             encoding="utf-8",

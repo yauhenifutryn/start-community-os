@@ -1,0 +1,10 @@
+title = "START Community OS secret scanning"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Allow the browser-visible PostHog public ingestion key only in the deployed static HTML"
+condition = "AND"
+paths = ['''^public/index\.html$''']
+regexes = ['''^phc_[A-Za-z0-9_-]{20,}$''']
