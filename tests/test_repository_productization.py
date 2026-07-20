@@ -430,6 +430,23 @@ class RepositoryProductizationTests(unittest.TestCase):
         self.assertNotIn("confirm the IP setting", guide.casefold())
         self.assertNotIn("cannot inspect the remote PostHog setting", guide)
 
+    def test_secret_scan_supports_an_explicit_full_history_run(self) -> None:
+        workflow = (ROOT / ".github/workflows/security.yml").read_text(
+            encoding="utf-8",
+        )
+
+        self.assertIn("workflow_dispatch:", workflow)
+        self.assertIn("fetch-depth: 0", workflow)
+        self.assertIn("gitleaks/gitleaks-action@v2", workflow)
+
+    def test_bandit_gate_is_reproducible_and_blocks_high_severity_findings(self) -> None:
+        workflow = (ROOT / ".github/workflows/security.yml").read_text(
+            encoding="utf-8",
+        )
+
+        self.assertIn("bandit==1.9.4", workflow)
+        self.assertIn("--severity-level high", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()

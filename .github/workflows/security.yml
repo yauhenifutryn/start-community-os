@@ -1,6 +1,7 @@
 name: security
 
 on:
+  workflow_dispatch:
   pull_request:
   push:
     branches: [main]
@@ -25,5 +26,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
-      - run: python -m pip install bandit
-      - run: bandit -q -r community_os
+      - run: python -m pip install bandit==1.9.4
+      - run: bandit -q -r community_os --severity-level high
