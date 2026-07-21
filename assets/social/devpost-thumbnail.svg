@@ -1,11 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title description">
   <title id="title">Community OS</title>
-  <desc id="description">From Event Data to Community Intelligence.</desc>
+  <desc id="description">Community OS turns event data into measurable community intelligence.</desc>
 
-  <rect width="1200" height="800" fill="#00002c"/>
   <image xlink:href="community-os-gradient.png" x="0" y="0" width="1200" height="800" preserveAspectRatio="xMidYMid slice"/>
-  <rect width="1200" height="800" fill="#00002c" fill-opacity="0.52"/>
+  <rect width="1200" height="800" fill="#02051d" fill-opacity="0.24"/>
 
-  <text x="600" y="407" fill="#fcfbf7" font-family="Georgia, 'Times New Roman', serif" font-size="112" font-weight="700" letter-spacing="-3.6" text-anchor="middle">Community OS</text>
-  <text x="600" y="493" fill="#fcfbf7" fill-opacity="0.92" font-family="Avenir Next, Avenir, Arial, sans-serif" font-size="37" font-weight="600" letter-spacing="-0.3" text-anchor="middle">From Event Data to Community Intelligence</text>
+  <g fill="#fcfbf7" font-family="Avenir Next, Avenir, Arial, sans-serif">
+    <text x="78" y="88" font-size="23" font-weight="700" letter-spacing="2.2">OPENAI BUILD WEEK · 2026</text>
+
+    <text x="72" y="353" font-size="126" font-weight="700" letter-spacing="-6.2">Community</text>
+    <text x="72" y="474" font-size="126" font-weight="700" letter-spacing="-6.2">OS</text>
+
+    <text x="78" y="611" font-size="35" font-weight="600" letter-spacing="-0.4">From event data</text>
+    <text x="78" y="656" font-size="35" font-weight="600" letter-spacing="-0.4">to community intelligence.</text>
+
+    <text x="1132" y="686" font-size="318" font-weight="700" fill-opacity="0.11" letter-spacing="-18" text-anchor="end">OS</text>
+    <text x="1128" y="734" font-size="20" font-weight="700" fill-opacity="0.72" letter-spacing="2.2" text-anchor="end">REUSABLE · REVIEWED · MEASURABLE</text>
+  </g>
 </svg>

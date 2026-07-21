@@ -311,7 +311,14 @@ class RepositoryProductizationTests(unittest.TestCase):
                 )
                 if element.text and element.text.strip()
             ],
-            ["X", "Warsaw Hackathon 2026", "Talent Snapshot"],
+            [
+                "×",
+                "Warsaw",
+                "Hackathon",
+                "Talent Snapshot",
+                "286 applicants · 83 accepted · 78 attended",
+                "26",
+            ],
         )
         self.assertEqual(
             {
@@ -344,7 +351,15 @@ class RepositoryProductizationTests(unittest.TestCase):
                 )
                 if element.text and element.text.strip()
             ],
-            ["Community OS", "From Event Data to Community Intelligence"],
+            [
+                "OPENAI BUILD WEEK · 2026",
+                "Community",
+                "OS",
+                "From event data",
+                "to community intelligence.",
+                "OS",
+                "REUSABLE · REVIEWED · MEASURABLE",
+            ],
         )
         self.assertEqual(
             {
