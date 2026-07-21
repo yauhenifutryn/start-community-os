@@ -85,7 +85,7 @@ Do not upload private operator screens, participant records, credentials, or pro
 
 ### Video demo link
 
-Add the final public YouTube URL after upload.
+The public YouTube demo link is included in the submitted Devpost entry.
 
 The final video is 2:59, landscape, and in English. It uses OpenAI `gpt-4o-mini-tts` with the `marin` voice, no music, and no designed sound effects. The end card and YouTube description disclose: "AI-generated narration: OpenAI Speech API. Not a human voice recording." Third-party event marks appear only to identify the documented event use case.
 
@@ -187,21 +187,11 @@ The synthetic path needs no credentials and makes no GitHub, OpenAI, Coresignal,
 
 `019f7482-e669-7963-aabd-9066b0f26989`
 
-Before submission, confirm that this is the exact value returned by `/feedback`, rather than only the Codex task ID.
+This is the `/feedback` Session ID used in the submitted Devpost entry.
 
 ### Plugin or developer-tool instructions
 
 Not applicable. Community OS is a Work and Productivity application, not a plugin or developer tool.
-
-## Items Jenya must finish in the Devpost form
-
-- Choose the true submitter type.
-- Enter the legal country of residence.
-- The repository licence is already documented: Yauheni Futryn owns Community OS; START Warsaw and OpenAI marks remain third-party event identifiers.
-- Confirm the `/feedback` Session ID.
-- Upload the thumbnail and gallery images.
-- Upload the public YouTube demo and paste its URL.
-- Check the live links once more, then accept the rules and submit.
 
 ## Official requirements checked
 

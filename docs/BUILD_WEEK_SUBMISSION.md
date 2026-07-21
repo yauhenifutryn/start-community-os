@@ -9,8 +9,8 @@
 - PDF: https://start-community-os.vercel.app/openai-hackathon-2026/partner-talent-brief.pdf
 - Public repository: https://github.com/yauhenifutryn/start-community-os
 - Licence: PolyForm Free Trial License 1.0.0, source-available and not open source
-- Demo video: add the final public YouTube URL
-- Primary Codex `/feedback` Session ID: `019f7482-e669-7963-aabd-9066b0f26989`, confirm before submission
+- Demo video: public YouTube link included in the submitted Devpost entry
+- Primary Codex `/feedback` Session ID: `019f7482-e669-7963-aabd-9066b0f26989`
 
 ## What Community OS does
 
@@ -53,7 +53,7 @@ python3 -m community_os build --config config/events/example.synthetic.json
 
 The synthetic workflow requires no credentials and makes no provider calls. It writes generated artefacts below `output/`. Judges can also inspect the production report at https://start-community-os.vercel.app/openai-hackathon-2026/.
 
-Before submission, paste a fresh full-suite result and clean-clone result here. Do not rely on an earlier run after release files change.
+Fresh public-clone verification completed on July 21, 2026: 1,166 tests passed with 2 expected skips, and the zero-credential synthetic build completed successfully.
 
 ## Demo video outline
 
@@ -70,15 +70,6 @@ Target 2:59. Use a public YouTube video with English audio. The final narration 
 9. 2:51 to 2:59: close on the product purpose and AI-voice disclosure.
 
 Do not record real participant rows, protected operator state, credentials, or provider responses. Use synthetic evidence when demonstrating the private workflow.
-
-## Form-only items
-
-- Submitter type: Jenya must choose `Individual` or `Organization` based on the legal entrant.
-- Country of residence: Jenya must enter the true legal residence.
-- Licence authority: Yauheni Futryn owns Community OS and offers the repository under the checked-in PolyForm Free Trial licence. START Warsaw and OpenAI marks remain third-party marks used only to identify the event use case.
-- Session ID: confirm that `019f7482-e669-7963-aabd-9066b0f26989` is the value returned by `/feedback`.
-- Media: upload the thumbnail, gallery images, and final public YouTube video.
-- Final verification: rerun tests, check both live links, accept the rules, and submit.
 
 ## Official sources
 
