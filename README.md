@@ -1,29 +1,59 @@
-# START Warsaw Community OS
+# Community OS
 
-Reusable, local-first talent intelligence for event communities. START Community OS ingests registered event exports, reconciles and reviews evidence privately, and generates an aggregate-only interactive HTML dashboard plus a composed landscape PDF.
+Community OS is a reusable event-intelligence pipeline. It turns applications, attendance, project submissions, and public project evidence into measurable cohort statistics and partner reports.
 
-This repository is source-available under the [PolyForm Free Trial License 1.0.0](LICENSE.md), not an open-source license. Evaluation for less than 32 consecutive calendar days is permitted. Redistribution, production use, and continued or commercial use outside that evaluation permission require a separate written license from the copyright holder. See [NOTICE.md](NOTICE.md).
+It imports registered event exports, reconciles records, supports controlled enrichment and human review, then generates deterministic aggregate contracts for an interactive dashboard and a fixed PDF. The OpenAI Hackathon report below is one event-specific use case, not the product itself.
 
-Live demo: [OpenAI Hackathon 2026 partner dashboard](https://start-community-os.vercel.app/openai-hackathon-2026/). The published event report contains aggregate statistics only. Its local operator, SQLite state, source records, reviewed person-level evidence, provider credentials, and approval receipts are not deployed.
+## Live example
 
-Current status: the current event's four-export aggregate, rich GitHub evidence, reviewed semantic projection, interactive partner HTML, landscape PDF, local operator, privacy-minimal PostHog transform, Git-backed static publication, and event-specific Vercel route are implemented. Coresignal contributes zero to this release. GitHub, bounded applicant-public-page, optional Coresignal evaluation, and OpenAI semantic processing remain behind separate machine gates for future event runs. No deployment or external publication is performed by the test suite.
+- [Open the START Warsaw x OpenAI report](https://start-community-os.vercel.app/openai-hackathon-2026/)
+- [Download the eight-page partner brief](https://start-community-os.vercel.app/openai-hackathon-2026/partner-talent-brief.pdf)
 
-The protected operator is a private stateful server application. On first launch without `--event-config`, its authenticated setup screen creates a strict registered event definition at `<root>/event-definition.json`; restart the command once, then the UI handles protected uploads, review queues, resumable approved stages, bounded report copy, preview, release-owner semantic and publication approval, optional analytics preparation, and the exact static bundle boundary. Final publication approval writes the current event, HTML, PDF, and artifact-set hashes and runs only the local publication stage. Advanced deployments may still supply an explicit `--event-config`. The operator, raw inputs, aggregates, caches, reviews, and person-level classifications must never be placed on public static hosting.
+The live report covers 286 applicants, 83 accepted participants, and 78 confirmed attendees. Partners can compare those cohorts, inspect product and technical evidence, and explore the founder, technical, and shipped-product signals in one three-signal exact UpSet-style partition. It does not reduce people to one talent score.
 
-The two partner artifacts have different jobs. The landscape PDF is the fixed, forwardable partner document. The self-contained HTML recomposes approved aggregate evidence across All, Accepted, and Attended cohorts. It updates values and denominators, lets readers inspect metric definitions and evidence limits, and includes one three-signal exact UpSet-style partition while keeping the complete static claims available without interaction. After exact approval, only `index.html`, `partner-talent-brief.pdf`, and `publication-manifest.json` may enter analytics-free, host-independent `public-staging`. If the release owner explicitly prepares PostHog, only `vercel.json`, `index.html`, `partner-talent-brief.pdf`, and `publication-manifest.json` may enter Vercel-ready `deployment-staging`. The current public repository then mirrors those verified deployment bytes under `public/`, adds one hash-bound social-preview PNG and Open Graph metadata, and keeps the generated route policy at root `vercel.json`. A push to GitHub `main` triggers the connected Vercel production deployment; tests still never deploy.
+## How the pipeline works
 
-## Quickstart
+1. An operator selects a registered event profile and imports the matching exports.
+2. Strict adapters validate the source schemas and reject drifted columns.
+3. The system reconciles identities and holds ambiguous links for review.
+4. Approved GitHub and optional LinkedIn/Coresignal stages collect bounded project and professional evidence. OpenAI has a separate gate and receives only sanitized pseudonymous excerpts, controlled codes, and evidence references.
+5. A human reviews the proposals. Deterministic code builds the All, Accepted, and Attended aggregates.
+6. The same approved facts generate the HTML dashboard and landscape PDF.
+7. Publication approval binds the exact event, report, PDF, and release hashes before anything is staged for hosting.
 
-The runtime is Python standard-library code. Start with the synthetic, zero-credential path:
+Completed stages are resumable, so a failed later step does not repeat finished provider work.
+
+### Supported events
+
+Hackathons using the registered Luma and Devpost export profiles are supported today. The product does not train a model for each event. Another event with the same export shapes needs new metadata and workbook sheet selections, not model fine-tuning or a rewritten pipeline.
+
+A different platform or export schema still needs a new registered adapter and synthetic fixture. Non-hackathon formats may also need a new report profile. Those are engineering changes, not settings we pretend are already supported.
+
+The first-run operator expands the registered START source profile in `config/events/openai-hackathon-2026.json` into a strict `event-release-v1` definition. Adapter IDs and mapping hashes stay server-owned.
+
+## Run it locally
+
+Clone the repository, run the tests, then run the credential-free ingestion and rendering smoke test:
 
 ```bash
-git clone <repository-url> start-community-os
+git clone https://github.com/yauhenifutryn/start-community-os.git
 cd start-community-os
 python3 -m unittest discover -q
 python3 -m community_os build --config config/events/example.synthetic.json
 ```
 
-The zero-credential demo needs no environment file. For local operator or provider work, copy `.env.example` to ignored `.env.local`, fill only the values needed for that run, then export them into the current shell before launching a command:
+`build` checks the basic source-adapter, ingestion, database, and demo-rendering path. It is a smoke test, not the partner report. Render the checked-in synthetic partner contracts with:
+
+```bash
+python3 -m community_os render-partner \
+  --contract config/contracts/talent-intelligence-v1.synthetic.json \
+  --event-contract config/contracts/talent-report-v3.synthetic.json \
+  --html output/synthetic/partner.html
+```
+
+Both commands write below `output/`, which Git ignores. They make no provider calls. Add `--pdf output/synthetic/partner.pdf` only after setting `COMMUNITY_OS_CHROMIUM_EXECUTABLE` to an isolated Chromium executable.
+
+For local operator or provider work, copy the blank template to ignored `.env.local`, fill only what the run needs, then export it explicitly:
 
 ```bash
 cp .env.example .env.local
@@ -32,31 +62,10 @@ set -a
 set +a
 ```
 
-The core CLI deliberately does not auto-load `.env.local`. For PDF output, set `COMMUNITY_OS_CHROMIUM_EXECUTABLE` there or export it directly to an isolated Chromium executable, then add `--pdf`. Do not use a personal browser profile. See `docs/OPERATOR_GUIDE.md` for event setup, provider gates, report approval, cleanup, and troubleshooting; see `docs/ARCHITECTURE.md` for system and deployment boundaries.
+The CLI does not auto-load `.env.local`. For a protected event run, follow [the operator guide](docs/OPERATOR_GUIDE.md) and use a durable private path outside the repository and system temporary directories.
 
-## Supported events
-
-Hackathons using the registered Luma and Devpost export profiles are supported today. Protected release runs use the exact `event-release-v1` schema enforced by `community_os/event_definition.py`; `config/events/openai-hackathon-2026.json` is the checked-in shape reference for the registered START source profile. The first-run operator generates that strict definition from server-owned adapters and mapping hashes. Advanced operators may supply a managed definition only when its adapters, mappings, report family, privacy policy, and artifact profile are already registered. Export columns still fail closed, so a different platform or schema needs a new registered adapter and synthetic fixture before it can process real participants.
-
-The product does not train a model for each event. Reuse comes from versioned schemas, adapters, mappings, taxonomies, and report profiles; optional OpenAI processing classifies bounded reviewed evidence only after its separate approval gate. Demo days, startup competitions, and accelerator cohorts are the closest future profiles because they share application, selection, participation, and project or pitch stages. Conferences and community meetups need a different report family because project submission evidence is not a natural default.
-
-## OpenAI Build Week
-
-START Community OS is entered in the "Work and Productivity" track. The product existed before the submission period, then received a substantial Build Week extension led in Codex with GPT-5.6-sol: deterministic All, Accepted, and Attended cohort recomposition; an exact three-signal intersection view; the self-contained production dashboard and landscape PDF; a simpler private operator; privacy-minimal, hash-bound PostHog instrumentation; durable protected release storage; clean-clone synthetic acceptance; and public-product documentation.
-
-Codex was used as the primary engineering environment for implementation, red-green tests, browser and PDF QA, privacy review, deployment verification, and adversarial review. GPT-5.6-sol helped make and test the hard product decisions, including separating selection from quality, distinguishing evidence absence from negative evidence, keeping Coresignal out of the current report, and disabling PostHog GeoIP enrichment in addition to IP storage. The live report makes no OpenAI or other enrichment-provider calls at runtime. See [the Build Week submission evidence](docs/BUILD_WEEK_SUBMISSION.md) for the demo outline, session ID, implementation evidence, and exact current limitations.
-
-The initial ingestion and reporting prototype began before the July 13 submission period. The hackathon entry covers the substantial post-start extension listed above, not the earlier prototype. Ready-to-paste form copy, testing instructions, and the video script are in [the Devpost form package](docs/DEVPOST_FORM.md).
-
-## Run the synthetic pipeline
-
-```bash
-python3 -m unittest discover -q
-python3 -m community_os build --config config/events/example.synthetic.json
-python3 -m community_os build --config config/events/example.synthetic.json --pdf
-```
-
-Generated databases and reports are written below `output/`, which is ignored by git. PDF export requires an isolated Chromium executable, never a personal browser profile.
+<details>
+<summary>Clean-clone acceptance</summary>
 
 Clean-clone acceptance after a verified commit:
 
@@ -81,72 +90,39 @@ env -u GITHUB_TOKEN -u OPENAI_API_KEY -u CORESIGNAL_API_TOKEN \
   python3 -m community_os render-partner \
   --contract config/contracts/talent-intelligence-v1.synthetic.json \
   --event-contract config/contracts/talent-report-v3.synthetic.json \
-  --html output/synthetic/partner.html \
-  --pdf output/synthetic/partner.pdf
+  --html output/synthetic/partner.html
 ```
 
-The tests, demo build, and partner render make no provider calls and use no provider credentials. The `render-partner` PDF step requires `COMMUNITY_OS_CHROMIUM_EXECUTABLE` to point to an isolated Chromium executable; verify the result with `pdfinfo`.
+The acceptance run must succeed without provider or deployment credentials.
 
-Generate the enriched partner report from validated aggregate contracts and the protected reviewed semantic aggregate:
+</details>
 
-```bash
-python3 -m community_os render-partner \
-  --contract "$TALENT_INTELLIGENCE_AGGREGATE" \
-  --event-contract "$EVENT_EVIDENCE_AGGREGATE" \
-  --semantic-aggregate "$SEMANTIC_AGGREGATE" \
-  --html "$PARTNER_HTML" \
-  --pdf "$PARTNER_PDF"
-```
+## How GPT-5.6 and Codex were used
 
-The semantic aggregate stays protected. The renderer projects only reviewed positive cohort metrics and explicit unknown states. Aggregate counts of evidence types cited by reviewed facts may be shown after cohort-relational privacy suppression; record-level provenance, provider operations, and unlinked source availability stay in private QA. Missing GitHub or professional-profile evidence never becomes a negative talent claim. The report never renders model prose, names, contact details, profile links, or repository links. The first approved partner staging is analytics-free. The separate deployment staging adds a hash-pinned CSP and only five allowlisted PostHog EU interaction events after the operator machine-verifies and binds the PostHog privacy receipt for a project with IP capture disabled.
+GPT-5.6 has one bounded runtime role. After explicit approval, it evaluates sanitized pseudonymous evidence from applications, career context, Devpost, and public projects, then returns a schema-constrained proposal. It does not receive an entire GitHub profile or source tree. Names, emails, profile and repository URLs, raw provider records, and tokens are rejected at the outbound boundary. A human reviews the proposal before deterministic code can include approved facts in aggregate contracts. The public dashboard makes no model calls.
 
-Build both synthetic talent-intelligence briefs:
+Codex with GPT-5.6-sol was the main engineering environment for the Build Week extension. It was used to implement and test four product decisions that now live in code: keep organizer selection separate from demonstrated evidence, preserve missing evidence as unknown, require hash-bound human approval before semantic results can enter a partner release, and deploy only the verified static bundle rather than the protected operator. Codex also drove browser and PDF checks, count re-derivation, security review, and deployment verification. It is part of how the product was built, not a runtime dependency that generates reports on demand.
 
-```bash
-python3 -m community_os.talent_briefs \
-  config/contracts/talent-intelligence-v1.synthetic.json \
-  output/talent-intelligence \
-  --pdf
-```
+## Data and release boundary
 
-Operational commands:
+Raw exports, normalized records, provider responses, review state, credentials, and approval receipts stay in the protected operator. They are not part of the hosted site or this public repository.
 
-```bash
-# Dry-run retention cleanup, then explicitly apply it.
-python3 -m community_os cleanup --database output/example/community.sqlite
-python3 -m community_os cleanup --database output/example/community.sqlite --apply
+The public report contains aggregate values and definitions. It does not include participant names, contact details, profile links, repository links, or model-written prose. Coresignal contributed no data to the live report. The hosted page records only five allowlisted report interactions and uses no cookies, persistent identity, profiles, replay, URLs, referrers, IP storage, or GeoIP enrichment. Before analytics staging, the operator machine-verifies and binds the PostHog privacy receipt.
 
-# Export unresolved identity matches without raw source identifiers.
-python3 -m community_os review-identities \
-  --database output/example/community.sqlite \
-  --event-id 1 \
-  --output output/example/identity-review.json
+See [the architecture](docs/ARCHITECTURE.md) for the full trust and release boundaries.
 
-# Re-export an existing report.
-python3 -m community_os export-pdf report.html report.pdf
-```
+## Build Week reuse disclosure
 
-## When final exports are ingested
+The first ingestion and reporting prototype began on 11 July 2026, before the OpenAI Build Week submission period opened on 13 July. It was not built from zero during the competition.
 
-1. Keep raw exports outside git.
-2. For the protected operator, use first-run setup to generate an `event-release-v1` definition. Treat `config/events/openai-hackathon-2026.json` only as the registered START source profile shape reference, not as a place to add raw source paths or caller-selected hashes. The simpler `config/events/example.synthetic.json` belongs only to the zero-credential demo builder.
-3. Run the matching strict adapter. Unknown or drifted columns fail closed; rejected artifact rows are reported separately.
-4. Resolve every open identity review before sharing aggregates. Exact normalized email may link automatically. Bilateral applicant-provided GitHub or LinkedIn evidence may link while explicitly recording an email mismatch. Name, team, affiliation, fuzzy, or one-sided evidence never auto-merges.
-5. Build the HTML/PDF and inspect the publication thresholds before forwarding it.
+The project is submitted in the Work and Productivity category. The Build Week entry covers the substantial work completed after the period opened: the reusable protected release operator, reviewed semantic workflow and approval records, deterministic cohort recomposition, exact three-signal intersection, production dashboard and PDF, analytics controls, and verified GitHub-to-Vercel release.
 
-If the database contains ghost records, configure each HMAC key version through an environment-variable name in `ghost_identity_key_env`, for example `{"v1":"COMMUNITY_OS_GHOST_KEY_V1"}`. The secret stays out of config and git. Returning ghost identities are quarantined for explicit reactivation and never recreated as new active people.
-
-Semantic classification is implemented but locked by default. It requires an exact approved processor record plus a managed `OPENAI_API_KEY`. The legacy structured classifier is limited to `subject_ref`, `signals`, and `evidence_refs`. The rich path uses four pseudonymized source sections, `application`, `career`, `devpost`, and `projects`, containing only bounded sanitized excerpts, controlled codes, and evidence references. Names, emails, profile or repository URLs, raw provider records, tokens, and raw exports are rejected from the outbound boundary. Provider approval must bind the exact purpose, payload version, field allowlist, reviewed DPA/terms, actual region and retention posture, security profile, and approval time. The accepted postures are EU with verified Zero Data Retention, or global with acknowledged default abuse-monitoring retention of up to 30 days. The built-in transport maps those postures only to `eu.api.openai.com` or `api.openai.com`; arbitrary hosts are rejected. A successful call to the EU route does not by itself prove EU project residency.
-
-## Read in this order
-1. `docs/CONCEPT.md`: the idea, decisions made, and Q&A on every design question.
-2. `docs/ARCHITECTURE.md`: canonical product, privacy, approval, and deployment boundaries.
-3. `docs/OPERATOR_GUIDE.md`: installation, synthetic demo, event operation, providers, retention, and troubleshooting.
-4. `docs/DEPLOYMENT.md`: private/public boundaries, supported hosts, analytics, and release procedure.
-5. `docs/PLAN.md`: architecture, canonical schema, build order, data-collection wishlist.
-6. `docs/research/data-sources.md`: field-level inventory of Luma, Devpost, GitHub API, and optional Coresignal.
-7. `docs/taxonomy-v1-review.md`: decisions required before any real-person AI classification.
+The implementation evidence and primary Codex session ID are in [the Build Week submission notes](docs/BUILD_WEEK_SUBMISSION.md).
 
 ## License
 
-Copyright 2026 Yauheni Futryn. This code is available under the restrictive [PolyForm Free Trial License 1.0.0](LICENSE.md). It is not MIT-licensed and it is not open source. Commercial or production use requires a separate written license.
+Copyright 2026 Yauheni Futryn.
+
+The Community OS software is source-available under the [PolyForm Free Trial License 1.0.0](LICENSE.md). It is not MIT-licensed or open source. The license permits evaluation for fewer than 32 consecutive calendar days. Redistribution, production use, continued evaluation, or commercial use outside that permission requires a separate written license from the copyright holder. Original documentation and media are copyright Yauheni Futryn and all rights are reserved unless a file states otherwise.
+
+START Warsaw and OpenAI names and marks appear only in the event-specific example. They remain the property of their respective owners and are not licensed under PolyForm. See [NOTICE.md](NOTICE.md).

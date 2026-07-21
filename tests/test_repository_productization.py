@@ -9,6 +9,7 @@ from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import patch
+import xml.etree.ElementTree as ET
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -231,6 +232,8 @@ class RepositoryProductizationTests(unittest.TestCase):
         )
 
     def test_git_backed_publication_is_an_exact_hash_bound_static_bundle(self) -> None:
+        from community_os.publication import artifact_set_sha256
+
         public = ROOT / "public"
         self.assertEqual(
             {path.name for path in public.iterdir()},
@@ -270,11 +273,20 @@ class RepositoryProductizationTests(unittest.TestCase):
                 manifest["artifact_hashes"][name],
                 f"{name} must match the committed release manifest",
             )
+        self.assertEqual(
+            artifact_set_sha256((
+                public / "index.html",
+                public / "og-start-community-os.png",
+                public / "partner-talent-brief.pdf",
+                ROOT / "vercel.json",
+            )),
+            manifest["git_publication_artifact_set_sha256"],
+        )
 
         html = (public / "index.html").read_text(encoding="utf-8")
         for expected in (
-            'property="og:title" content="Founder. Technical. Shipped. | START Community OS"',
-            'property="og:description" content="Explore project, capability, and delivery signals across 286 OpenAI Hackathon applicants."',
+            'property="og:title" content="OpenAI Hackathon Warsaw 2026 | Talent snapshot"',
+            'property="og:description" content="An interactive report on 286 applicants, 83 accepted participants, and 78 attendees."',
             'property="og:image" content="https://start-community-os.vercel.app/openai-hackathon-2026/og-start-community-os.png"',
             'property="og:image:width" content="1200"',
             'property="og:image:height" content="630"',
@@ -290,8 +302,59 @@ class RepositoryProductizationTests(unittest.TestCase):
             encoding="utf-8",
         )
         self.assertIn('viewBox="0 0 1200 630"', source)
-        self.assertIn("Founder. Technical. Shipped.", source)
-        self.assertIn("18 / 286 exact intersection", source)
+        og_root = ET.fromstring(source)
+        self.assertEqual(
+            [
+                element.text.strip()
+                for element in og_root.findall(
+                    ".//{http://www.w3.org/2000/svg}text"
+                )
+                if element.text and element.text.strip()
+            ],
+            ["X", "Warsaw Hackathon 2026", "Talent Snapshot"],
+        )
+        self.assertEqual(
+            {
+                element.attrib["{http://www.w3.org/1999/xlink}href"]
+                for element in og_root.findall(
+                    ".//{http://www.w3.org/2000/svg}image"
+                )
+            },
+            {
+                "community-os-gradient-og.png",
+                "openai-wordmark-white.png",
+                "start-warsaw-white.png",
+            },
+        )
+
+        thumbnail = ROOT / "assets" / "social" / "devpost-thumbnail.png"
+        thumbnail_png = thumbnail.read_bytes()
+        self.assertEqual(thumbnail_png[:8], b"\x89PNG\r\n\x1a\n")
+        self.assertEqual(struct.unpack(">II", thumbnail_png[16:24]), (1200, 800))
+        thumbnail_source = (
+            ROOT / "assets" / "social" / "devpost-thumbnail.svg"
+        ).read_text(encoding="utf-8")
+        self.assertIn('viewBox="0 0 1200 800"', thumbnail_source)
+        thumbnail_root = ET.fromstring(thumbnail_source)
+        self.assertEqual(
+            [
+                element.text.strip()
+                for element in thumbnail_root.findall(
+                    ".//{http://www.w3.org/2000/svg}text"
+                )
+                if element.text and element.text.strip()
+            ],
+            ["Community OS", "From Event Data to Community Intelligence"],
+        )
+        self.assertEqual(
+            {
+                element.attrib["{http://www.w3.org/1999/xlink}href"]
+                for element in thumbnail_root.findall(
+                    ".//{http://www.w3.org/2000/svg}image"
+                )
+            },
+            {"community-os-gradient.png"},
+        )
 
         config = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
         self.assertIsNone(config["framework"])
@@ -329,7 +392,7 @@ class RepositoryProductizationTests(unittest.TestCase):
             self.assertIn("Codex", body)
         for expected in (
             "019f7482-e669-7963-aabd-9066b0f26989",
-            "What START Community OS does",
+            "What Community OS does",
             "What changed during Build Week",
             "Demo video outline",
         ):
@@ -382,7 +445,10 @@ class RepositoryProductizationTests(unittest.TestCase):
 
     def test_public_quickstart_states_the_supported_event_boundary(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
-        self.assertIn("git clone <repository-url> start-community-os", readme)
+        self.assertIn(
+            "git clone https://github.com/yauhenifutryn/start-community-os.git",
+            readme,
+        )
         self.assertNotIn("<private-repository-url>", readme)
         for expected in (
             "Hackathons using the registered Luma and Devpost export profiles",
@@ -551,7 +617,10 @@ class RepositoryProductizationTests(unittest.TestCase):
 
         self.assertIn("workflow_dispatch:", workflow)
         self.assertIn("fetch-depth: 0", workflow)
-        self.assertIn("gitleaks/gitleaks-action@v2", workflow)
+        self.assertIn(
+            "gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2",
+            workflow,
+        )
 
     def test_gitleaks_only_allows_the_browser_visible_posthog_key(self) -> None:
         config = (ROOT / ".gitleaks.toml").read_text(encoding="utf-8")

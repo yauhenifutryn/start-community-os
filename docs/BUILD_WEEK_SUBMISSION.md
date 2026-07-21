@@ -1,93 +1,87 @@
-# START Community OS, OpenAI Build Week submission
+# Community OS, Build Week evidence pack
 
 ## Submission fields
 
-- Project: START Community OS
-- Tagline: Turn event evidence into a privacy-safe, decision-useful partner brief without exposing participant records.
-- Track: Work and Productivity
-- Live dashboard: https://start-community-os.vercel.app/openai-hackathon-2026/
-- Downloadable PDF: https://start-community-os.vercel.app/openai-hackathon-2026/partner-talent-brief.pdf
-- Source-available repository: https://github.com/yauhenifutryn/start-community-os
-- Repository license: PolyForm Free Trial License 1.0.0, no MIT or open-source grant
-- Public demo video: add the final YouTube URL after upload
-- Primary Codex session ID: `019f7482-e669-7963-aabd-9066b0f26989`
+- Project: Community OS
+- Elevator pitch: Turn community event exports into measurable KPIs and partner-ready evidence with one reusable, reviewed pipeline.
+- Category: Work and Productivity
+- Live report: https://start-community-os.vercel.app/openai-hackathon-2026/
+- PDF: https://start-community-os.vercel.app/openai-hackathon-2026/partner-talent-brief.pdf
+- Public repository: https://github.com/yauhenifutryn/start-community-os
+- Licence: PolyForm Free Trial License 1.0.0, source-available and not open source
+- Demo video: add the final public YouTube URL
+- Primary Codex `/feedback` Session ID: `019f7482-e669-7963-aabd-9066b0f26989`, confirm before submission
 
-## What START Community OS does
+## What Community OS does
 
-Event teams collect applications, attendance exports, project submissions, GitHub evidence, and manual review notes, but partner reporting usually collapses that evidence into a few vanity counts or a spreadsheet. START Community OS turns registered exports into one local reviewed evidence workflow, deterministic cohort aggregates, an interactive partner dashboard, and a fixed landscape PDF.
+Community OS is reusable event-intelligence infrastructure developed by Yauheni Futryn for use in communities including START Warsaw. A private local operator turns supported Luma and Devpost exports into reviewed evidence and deterministic cohort KPIs. The same approved aggregate contract renders an interactive partner report and fixed PDF.
 
-The private operator owns uploads, reconciliation, review, provider gates, preview, approvals, exports, and retention. The public artifact contains aggregate statistics only. Partners can compare all 286 applicants, 83 organizer-selected participants, and 78 confirmed attendees; inspect metric definitions and denominators; and explore an exact Founder, Technical, and Shipped-product intersection without browsing people. Selection is never presented as proof of quality, and missing evidence is never treated as a negative judgment.
+The live OpenAI x START Warsaw release is one verified output. It covers 286 applicants, 83 accepted participants, 78 confirmed attendees, and 20 of 20 final teams with a project submission. Partners can switch cohorts, inspect each metric's definition and denominator, and examine combinations such as the exact Founder, Technical, and Shipped-product intersection.
 
-The current release uses reviewed application, public-project, and event-submission evidence already collected for the event. Coresignal contributes zero because its retained trial sample was partial, internal-only, and not release-eligible. Gender, age, nationality, location, graduation year, and post-event outcomes are omitted because they were unavailable or unreviewed and were not inferred.
+For another supported hackathon, the organiser changes the event metadata and selects the new exports. The adapters, evidence taxonomy, review gates, aggregate contracts, and renderers stay in place. No per-event model fine-tuning is required. A new platform or export shape still needs a registered adapter and synthetic fixture. A substantially different event format may need a new report profile.
+
+The public report contains aggregate results. Source records, identity reconciliation, enrichment state, and review decisions stay in the private operator.
 
 ## What changed during Build Week
 
-The underlying local event pipeline existed before the July 13 submission period. During Build Week, Codex with GPT-5.6-sol led a substantial production extension:
+The first ingestion and reporting prototype began on July 11, before the July 13 submission period. The eligible Build Week work is the substantial extension completed after the period opened:
 
-1. Added deterministic, privacy-thresholded semantic aggregates for All, Accepted, and Attended cohorts.
-2. Rebuilt the public artifact as a self-contained responsive dashboard with keyboard cohort navigation, evidence disclosures, and an exact three-signal intersection visualization.
-3. Rebalanced the partner PDF into an eight-page landscape brief with larger type, consistent visual rules, and a dedicated interpretation page.
-4. Simplified the local private operator around upload, review, approved runs, preview, approval, analytics preparation, and export.
-5. Added durable protected release storage and an explicit guard against using temporary directories for approval evidence.
-6. Added privacy-minimal PostHog capture for five aggregate interactions only. It uses no cookies, persistent identity, profiles, replay, autocapture, participant data, URLs, or referrers; it disables both IP storage and GeoIP enrichment.
-7. Productized the repository with synthetic fixtures, blank credential templates, provider gates, architecture and operator documentation, deployment separation, retention guidance, and a zero-credential clean-clone acceptance path.
-8. Deployed a hash-verified Vercel production route and scheduled aggregate-only day-7 and day-14 analytics reviews.
+- reusable registered adapters, strict schema checks, and a zero-credential synthetic acceptance path;
+- deterministic All, Accepted, and Attended cohort recomposition with explicit unknown states;
+- a simplified local operator for ingestion, review, approval, preview, and export;
+- durable semantic and publication approvals bound to exact artefact hashes;
+- the responsive public report, exact three-signal intersection, and eight-page PDF;
+- five allowlisted aggregate analytics events, including a verified fix that disables GeoIP enrichment;
+- a sanitised public repository and GitHub-to-Vercel release path.
 
-Codex was not used as a one-shot code generator. It maintained one long-running implementation goal, wrote failing tests before behavior changes, rederived headline counts independently, drove desktop and mobile browser QA, rendered and inspected the PDF, coordinated bounded fresh-context reviews, caught a real PostHog GeoIP privacy problem during live verification, and fixed it before partner distribution.
+Commit history and the Codex session record distinguish this extension from the pre-existing prototype.
 
-## How it works
+## Codex and GPT-5.6
 
-1. A local operator selects a registered event profile and imports supported exports.
-2. Strict adapters reject schema drift and preserve source provenance in protected state.
-3. Identity reconciliation and review resolve ambiguous links before aggregation.
-4. Optional GitHub or OpenAI enrichment runs only behind separate, exact approval gates. Coresignal is optional and excluded from this release.
-5. Reviewed facts project into deterministic cohort aggregates with privacy thresholds and explicit unknown states.
-6. The HTML and PDF consume validated aggregate contracts, never raw participant records.
-7. Publication approval binds the event, HTML, PDF, and artifact-set hashes.
-8. An optional separate transform adds the audited PostHog client and Vercel security headers without changing report claims.
+Codex with GPT-5.6-sol was the main engineering environment for the Build Week extension. It was used for red-green tests, implementation, interface work, desktop and mobile checks, PDF inspection, independent count rederivation, scoped review, and production verification. It did not produce the report as a one-time artefact. The work focused on the reusable pipeline and the controls needed to run it again.
 
-## Built with
+GPT-5.6 has a bounded role inside the product. It converts approved pseudonymous evidence packets into strict structured proposals for human review. It does not rank participants, approve its own output, calculate final metrics, or run from the public dashboard. Deterministic code builds the aggregate contract after review.
 
-- Python 3 standard library and SQLite for the local operator and deterministic pipeline
-- Self-contained HTML, CSS, and JavaScript for the public dashboard
-- Headless Chromium for PDF composition
-- Vercel static hosting and response headers
-- PostHog EU for five privacy-minimal aggregate interaction events
-- Codex with GPT-5.6-sol for implementation, testing, design iteration, verification, and deployment
-- Optional OpenAI Responses API, GitHub, and Coresignal adapters behind explicit local gates; none makes a runtime call from the live partner dashboard
+## Testing instructions
 
-## Validation evidence
+```text
+git clone https://github.com/yauhenifutryn/start-community-os.git
+cd start-community-os
+python3 -m unittest discover -q
+python3 -m community_os build --config config/events/example.synthetic.json
+```
 
-- Current report counts: 286 applicants, 83 accepted participants, 78 confirmed attendees
-- Operational event facts: 20 of 20 teams submitted; 76 of 78 on-site identities linked to submitted teams; 2 unmatched
-- Reviewed semantic source coverage: application 270, public projects 172, event submissions 61, dedicated career-provider context 0
-- Whole-person unresolved: 18 of 286, comprising 14 no-evidence and 4 conflict states; excluded from positive claims
-- Coresignal contribution to the current partner release: 0
-- Production report and PDF return HTTP 200 with exact approved bytes and restrictive response headers
-- Fresh production PostHog events contain `$geoip_disable=true` and no derived GeoIP properties
-- The full test suite and clean-clone synthetic acceptance are rerun before final submission
+The synthetic workflow requires no credentials and makes no provider calls. It writes generated artefacts below `output/`. Judges can also inspect the production report at https://start-community-os.vercel.app/openai-hackathon-2026/.
 
-The value `event submissions 61` means submission evidence was cited in 61 reviewed semantic facts. It is not attendance or team-submission completion. The value `public projects 172` means public-project evidence was used in 172 reviewed facts. It is not a quality judgment about the remainder.
+Before submission, paste a fresh full-suite result and clean-clone result here. Do not rely on an earlier run after release files change.
 
 ## Demo video outline
 
-Target duration: 2 minutes 39 seconds, landscape, English AI-generated voiceover.
+Target 2:59. Use a public YouTube video with English audio. The final narration uses OpenAI `gpt-4o-mini-tts` with the `marin` voice. The end card and YouTube description disclose that it is AI-generated narration.
 
-1. 0:00 to 0:14, problem and promise. Show the live cover and explain that partner reporting usually loses the evidence of what people built and shipped.
-2. 0:14 to 0:36, live evidence. Hold on the dashboard's product maturity, technical depth, and data/AI capability signals.
-3. 0:36 to 0:58, cohort recomposition. Switch All, Accepted, and Attended, then inspect the Shipped products definition and three-cohort comparison.
-4. 0:58 to 1:15, exact intersection. Show the 18 applicants at the Founder, Technical, and Shipped-product intersection and explain the all-286 reconciliation.
-5. 1:15 to 1:25, partner delivery. Download the eight-page landscape PDF and show the cover, intersection, and capability/domain pages.
-6. 1:25 to 1:56, GPT-5.6 product role. Show the strict structured proposal flowing into human review and deterministic aggregation.
-7. 1:56 to 2:29, Codex engineering evidence. Show one traceable chain from a behavioral test through the GeoIP fix and verified live deployment.
-8. 2:29 to 2:39, close. End on the branded social card and the live URL.
+1. 0:00 to 0:15: show the fragmented event inputs and state the partner reporting problem.
+2. 0:15 to 0:32: establish Community OS as the reusable reconcile, enrich, review, and publish system.
+3. 0:32 to 0:54: show conservative identity reconciliation and the explicit review path for ambiguous matches.
+4. 0:54 to 1:22: show bounded GitHub evidence, the separately gated LinkedIn path with zero current data, the identity-filtered GPT-5.6 packet, storage off, and human review.
+5. 1:22 to 1:48: drive real All, Accepted, and Attended states in the live OpenAI x START Warsaw report.
+6. 1:48 to 2:11: show the real 18-person exact intersection and the verified eight-page PDF.
+7. 2:11 to 2:29: explain config-driven reuse and the honest new-adapter boundary.
+8. 2:29 to 2:51: show Codex evidence from red-green tests to production verification, including the GeoIP stop-and-fix and GitHub-to-Vercel path.
+9. 2:51 to 2:59: close on the product purpose and AI-voice disclosure.
 
-The voiceover must explicitly say that Codex with GPT-5.6-sol drove the Build Week extension and that the public dashboard is aggregate-only. Do not show the real private operator state, raw exports, participant names, credentials, or protected review artifacts in the recording.
+Do not record real participant rows, protected operator state, credentials, or provider responses. Use synthetic evidence when demonstrating the private workflow.
 
-## What comes next
+## Form-only items
 
-- Reuse the registered event workflow for future hackathons, demo days, startup competitions, and accelerator cohorts.
-- Collect consented structured fields that partners actually request, especially role stage, location at a suitable level, graduation year, work authorization, collaboration intent, and post-event outcomes.
-- Add a new adapter and synthetic fixture for every new export schema rather than accepting loose CSVs.
-- Add cross-event trends only after at least two compatible reviewed event contracts exist.
-- Evaluate Coresignal only as a consented targeted canary measuring marginal information over applications and GitHub before broader spend.
+- Submitter type: Jenya must choose `Individual` or `Organization` based on the legal entrant.
+- Country of residence: Jenya must enter the true legal residence.
+- Licence authority: Yauheni Futryn owns Community OS and offers the repository under the checked-in PolyForm Free Trial licence. START Warsaw and OpenAI marks remain third-party marks used only to identify the event use case.
+- Session ID: confirm that `019f7482-e669-7963-aabd-9066b0f26989` is the value returned by `/feedback`.
+- Media: upload the thumbnail, gallery images, and final public YouTube video.
+- Final verification: rerun tests, check both live links, accept the rules, and submit.
+
+## Official sources
+
+- [OpenAI Build Week official rules](https://openai.devpost.com/rules)
+- [OpenAI Build Week FAQ](https://openai.devpost.com/details/faqs)
+- [Submission update confirming AI-assisted voiceover](https://openai.devpost.com/updates/45282-openai-build-week-submissions-are-open-plugin-launch)
